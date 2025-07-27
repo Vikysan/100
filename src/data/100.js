@@ -1,1392 +1,1392 @@
 export const data = [
     {
       task: 'Rozdělení el. zařízení podle napětí mezi vodičem a zemí v uzemněné soustavě je:',
-      answers: [{
-        answer:'mn do 50 V, nn 50 - 600 V, vn 0,6 - 30 kV',
+      options: [{
+        text:'mn do 50 V, nn 50 - 600 V, vn 0,6 - 30 kV',
         isTrue:true
       },
       {
-        answer:'mn do 50 V, nn 50 - 1000 V, vn 1 - 35 kV',
+        text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 35 kV',
         isTrue:false
       },
       {
-        answer:'mn do 50 V, nn 50 - 400 V, vn 0,4 - 22 kV',
+        text:'mn do 50 V, nn 50 - 400 V, vn 0,4 - 22 kV',
         isTrue:false
       }
     ]
      
     }, {
         task: 'Rozdělení el. zařízení podle napětí mezi vodiči v uzemněné AC soustavě je:',
-        answers: [{
-          answer:'mn do 50 V, nn 50 - 1000 V, vn 1 - 52 kV',
+        options: [{
+          text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 52 kV',
           isTrue:true
         },
         {
-          answer:'mn do 50 V, nn 50 - 1000 V, vn 1 - 35 kV',
+          text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 35 kV',
           isTrue:false
         },
         {
-          answer:'mn do 50 V, nn 50 - 400 V, vn 0,4 - 22 kV',
+          text:'mn do 50 V, nn 50 - 400 V, vn 0,4 - 22 kV',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Podle účelu se el. zařízení dělí na:',
-        answers: [{
-          answer:'silová, sdělovací a řídící',
+        options: [{
+          text:'silová, sdělovací a řídící',
           isTrue:true
         },
         {
-          answer:'silnoproudá, slaboproudá, sdělovací',
+          text:'silnoproudá, slaboproudá, sdělovací',
           isTrue:false
         },
         {
-          answer:'drážní, báňská, vojenská',
+          text:'drážní, báňská, vojenská',
           isTrue:false
         }
       ]
        
       }, {
         task: 'K řízení činnosti v blízkosti přívodní kolejnice metra pod napětím musí mít pracovník minimální kvalifikaci:',
-        answers: [{
-          answer:'Osoba poučená dle vyhlášky 100/1995 Sb. a musí být pro tuto činnost určen',
+        options: [{
+          text:'Osoba poučená dle vyhlášky 100/1995 Sb. a musí být pro tuto činnost určen',
           isTrue:true
         },
         {
-          answer:'Osoba poučená dle vyhlášky 50/1978 Sb. a musí být pro tuto činnost určen',
+          text:'Osoba poučená dle vyhlášky 50/1978 Sb. a musí být pro tuto činnost určen',
           isTrue:false
         },
         {
-          answer:'Osoba poučená dle vyhlášky 101/1995 Sb. a musí být pro tuto činnost určen',
+          text:'Osoba poučená dle vyhlášky 101/1995 Sb. a musí být pro tuto činnost určen',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Zkratování přívodní kolejnice pevně namontovanými zkratovači pro zajištění pracoviště v celkové přepravní výluce nebo při částečné výluce mohou provádět pracovníci s kvalifikací minimálně:',
-        answers: [{
-          answer:'Osoba poučená dle vyhl. 100/1995 Sb.',
+        options: [{
+          text:'Osoba poučená dle vyhl. 100/1995 Sb.',
           isTrue:true
         },
         {
-          answer:'Osoba znalá dle vyhl. 100/1995 Sb.',
+          text:'Osoba znalá dle vyhl. 100/1995 Sb.',
           isTrue:false
         },
         {
-          answer:'Osoba znalá s vyšší kvalifikací dle vyhl. 100/1995 Sb.',
+          text:'Osoba znalá s vyšší kvalifikací dle vyhl. 100/1995 Sb.',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Při práci v blízkosti přívodní kolejnice metra se mohou pracovníci s kvalifikací pracovník znalý přiblížit k přívodní kolejnici pod napětím, je-li práce prováděna pod dohledem, na vzdálenost:',
-        answers: [{
-          answer:'nejblíže 40 centimetrů',
+        options: [{
+          text:'nejblíže 40 centimetrů',
           isTrue:true
         },
         {
-          answer:'nejblíže 20 centimetrů',
+          text:'nejblíže 20 centimetrů',
           isTrue:false
         },
         {
-          answer:'nejblíže 1 metr',
+          text:'nejblíže 1 metr',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Při práci v blízkosti trakčního vedení (sběrač vozidla, přívodní kolejnice, trolejový vodič, napájecí vlečný kabel) se mohou pracovníci s kvalifikací pracovník znalý přiblížit k živým částem pod napětím, je-li práce prováděna pod dohledem, na vzdálenost:',
-        answers: [{
-          answer:'nejblíže 40 centimetrů',
+        options: [{
+          text:'nejblíže 40 centimetrů',
           isTrue:true
         },
         {
-          answer:'nejblíže 20 centimetrů',
+          text:'nejblíže 20 centimetrů',
           isTrue:false
         },
         {
-          answer:'nejblíže 1 metr',
+          text:'nejblíže 1 metr',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Při práci v blízkosti trakčního vedení (sběrač vozidla, přívodní kolejnice, trolejový vodič, napájecí vlečný kabel) se mohou pracovníci s kvalifikací pracovník znalý přiblížit k živým částem pod napětím, je-li práce prováděna pod dozorem,na vzdálenost:',
-        answers: [{
-          answer:'nejblíže 20cm',
+        options: [{
+          text:'nejblíže 20cm',
           isTrue:true
         },
         {
-          answer:'nejblíže 1m',
+          text:'nejblíže 1m',
           isTrue:false
         },
         {
-          answer:'nejblíže 40cm',
+          text:'nejblíže 40cm',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Určená lhůta revize elektrických zařízení ve zděných obytných a kancelářských budovách je:',
-        answers: [{
-          answer:'5 roků',
+        options: [{
+          text:'5 roků',
           isTrue:true
         },
         {
-          answer:'3 roky',
+          text:'3 roky',
           isTrue:false
         },
         {
-          answer:'2 roky',
+          text:'2 roky',
           isTrue:false
         }
       ]
        
       }, {
         task: 'O stanovení prostředí z hlediska působení na el. zařízení:',
-        answers: [{
-          answer:'musí být písemný doklad',
+        options: [{
+          text:'musí být písemný doklad',
           isTrue:true
         },
         {
-          answer:'se nemusí vyplňovat doklad, pokud je prostředí určeno v revizní zprávě',
+          text:'se nemusí vyplňovat doklad, pokud je prostředí určeno v revizní zprávě',
           isTrue:false
         },
         {
-          answer:'nemusí být písemný doklad',
+          text:'nemusí být písemný doklad',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Elektrická síť, ve které určitý bod pracovního obvodu je bezprostředně uzemněn se nazývá síť :',
-        answers: [{
-          answer:'TN',
+        options: [{
+          text:'TN',
           isTrue:true
         },
         {
-          answer:'IT',
+          text:'IT',
           isTrue:false
         },
         {
-          answer:'TT',
+          text:'TT',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Ochrana před nebezpečným dotykem musí splňovat (mimo jiné) tyto požadavky:',
-        answers: [{
-          answer:'kombinace ochrany základní a opatření pro zajištění ochrany při poruše',
+        options: [{
+          text:'kombinace ochrany základní a opatření pro zajištění ochrany při poruše',
           isTrue:true
         },
         {
-          answer:'kombinace ochrany doplňkové a proudového chrániče',
+          text:'kombinace ochrany doplňkové a proudového chrániče',
           isTrue:false
         },
         {
-          answer:'kombinace ochrany nulováním a uzemněním',
+          text:'kombinace ochrany nulováním a uzemněním',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Mohou se různá ochranná opatření ve stejné instalaci vzájemně ovlivňovat?',
-        answers: [{
-          answer:'nesmí',
+        options: [{
+          text:'nesmí',
           isTrue:true
         },
         {
-          answer:'musí aby byla zajištěna správná funkce proudových chráničů',
+          text:'musí aby byla zajištěna správná funkce proudových chráničů',
           isTrue:false
         },
         {
-          answer:'nesmí, výjímkou jsou jistící prvky umístěné za společným proudovým chráničem ve směru napájení',
+          text:'nesmí, výjímkou jsou jistící prvky umístěné za společným proudovým chráničem ve směru napájení',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Neživé vodivé části se nemusí chránit před nebezpečným dotykem v případě, že:',
-        answers: [{
-          answer:'se jedná o malé části (do rozměru 50x50 mm)',
+        options: [{
+          text:'se jedná o malé části (do rozměru 50x50 mm)',
           isTrue:true
         },
         {
-          answer:'se jedná o části opatřené výstražným označením (výstražná tabulka, značka blesku ap.)',
+          text:'se jedná o části opatřené výstražným označením (výstražná tabulka, značka blesku ap.)',
           isTrue:false
         },
         {
-          answer:'se jedná o části umístěné v prostoru nepřístupném osobám bez elektrotechnické kvalifikace',
+          text:'se jedná o části umístěné v prostoru nepřístupném osobám bez elektrotechnické kvalifikace',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Ochrana automatickým odpojením od zdroje je zajištěna:',
-        answers: [{
-          answer:'základní izolací a ochranným pospojováním, které zajišťuje automatické odpojení od zdroje',
+        options: [{
+          text:'základní izolací a ochranným pospojováním, které zajišťuje automatické odpojení od zdroje',
           isTrue:true
         },
         {
-          answer:'základní izolací a ochranným pospojováním pomocí vodiče N, který zajišťuje automatické odpojení od zdroje',
+          text:'základní izolací a ochranným pospojováním pomocí vodiče N, který zajišťuje automatické odpojení od zdroje',
           isTrue:false
         },
         {
-          answer:'základní izolací a nadproudovou ochranou, která zajišťuje automatické odpojení od zdroje',
+          text:'základní izolací a nadproudovou ochranou, která zajišťuje automatické odpojení od zdroje',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Obvody SELV :',
-        answers: [{
-          answer:'živé části nesmějí být spojeny se zemí nebo s jinými živými částmi',
+        options: [{
+          text:'živé části nesmějí být spojeny se zemí nebo s jinými živými částmi',
           isTrue:true
         },
         {
-          answer:'živé části mohou být spojeny se zemí nebo s jinými živými částmi',
+          text:'živé části mohou být spojeny se zemí nebo s jinými živými částmi',
           isTrue:false
         },
         {
-          answer:'živé části musí být uzemněné',
+          text:'živé části musí být uzemněné',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Ochranné uzemnění elektrických předmětů musí být provedeno takto:',
-        answers: [{
-          answer:'každá neživá část musí být spojena se stejnou uzemňovací soustavou',
+        options: [{
+          text:'každá neživá část musí být spojena se stejnou uzemňovací soustavou',
           isTrue:true
         },
         {
-          answer:'každá neživá část musí být spojena s vlastním uzemněním',
+          text:'každá neživá část musí být spojena s vlastním uzemněním',
           isTrue:false
         },
         {
-          answer:'každá neživá část musí být spojena s ostatními neživým částmi',
+          text:'každá neživá část musí být spojena s ostatními neživým částmi',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Ochranné pospojování něživých částí musí být provedeno takto:',
-        answers: [{
-          answer:'jednotlivé neživé části se pospojí navzájem a se všemi vodivými předměty přístupnými dotyku',
+        options: [{
+          text:'jednotlivé neživé části se pospojí navzájem a se všemi vodivými předměty přístupnými dotyku',
           isTrue:true
         },
         {
-          answer:'jednotlivé neživé části se pospojí navzájem ochranným vodičem',
+          text:'jednotlivé neživé části se pospojí navzájem ochranným vodičem',
           isTrue:false
         },
         {
-          answer:'jednotlivé neživé části se pospojí s nejbližšími vodivými předměty',
+          text:'jednotlivé neživé části se pospojí s nejbližšími vodivými předměty',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Použití proudového chrániče s I vyp = 30 mA je předepsáno pro:',
-        answers: [{
-          answer:'zásuvky 230V do 32 A určené pro všeobecné použití',
+        options: [{
+          text:'zásuvky 230V do 32 A určené pro všeobecné použití',
           isTrue:true
         },
         {
-          answer:'pro zásuvky 230V do 20 A určené pro výpočetní techniku',
+          text:'pro zásuvky 230V do 20 A určené pro výpočetní techniku',
           isTrue:false
         },
         {
-          answer:'pro zásuvky 400V do 20 A pro všeobecné použití',
+          text:'pro zásuvky 400V do 20 A pro všeobecné použití',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Použití proudového chrániče s I vyp = 30 mA v zásuvkových obvodech je předepsáno',
-        answers: [{
-          answer:'v případech, kdy jsou zásuvky používány osobami bez elektrotechnické kvalifikace',
+        options: [{
+          text:'v případech, kdy jsou zásuvky používány osobami bez elektrotechnické kvalifikace',
           isTrue:true
         },
         {
-          answer:'ve všech případech',
+          text:'ve všech případech',
           isTrue:false
         },
         {
-          answer:'v případech, kdy to technologické zařízení vyžaduje',
+          text:'v případech, kdy to technologické zařízení vyžaduje',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Maximální doba odpojení na konci obvodu 230 V AC při instalaci zásuvky 32 A je',
-        answers: [{
-          answer:'0,2 s',
+        options: [{
+          text:'0,2 s',
           isTrue:true
         },
         {
-          answer:'0,2 ms',
+          text:'0,2 ms',
           isTrue:false
         },
         {
-          answer:'0,4 h',
+          text:'0,4 h',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Ochranný vodič PE (příp. PEN) musí být proveden tak, aby:',
-        answers: [{
-          answer:'v jeho obvodu nebylo spínací, odpojovací nebo jistící zařízení',
+        options: [{
+          text:'v jeho obvodu nebylo spínací, odpojovací nebo jistící zařízení',
           isTrue:true
         },
         {
-          answer:'v jeho obvodu bylo pouze odpojovací zařízení',
+          text:'v jeho obvodu bylo pouze odpojovací zařízení',
           isTrue:false
         },
         {
-          answer:'v jeho obvodu bylo odpovídající jistící zařízení',
+          text:'v jeho obvodu bylo odpovídající jistící zařízení',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Charakteristiky ochranných přístrojů a impedancí musí splňovat tento požadavek:',
-        answers: [{
-          answer:'Zs × Ia ≤ Uo',
+        options: [{
+          text:'Zs × Ia ≤ Uo',
           isTrue:true
         },
         {
-          answer:'R = U / I',
+          text:'R = U / I',
           isTrue:false
         },
         {
-          answer:'P = U x I',
+          text:'P = U x I',
           isTrue:false
         }
       ]
        
       }, {
         task: 'V sítích TN mohou být pro ochranu při poruše (ochranu před nepřímým dotykem) použity následující ochranné přístroje:',
-        answers: [{
-          answer:'nadproudové ochranné přístroje; proudové chrániče (RCD) s nadproudovou ochranou',
+        options: [{
+          text:'nadproudové ochranné přístroje; proudové chrániče (RCD) s nadproudovou ochranou',
           isTrue:true
         },
         {
-          answer:'nadproudové ochranné přístroje nebo proudové chrániče (RCD)',
+          text:'nadproudové ochranné přístroje nebo proudové chrániče (RCD)',
           isTrue:false
         },
         {
-          answer:'pouze chrániče',
+          text:'pouze chrániče',
           isTrue:false
         }
       ]
        
       }, {
         task: 'V sítích IT musí být živé části:',
-        answers: [{
-          answer:'izolovány od země nebo spojeny se zemí přes dostatečně vysokou impedanci',
+        options: [{
+          text:'izolovány od země nebo spojeny se zemí přes dostatečně vysokou impedanci',
           isTrue:true
         },
         {
-          answer:'izolovány od vodivých předmětů',
+          text:'izolovány od vodivých předmětů',
           isTrue:false
         },
         {
-          answer:'být alespoň jedním vodičem spojeny se zemí',
+          text:'být alespoň jedním vodičem spojeny se zemí',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Zásuvky v obvodech s ochranou FELV musí být provedeny tak, aby:',
-        answers: [{
-          answer:'byly nezáměnné s jinými systémy a měly ochranný kontakt',
+        options: [{
+          text:'byly nezáměnné s jinými systémy a měly ochranný kontakt',
           isTrue:true
         },
         {
-          answer:'byly stejného provedení s jinými systémy a měly ochranný kontakt',
+          text:'byly stejného provedení s jinými systémy a měly ochranný kontakt',
           isTrue:false
         },
         {
-          answer:'byly nezáměnné s jinými systémy a bez ochranného kontaktu',
+          text:'byly nezáměnné s jinými systémy a bez ochranného kontaktu',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Pro kryty zařízení třídy ochrany II platí:',
-        answers: [{
-          answer:'kryt nesmí obsahovat šrouby nebo jiné upevňovací prostředky, které by mohly narušit izolaci',
+        options: [{
+          text:'kryt nesmí obsahovat šrouby nebo jiné upevňovací prostředky, které by mohly narušit izolaci',
           isTrue:true
         },
         {
-          answer:'kryt může obsahovat malé vodivé součásti (šroubky nebo nýty pro upevnění štítků ap.) procházející krytem',
+          text:'kryt může obsahovat malé vodivé součásti (šroubky nebo nýty pro upevnění štítků ap.) procházející krytem',
           isTrue:false
         },
         {
-          answer:'krytem smějí procházet vodivé části které mohou přenášet napětí',
+          text:'krytem smějí procházet vodivé části které mohou přenášet napětí',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Při ochraně použitím zařízení třídy ochrany II :',
-        answers: [{
-          answer:'nesmějí izolačním krytem procházet vodivá zařízení',
+        options: [{
+          text:'nesmějí izolačním krytem procházet vodivá zařízení',
           isTrue:true
         },
         {
-          answer:'musí kryt obsahovat svorku pro připojení PE vodiče',
+          text:'musí kryt obsahovat svorku pro připojení PE vodiče',
           isTrue:false
         },
         {
-          answer:'musí být maximální napětí do 50 V AC a 120 V DC',
+          text:'musí být maximální napětí do 50 V AC a 120 V DC',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Vodivé části uvnitř předmětu třídy ochrany II se:',
-        answers: [{
-          answer:'nesmí spojit s ochranným vodičem',
+        options: [{
+          text:'nesmí spojit s ochranným vodičem',
           isTrue:true
         },
         {
-          answer:'musí spojit s ochranným vodičem',
+          text:'musí spojit s ochranným vodičem',
           isTrue:false
         },
         {
-          answer:'musí spojit s ochranným pospojováním',
+          text:'musí spojit s ochranným pospojováním',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Zařízení třídy ochrany I, doplněné při montáži přídavnou izolací tak, aby provedení odpovídalo třídě ochrany II musí být označeno:',
-        answers: [{
-          answer:'značkou přeškrtnutá značka uzemnění',
+        options: [{
+          text:'značkou přeškrtnutá značka uzemnění',
           isTrue:true
         },
         {
-          answer:'značkou dva čtverečky v sobě (označ. třídy II)',
+          text:'značkou dva čtverečky v sobě (označ. třídy II)',
           isTrue:false
         },
         {
-          answer:'výstražným bleskem',
+          text:'výstražným bleskem',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Proudový chránič se pro ochranu před nebezpečným dotykem smí použít jako:',
-        answers: [{
-          answer:'ochrana doplňková',
+        options: [{
+          text:'ochrana doplňková',
           isTrue:true
         },
         {
-          answer:'ochrana základní',
+          text:'ochrana základní',
           isTrue:false
         },
         {
-          answer:'ochrana zvýšená',
+          text:'ochrana zvýšená',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Doplňující ochranné pospojování musí zahrnovat:',
-        answers: [{
-          answer:'spojení všech neživých částí upevněných zařízení, cizích vodivých částí spojených se zemí a s ochrannými vodiči včetně zásuvek',
+        options: [{
+          text:'spojení všech neživých částí upevněných zařízení, cizích vodivých částí spojených se zemí a s ochrannými vodiči včetně zásuvek',
           isTrue:true
         },
         {
-          answer:'spojení všech neživých částí upevněných zařízení, cizích vodivých částí spojených se zemí a s nulovými a ochrannými vodiči v daném prostoru',
+          text:'spojení všech neživých částí upevněných zařízení, cizích vodivých částí spojených se zemí a s nulovými a ochrannými vodiči v daném prostoru',
           isTrue:false
         },
         {
-          answer:'spojení všech neživých částí upevněných zařízení a spojení s hlavním ochranným vodičem',
+          text:'spojení všech neživých částí upevněných zařízení a spojení s hlavním ochranným vodičem',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Přepážky nebo kryty zabraňující nebezpečnému dotyku:',
-        answers: [{
-          answer:'mohou být odejmuty pouze nástrojem nebo klíčem',
+        options: [{
+          text:'mohou být odejmuty pouze nástrojem nebo klíčem',
           isTrue:true
         },
         {
-          answer:'mohou být odejmuty bez nástroje nebo klíče jen za předpokladu, že jsou označeny výstražnou tabulkou "přístup jen osobám pověřeným"',
+          text:'mohou být odejmuty bez nástroje nebo klíče jen za předpokladu, že jsou označeny výstražnou tabulkou "přístup jen osobám pověřeným"',
           isTrue:false
         },
         {
-          answer:'mohou být odejmuty jen po souhlasu vydaným oprávněnou osobou',
+          text:'mohou být odejmuty jen po souhlasu vydaným oprávněnou osobou',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Zábrany musí bránit:',
-        answers: [{
-          answer:'nahodilému dotyku živých částí během činnosti zařízení pod napětím v běžném provozu',
+        options: [{
+          text:'nahodilému dotyku živých částí během činnosti zařízení pod napětím v běžném provozu',
           isTrue:true
         },
         {
-          answer:'úmyslnému dotyku živých částí během činnosti zařízení pod napětím v běžném provozu',
+          text:'úmyslnému dotyku živých částí během činnosti zařízení pod napětím v běžném provozu',
           isTrue:false
         },
         {
-          answer:'nahodilému dotyku neživých částí během činnosti zařízení pod napětím v běžném provozu',
+          text:'nahodilému dotyku neživých částí během činnosti zařízení pod napětím v běžném provozu',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Při ochraně polohou u zařízení do 1000V musí být živé části vzdáleny od stanoviště nejméně:',
-        answers: [{
-          answer:'2,5 metru',
+        options: [{
+          text:'2,5 metru',
           isTrue:true
         },
         {
-          answer:'5,5 metru',
+          text:'5,5 metru',
           isTrue:false
         },
         {
-          answer:'1,3 metru',
+          text:'1,3 metru',
           isTrue:false
         }
       ]
        
       }, {
         task: 'V síti TN-C:',
-        answers: [{
-          answer:'nesmí být vodič PEN ani odpojován ani spínán',
+        options: [{
+          text:'nesmí být vodič PEN ani odpojován ani spínán',
           isTrue:true
         },
         {
-          answer:'nemusí být vodič PEN ani odpojován ani spínán',
+          text:'nemusí být vodič PEN ani odpojován ani spínán',
           isTrue:false
         },
         {
-          answer:'musí být vodič PEN odpojován a spínán',
+          text:'musí být vodič PEN odpojován a spínán',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Musí se chránit každé zařízení před nechtěným nebo neúmyslným uvedením do provozu?',
-        answers: [{
-          answer:'musí',
+        options: [{
+          text:'musí',
           isTrue:true
         },
         {
-          answer:'nemusí',
+          text:'nemusí',
           isTrue:false
         },
         {
-          answer:'rozhodující je stanovisko osoby odpovědné za zařízení',
+          text:'rozhodující je stanovisko osoby odpovědné za zařízení',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Zařízení nouzového spínání musí být provedeno tak:',
-        answers: [{
-          answer:'aby jeho působení nevyvolalo další nebezpečí nebo aby nezabraňovalo úplnému provedení zásahu potřebnému k odstranění nebezpečí',
+        options: [{
+          text:'aby jeho působení nevyvolalo další nebezpečí nebo aby nezabraňovalo úplnému provedení zásahu potřebnému k odstranění nebezpečí',
           isTrue:true
         },
         {
-          answer:'aby celá instalace byla bez napětí',
+          text:'aby celá instalace byla bez napětí',
           isTrue:false
         },
         {
-          answer:'aby celá instalace byla pod napětím',
+          text:'aby celá instalace byla pod napětím',
           isTrue:false
         }
       ]
        
       }, {
         task: 'U pohyblivého přívodu bez ochranného vodiče s vidlicí bez ochranného kontaktu pro spotřebiče třídy II :',
-        answers: [{
-          answer:'musí být vidlice neoddělitelně spojena s pohyblivým přívodem',
+        options: [{
+          text:'musí být vidlice neoddělitelně spojena s pohyblivým přívodem',
           isTrue:true
         },
         {
-          answer:'při výměně vidlice se propojí kolíček s ochranným vodičem',
+          text:'při výměně vidlice se propojí kolíček s ochranným vodičem',
           isTrue:false
         },
         {
-          answer:'při výměně vidlice se musí odstranit kolíček',
+          text:'při výměně vidlice se musí odstranit kolíček',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Vedení musí být zvolena a zřízena tak:',
-        answers: [{
-          answer:'aby se během provádění instalace, jejího používání nebo údržby zabránilo poškození kabelů, izolovaných vodičů a jejich zakončení',
+        options: [{
+          text:'aby se během provádění instalace, jejího používání nebo údržby zabránilo poškození kabelů, izolovaných vodičů a jejich zakončení',
           isTrue:true
         },
         {
-          answer:'aby byly dodrženy pouze poždavky provozovatele',
+          text:'aby byly dodrženy pouze poždavky provozovatele',
           isTrue:false
         },
         {
-          answer:'aby byly dodrženy pouze poždavky architekta',
+          text:'aby byly dodrženy pouze poždavky architekta',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Vodič vedení v AC systémech ČERNÁ, HNĚDÁ a ŠEDÁ',
-        answers: [{
-          answer:'pořadí barev není stanoveno - v DP platí L1 - černá; L2 - hnědá; L3 - šedá',
+        options: [{
+          text:'pořadí barev není stanoveno - v DP platí L1 - černá; L2 - hnědá; L3 - šedá',
           isTrue:true
         },
         {
-          answer:'pořadí barev není stanoveno',
+          text:'pořadí barev není stanoveno',
           isTrue:false
         },
         {
-          answer:'pořadí barev určuje projektant',
+          text:'pořadí barev určuje projektant',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Barevné značení vodičů DC soustavy',
-        answers: [{
-          answer:'kladný pól červená barva, záporný pól bílá barva (dříve modrá barva)',
+        options: [{
+          text:'kladný pól červená barva, záporný pól bílá barva (dříve modrá barva)',
           isTrue:true
         },
         {
-          answer:'kladný pól červená barva, záporný pól modrá barva',
+          text:'kladný pól červená barva, záporný pól modrá barva',
           isTrue:false
         },
         {
-          answer:'není definováno',
+          text:'není definováno',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Barva holých vodičů a přípojnic trojfázové soustavy je:',
-        answers: [{
-          answer:'není požadováno',
+        options: [{
+          text:'není požadováno',
           isTrue:true
         },
         {
-          answer:'růžová',
+          text:'růžová',
           isTrue:false
         },
         {
-          answer:'šedá',
+          text:'šedá',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Ochranný vodič se značí:',
-        answers: [{
-          answer:'PE',
+        options: [{
+          text:'PE',
           isTrue:true
         },
         {
-          answer:'N',
+          text:'N',
           isTrue:false
         },
         {
-          answer:'L',
+          text:'L',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Svorky (svorkovnice) vodičů střídavé rozvodné soustavy u elektrických předmětů se značí:',
-        answers: [{
-          answer:'U, V, W, N, PE',
+        options: [{
+          text:'U, V, W, N, PE',
           isTrue:true
         },
         {
-          answer:'A, B, C, D, E',
+          text:'A, B, C, D, E',
           isTrue:false
         },
         {
-          answer:'A1, B1, C1, D1, E1',
+          text:'A1, B1, C1, D1, E1',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Kvalifikace osob z hlediska elektrotechnické kvalifikace se dělí na:',
-        answers: [{
-          answer:'laiky, osoby seznámené, osoby poučené, osoby znalé a osoby znalé s vyšší kvalifikací',
+        options: [{
+          text:'laiky, osoby seznámené, osoby poučené, osoby znalé a osoby znalé s vyšší kvalifikací',
           isTrue:true
         },
         {
-          answer:'osoby neznalé, osoby seznámené, osoby poučené, osoby znalé a osoby znalé s vyšší kvalifikací',
+          text:'osoby neznalé, osoby seznámené, osoby poučené, osoby znalé a osoby znalé s vyšší kvalifikací',
           isTrue:false
         },
         {
-          answer:'laiky, osoby poučené, osoby znalé a osoby znalé s vyšší kvalifikací',
+          text:'laiky, osoby poučené, osoby znalé a osoby znalé s vyšší kvalifikací',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Osoba pověřená kontrolou elektrického zařízení během pracovních činností je:',
-        answers: [{
-          answer:'osoba odpovědná za bezpečný stav elektrického zařízení během pracovních činností na něm nebo v jeho blízkosti',
+        options: [{
+          text:'osoba odpovědná za bezpečný stav elektrického zařízení během pracovních činností na něm nebo v jeho blízkosti',
           isTrue:true
         },
         {
-          answer:'osoba odpovědná za bezporuchový stav elektrického zařízení během pracovních činností',
+          text:'osoba odpovědná za bezporuchový stav elektrického zařízení během pracovních činností',
           isTrue:false
         },
         {
-          answer:'osoba odpovědná za plynulý provoz',
+          text:'osoba odpovědná za plynulý provoz',
           isTrue:false
         }
       ]
        
       }, {
       task: 'Funkci vedoucí práce může vykonávat:',
-      answers: [{
-        answer:'pracovník znalý s vyšší kvalifikací pověřený osobou zodpovědnou za provoz zařízení',
+      options: [{
+        text:'pracovník znalý s vyšší kvalifikací pověřený osobou zodpovědnou za provoz zařízení',
         isTrue:true
       },
       {
-        answer:'pracovník znalý pověřený osobou zodpovědnou za provoz zařízení',
+        text:'pracovník znalý pověřený osobou zodpovědnou za provoz zařízení',
         isTrue:false
       },
       {
-        answer:'mistr pověřený osobou zodpovědnou za provoz zařízení',
+        text:'mistr pověřený osobou zodpovědnou za provoz zařízení',
         isTrue:false
       }
     ]
      
     }, {
         task: 'Zóna přiblížení k živým částem pod napětím je definována jako:',
-        answers: [{
-          answer:'prostor vymezený vzdáleností od ochranného prostoru do vzdálenosti určené s ohledem na výši napětí',
+        options: [{
+          text:'prostor vymezený vzdáleností od ochranného prostoru do vzdálenosti určené s ohledem na výši napětí',
           isTrue:true
         },
         {
-          answer:'prostor vymezený vzdáleností od živých částí do vzdálenosti určené s ohledem na výši napětí',
+          text:'prostor vymezený vzdáleností od živých částí do vzdálenosti určené s ohledem na výši napětí',
           isTrue:false
         },
         {
-          answer:'prostor vymezený vzdáleností od živých částí do vzdálenosti určené rozsahem pracoviště',
+          text:'prostor vymezený vzdáleností od živých částí do vzdálenosti určené rozsahem pracoviště',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Ochranný prostor okolo živých částí pod napětím je:',
-        answers: [{
-          answer:'prostor kde není zajištěna izolační hladina k odvrácení elektrického nebezpečí',
+        options: [{
+          text:'prostor kde není zajištěna izolační hladina k odvrácení elektrického nebezpečí',
           isTrue:true
         },
         {
-          answer:'prostor, kde je možnost přiblížení k živým částem pod napětím',
+          text:'prostor, kde je možnost přiblížení k živým částem pod napětím',
           isTrue:false
         },
         {
-          answer:'prostor, kde je možnost dotyku na živou část pod napětím',
+          text:'prostor, kde je možnost dotyku na živou část pod napětím',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Práce pod napětím je (mimo jiné) práce při níž:',
-        answers: [{
-          answer:'pracovník zasahuje do ochranného prostoru okolo živých částí pod napětím',
+        options: [{
+          text:'pracovník zasahuje do ochranného prostoru okolo živých částí pod napětím',
           isTrue:true
         },
         {
-          answer:'se pracovník nevědomě dotýká živých částí pod napětím',
+          text:'se pracovník nevědomě dotýká živých částí pod napětím',
           isTrue:false
         },
         {
-          answer:'pracovník zasahuje do prostoru zóny přiblížení okolo živých částí pod napětím',
+          text:'pracovník zasahuje do prostoru zóny přiblížení okolo živých částí pod napětím',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Práce v blízkosti živých částí je práce, při níž:',
-        answers: [{
-          answer:'osoba zasahuje do zóny přiblížení bez zásahu do ochranného prostoru',
+        options: [{
+          text:'osoba zasahuje do zóny přiblížení bez zásahu do ochranného prostoru',
           isTrue:true
         },
         {
-          answer:'osoba zasahuje do vzdálenosti menší než je bezpečná vzdálenost od živých částí',
+          text:'osoba zasahuje do vzdálenosti menší než je bezpečná vzdálenost od živých částí',
           isTrue:false
         },
         {
-          answer:'osoba zasahuje do elektrického zařízení po odstranění krytu',
+          text:'osoba zasahuje do elektrického zařízení po odstranění krytu',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Zábrana je:',
-        answers: [{
-          answer:'zařízení, které může nebo nemusí mít izolaci, používané k zamezení přiblížení se k elektrickému zařízení nebo části elektrického zařízení, které představuje elektrické nebezpečí',
+        options: [{
+          text:'zařízení, které může nebo nemusí mít izolaci, používané k zamezení přiblížení se k elektrickému zařízení nebo části elektrického zařízení, které představuje elektrické nebezpečí',
           isTrue:true
         },
         {
-          answer:'část zajišťující ochranu před přímým dotykem z každého obvyklého směru přístupu',
+          text:'část zajišťující ochranu před přímým dotykem z každého obvyklého směru přístupu',
           isTrue:false
         },
         {
-          answer:'pevný nebo pružný kryt z izolačního materiálu',
+          text:'pevný nebo pružný kryt z izolačního materiálu',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Přepážka je:',
-        answers: [{
-          answer:'část zajišťující ochranu před přímým dotykem z každého obvyklého směru přístupu',
+        options: [{
+          text:'část zajišťující ochranu před přímým dotykem z každého obvyklého směru přístupu',
           isTrue:true
         },
         {
-          answer:'zařízení, které může nebo nemusí mít izolaci, používané k zamezení přiblížení se k elektrickému zařízení nebo části elektrického zařízení, které představuje elektrické nebezpečí',
+          text:'zařízení, které může nebo nemusí mít izolaci, používané k zamezení přiblížení se k elektrickému zařízení nebo části elektrického zařízení, které představuje elektrické nebezpečí',
           isTrue:false
         },
         {
-          answer:'pevný nebo pružný kryt z izolačního materiálu',
+          text:'pevný nebo pružný kryt z izolačního materiálu',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Pracovníci znalí s vyšší kvalifikací smějí na elektrickém zařízení vykonávat:',
-        answers: [{
-          answer:'obsluhu a práce mimo prací zakázaných',
+        options: [{
+          text:'obsluhu a práce mimo prací zakázaných',
           isTrue:true
         },
         {
-          answer:'jen obsluhu na vn a nn',
+          text:'jen obsluhu na vn a nn',
           isTrue:false
         },
         {
-          answer:'jen obsluhu a práce na vn',
+          text:'jen obsluhu a práce na vn',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Při práci pod napětím nebo v jeho blízkosti je používání oděvů s vyhrnutými rukávy:',
-        answers: [{
-          answer:'je zakázáno',
+        options: [{
+          text:'je zakázáno',
           isTrue:true
         },
         {
-          answer:'je omezeno podle výše napětí',
+          text:'je omezeno podle výše napětí',
           isTrue:false
         },
         {
-          answer:'je dovoleno',
+          text:'je dovoleno',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Pracovník, který obdrží příkaz odporující pracovním postupům, bezpečnostním normám, předpisům a směrnicím musí:',
-        answers: [{
-          answer:'tuto skutečnost oznámit vedoucímu práce',
+        options: [{
+          text:'tuto skutečnost oznámit vedoucímu práce',
           isTrue:true
         },
         {
-          answer:'nemusí provést přikázaný úkon',
+          text:'nemusí provést přikázaný úkon',
           isTrue:false
         },
         {
-          answer:'uposlechnut příkazu vedoucího práce',
+          text:'uposlechnut příkazu vedoucího práce',
           isTrue:false
         }
       ]
        
       }, {
       task: 'Ústní příkazy při práci na elektrickém zařízení mohou být vydávány:',
-      answers: [{
-        answer:'při bezprostředním styku',
+      options: [{
+        text:'při bezprostředním styku',
         isTrue:true
       },
       {
-        answer:'voláním a znamením',
+        text:'voláním a znamením',
         isTrue:false
       },
       {
-        answer:'voláním a máváním',
+        text:'voláním a máváním',
         isTrue:false
       }
     ]
      
     }, {
       task: 'Při práci na venkovním elektrickém zařízení pod napětím, je-li hustá mlha, se:',
-      answers: [{
-        answer:'musí práce přerušit',
+      options: [{
+        text:'musí práce přerušit',
         isTrue:true
       },
       {
-        answer:'může pracovat pod dozorem',
+        text:'může pracovat pod dozorem',
         isTrue:false
       },
       {
-        answer:'smí pracovat podle rozhodnutí vedoucího práce',
+        text:'smí pracovat podle rozhodnutí vedoucího práce',
         isTrue:false
       }
     ]
      
     }, {
       task: 'Pro zajištění pracoviště pro práci bez napětí musí být provedeny postupně následující úkony:',
-      answers: [{
-        answer:'úplné odpojení ze všech stran možného napájení + ověření, že je zařízení bez napětí + uzemnění a zkratování + ochranné opatření proti živým částem pod napětím',
+      options: [{
+        text:'úplné odpojení ze všech stran možného napájení + ověření, že je zařízení bez napětí + uzemnění a zkratování + ochranné opatření proti živým částem pod napětím',
         isTrue:true
       },
       {
-        answer:'úplné odpojení ze všech stran možného napájení + ověření, že je zařízení bez napětí + uzemnění a zkratování + vymezení pracoviště',
+        text:'úplné odpojení ze všech stran možného napájení + ověření, že je zařízení bez napětí + uzemnění a zkratování + vymezení pracoviště',
         isTrue:false
       },
       {
-        answer:'úplné odpojení ze všech stran možného napájení + ověření, že je zařízení bez napětí + uzemnění a zkratování + vymezení pracoviště + vypsání příkazu B',
+        text:'úplné odpojení ze všech stran možného napájení + ověření, že je zařízení bez napětí + uzemnění a zkratování + vymezení pracoviště + vypsání příkazu B',
         isTrue:false
       }
     ]
      
     }, {
         task: 'Postup při použití zkratovacího zařízení (např. připojování zkratovací soupravy) je:',
-        answers: [{
-          answer:'po ověření beznapěťového stavu se připojí nejdříve uzemňovací vodič na uzemnění a poté se připojí ostatní fázové vodiče',
+        options: [{
+          text:'po ověření beznapěťového stavu se připojí nejdříve uzemňovací vodič na uzemnění a poté se připojí ostatní fázové vodiče',
           isTrue:true
         },
         {
-          answer:'po ověření beznapěťového stavu se připojí uzemňovací vodič a alespoň jeden z fázových vodičů',
+          text:'po ověření beznapěťového stavu se připojí uzemňovací vodič a alespoň jeden z fázových vodičů',
           isTrue:false
         },
         {
-          answer:'po ověření beznapěťového stavu se připojí - zkratují nejdříve fázové vodiče a poté se připojí uzemňovací vodič',
+          text:'po ověření beznapěťového stavu se připojí - zkratují nejdříve fázové vodiče a poté se připojí uzemňovací vodič',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Pracovníci znalí mohou pracovat na zařízeních nn v blízkosti živých částí pod napětím:',
-        answers: [{
-          answer:'sami',
+        options: [{
+          text:'sami',
           isTrue:true
         },
         {
-          answer:'s dohledem osoby znalé s vyšší kvalifikací',
+          text:'s dohledem osoby znalé s vyšší kvalifikací',
           isTrue:false
         },
         {
-          answer:'pod dozorem osoby znalé s vyšší kvalifikací',
+          text:'pod dozorem osoby znalé s vyšší kvalifikací',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Na živých částech pod napětím na zařízení nn pracovníci poučení a speciálně vyškolení:',
-        answers: [{
-          answer:'mohou samostatně pracovat',
+        options: [{
+          text:'mohou samostatně pracovat',
           isTrue:true
         },
         {
-          answer:'mohou pracovat pod dohledem',
+          text:'mohou pracovat pod dohledem',
           isTrue:false
         },
         {
-          answer:'nesmějí pracovat',
+          text:'nesmějí pracovat',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Vedoucí práce musí před zahájením práce na zařízení vn provést, (mimo jiné), postupně následující úkony:',
-        answers: [{
-          answer:'musí informovat osobu pověřenou kontrolou elektrického zařízení během pracovní činnosti, o jakou práci se jedná a o zařízení, na kterém se bude práce konat',
+        options: [{
+          text:'musí informovat osobu pověřenou kontrolou elektrického zařízení během pracovní činnosti, o jakou práci se jedná a o zařízení, na kterém se bude práce konat',
           isTrue:true
         },
         {
-          answer:'seznámit podřízené se způsobem a rozsahem práce, vydat pracovní skupině povolení k zahájení práce a informovat osobu zodpovědnou za elektrické zařízení o zamýšleném rozsahu prací',
+          text:'seznámit podřízené se způsobem a rozsahem práce, vydat pracovní skupině povolení k zahájení práce a informovat osobu zodpovědnou za elektrické zařízení o zamýšleném rozsahu prací',
           isTrue:false
         },
         {
-          answer:'informovat osobu zodpovědnou za elektrické zařízení o zamýšleném rozsahu prací, vydat pracovní skupině povolení k zahájení práce a seznámit podřízené se způsobem a rozsahem práce',
+          text:'informovat osobu zodpovědnou za elektrické zařízení o zamýšleném rozsahu prací, vydat pracovní skupině povolení k zahájení práce a seznámit podřízené se způsobem a rozsahem práce',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Ochrana zábranou se smí používat v prostorách přístupných pouze osobám s kvalifikací nejméně:',
-        answers: [{
-          answer:'osoba seznámená pod dozorem',
+        options: [{
+          text:'osoba seznámená pod dozorem',
           isTrue:true
         },
         {
-          answer:'osoba poučená pod dozorem',
+          text:'osoba poučená pod dozorem',
           isTrue:false
         },
         {
-          answer:'osoba znalá samostatně',
+          text:'osoba znalá samostatně',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Výměnu pojistek u zařízení vn, v případech, kdy není vyloučen dotyk na živou část, smí provádět osoba s kvalifikací nejméně:',
-        answers: [{
-          answer:'osoba znalá nebo poučená podle pracovních postupů',
+        options: [{
+          text:'osoba znalá nebo poučená podle pracovních postupů',
           isTrue:true
         },
         {
-          answer:'osoba poučená',
+          text:'osoba poučená',
           isTrue:false
         },
         {
-          answer:'osoba seznámená podle pracovních postupů',
+          text:'osoba seznámená podle pracovních postupů',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Výměnu pojistek nn smí provádět:',
-        answers: [{
-          answer:'osoba nejméně seznámená jen v případech, když jsou pojistky provedeny tak, že je vyloučen přímý dotyk na živou část',
+        options: [{
+          text:'osoba nejméně seznámená jen v případech, když jsou pojistky provedeny tak, že je vyloučen přímý dotyk na živou část',
           isTrue:true
         },
         {
-          answer:'osoba nejméně seznámená',
+          text:'osoba nejméně seznámená',
           isTrue:false
         },
         {
-          answer:'osoba nejméně poučená',
+          text:'osoba nejméně poučená',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Při pracích pod napětím na zařízeních nn (do 1 kV AC) musí pracovník dodržovat vzdálenost k živým částem:',
-        answers: [{
-          answer:'tak, aby zůstal bez dotyku na živou část',
+        options: [{
+          text:'tak, aby zůstal bez dotyku na živou část',
           isTrue:true
         },
         {
-          answer:'tak, aby se nepřiblížil blíže než 75 cm',
+          text:'tak, aby se nepřiblížil blíže než 75 cm',
           isTrue:false
         },
         {
-          answer:'tak, aby se nepřiblížil blíže než 30 cm',
+          text:'tak, aby se nepřiblížil blíže než 30 cm',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Minimální bezpečná vzdálenost od živých částí při pracích na zařízení 22 kV je:',
-        answers: [{
-          answer:'26 cm',
+        options: [{
+          text:'26 cm',
           isTrue:true
         },
         {
-          answer:'70 cm',
+          text:'70 cm',
           isTrue:false
         },
         {
-          answer:'35 cm',
+          text:'35 cm',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Přiblížení k živým částem s napětím trakčního zařízení (0,6kV DC - 0,75kV DC) pracovníků poučených',
-        answers: [{
-          answer:'1 m',
+        options: [{
+          text:'1 m',
           isTrue:true
         },
         {
-          answer:'od 0,2 m do 1,0 m',
+          text:'od 0,2 m do 1,0 m',
           isTrue:false
         },
         {
-          answer:'od 1 m do 5,5 m',
+          text:'od 1 m do 5,5 m',
           isTrue:false
         }
       ]
        
       }, {
         task: 'V případě, kdy dochází k propojení sítě nn dráhy a sítě nn mimo obvod dráhy se:',
-        answers: [{
-          answer:'musí oddělit tyto sítě použitím oddělovacího transformátoru',
+        options: [{
+          text:'musí oddělit tyto sítě použitím oddělovacího transformátoru',
           isTrue:true
         },
         {
-          answer:'nemusí provádět žádná další opatření',
+          text:'nemusí provádět žádná další opatření',
           isTrue:false
         },
         {
-          answer:'musí v místě dělení použít proudový chránič',
+          text:'musí v místě dělení použít proudový chránič',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Pojížděné koleje jako součást zpětného trakčního vedení',
-        answers: [{
-          answer:'se nesmějí spojovat s okolními uzemněnými vodivými částmi',
+        options: [{
+          text:'se nesmějí spojovat s okolními uzemněnými vodivými částmi',
           isTrue:true
         },
         {
-          answer:'se smějí spojovat s okolními uzemněnými vodivými částmi',
+          text:'se smějí spojovat s okolními uzemněnými vodivými částmi',
           isTrue:false
         },
         {
-          answer:'se smějí spojovat s okolními vodivými uzemněnými částmi jen v prostoru dráhy',
+          text:'se smějí spojovat s okolními vodivými uzemněnými částmi jen v prostoru dráhy',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Dovolené barvy signálek nebo ovladačů jsou:',
-        answers: [{
-          answer:'bílá, šedá, černá, žlutá, zelená, červená a modrá',
+        options: [{
+          text:'bílá, šedá, černá, žlutá, zelená, červená a modrá',
           isTrue:true
         },
         {
-          answer:'červená, modrá, zeleno/žlutá, šedá, bílá a černá',
+          text:'červená, modrá, zeleno/žlutá, šedá, bílá a černá',
           isTrue:false
         },
         {
-          answer:'červená, modrá, zelená, žlutá, bílá, šedá, černá, fialová a rudá',
+          text:'červená, modrá, zelená, žlutá, bílá, šedá, černá, fialová a rudá',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Žlutá barva světelného signálu znamená:',
-        answers: [{
-          answer:'varování, výstrahu, nenormální stav (ale ještě v provozu)',
+        options: [{
+          text:'varování, výstrahu, nenormální stav (ale ještě v provozu)',
           isTrue:true
         },
         {
-          answer:'nebezpečí, porucha, stav nouze',
+          text:'nebezpečí, porucha, stav nouze',
           isTrue:false
         },
         {
-          answer:'vypnutý stav zařízení',
+          text:'vypnutý stav zařízení',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Signální barva (signálka) červená znamená:',
-        answers: [{
-          answer:'poruchu, stav nouze, nebezpečí',
+        options: [{
+          text:'poruchu, stav nouze, nebezpečí',
           isTrue:true
         },
         {
-          answer:'zařízení je v provozu',
+          text:'zařízení je v provozu',
           isTrue:false
         },
         {
-          answer:'zařízení je mimo provoz',
+          text:'zařízení je mimo provoz',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Červená barva světelného signálu znamená:',
-        answers: [{
-          answer:'nebezpečí, porucha, stav nouze',
+        options: [{
+          text:'nebezpečí, porucha, stav nouze',
           isTrue:true
         },
         {
-          answer:'vypnutý stav zařízení',
+          text:'vypnutý stav zařízení',
           isTrue:false
         },
         {
-          answer:'dosažení požadovaného stavu zařízení',
+          text:'dosažení požadovaného stavu zařízení',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Zelená barva světelného signálu znamená:',
-        answers: [{
-          answer:'bezpečí, normální stav zařízení, zařízení v normálním provozu',
+        options: [{
+          text:'bezpečí, normální stav zařízení, zařízení v normálním provozu',
           isTrue:true
         },
         {
-          answer:'zařízení je mimo provoz, ale je připravené k zapnutí',
+          text:'zařízení je mimo provoz, ale je připravené k zapnutí',
           isTrue:false
         },
         {
-          answer:'vypnutý stav zařízení',
+          text:'vypnutý stav zařízení',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Signální barva (signálka) zelená znamená:',
-        answers: [{
-          answer:'zařízení je v provozu',
+        options: [{
+          text:'zařízení je v provozu',
           isTrue:true
         },
         {
-          answer:'zařízení je mimo provoz',
+          text:'zařízení je mimo provoz',
           isTrue:false
         },
         {
-          answer:'zařízení je vypnuté a zajištěné',
+          text:'zařízení je vypnuté a zajištěné',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Signální barva (signálka) žlutá znamená:',
-        answers: [{
-          answer:'výstrahu, varování, že zařízení je v kritickém stavu',
+        options: [{
+          text:'výstrahu, varování, že zařízení je v kritickém stavu',
           isTrue:true
         },
         {
-          answer:'varování, výstrahu, že zařízení bude uvedeno do klidu',
+          text:'varování, výstrahu, že zařízení bude uvedeno do klidu',
           isTrue:false
         },
         {
-          answer:'varování, výstrahu před následujícím uvedením do provozu',
+          text:'varování, výstrahu před následujícím uvedením do provozu',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Bezpečnostní barva červená znamená:',
-        answers: [{
-          answer:'zákaz - stůj - zastavení osob nebo zařízení',
+        options: [{
+          text:'zákaz - stůj - zastavení osob nebo zařízení',
           isTrue:true
         },
         {
-          answer:'označení nebezpečného prostoru - místa',
+          text:'označení nebezpečného prostoru - místa',
           isTrue:false
         },
         {
-          answer:'výstrahu před nebezpečím',
+          text:'výstrahu před nebezpečím',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Bezpečnostní barva zelená znamená:',
-        answers: [{
-          answer:'bezpečí - bezpečné konání - normální provoz',
+        options: [{
+          text:'bezpečí - bezpečné konání - normální provoz',
           isTrue:true
         },
         {
-          answer:'označení nebezpečného prostoru',
+          text:'označení nebezpečného prostoru',
           isTrue:false
         },
         {
-          answer:'označení bezpečného prostoru - místa',
+          text:'označení bezpečného prostoru - místa',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Bezpečnostní barva žlutá znamená:',
-        answers: [{
-          answer:'výstrahu - riziko - nebezpečí',
+        options: [{
+          text:'výstrahu - riziko - nebezpečí',
           isTrue:true
         },
         {
-          answer:'označení nebezpečného prostoru',
+          text:'označení nebezpečného prostoru',
           isTrue:false
         },
         {
-          answer:'označení nebezpečné překážky',
+          text:'označení nebezpečné překážky',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Výstražná tabulka zákazu má tvar:',
-        answers: [{
-          answer:'kruhový',
+        options: [{
+          text:'kruhový',
           isTrue:true
         },
         {
-          answer:'čtvercový',
+          text:'čtvercový',
           isTrue:false
         },
         {
-          answer:'trojúhelníkový',
+          text:'trojúhelníkový',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Výstražná tabulka vyjadřující výstrahu má podobu:',
-        answers: [{
-          answer:'žlutý trojúhelník s černým orámováním a symbolem',
+        options: [{
+          text:'žlutý trojúhelník s černým orámováním a symbolem',
           isTrue:true
         },
         {
-          answer:'žlutý trojúhelník se symbolem vyjadřujícím druh nebezpečí',
+          text:'žlutý trojúhelník se symbolem vyjadřujícím druh nebezpečí',
           isTrue:false
         },
         {
-          answer:'obdélníková zelená se symbolem a textem',
+          text:'obdélníková zelená se symbolem a textem',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Výstražná tabulka modrá s vyznačeným symbolem vyjadřuje:',
-        answers: [{
-          answer:'příkaz',
+        options: [{
+          text:'příkaz',
           isTrue:true
         },
         {
-          answer:'zákaz',
+          text:'zákaz',
           isTrue:false
         },
         {
-          answer:'doporučení',
+          text:'doporučení',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Pro vypínací ovládače nesmí být použita barva:',
-        answers: [{
-          answer:'zelená',
+        options: [{
+          text:'zelená',
           isTrue:true
         },
         {
-          answer:'žlutá',
+          text:'žlutá',
           isTrue:false
         },
         {
-          answer:'černá',
+          text:'černá',
           isTrue:false
         }
       ]
        
       }, {
         task: 'Pro zapínací ovládače, je doporučená barva:',
-        answers: [{
-          answer:'bílá, šedá, černá',
+        options: [{
+          text:'bílá, šedá, černá',
           isTrue:true
         },
         {
-          answer:'červená',
+          text:'červená',
           isTrue:false
         },
         {
-          answer:'žlutá',
+          text:'žlutá',
           isTrue:false
         }
       ]   
