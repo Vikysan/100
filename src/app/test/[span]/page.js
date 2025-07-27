@@ -15,7 +15,7 @@ import {
 } from "next/navigation";
 import { Fragment, useState, useEffect } from "react";
 import { data } from "@/data/100";
-
+import { HandRaisedIcon,CheckCircleIcon } from "@heroicons/react/24/solid";
 const options = data[0].options;
 
 const Example = () => {
@@ -56,17 +56,17 @@ const Example = () => {
             //   disabled={!plan.available}
             className="flex items-center gap-2"
           >
-            <Radio as={Fragment} value={option}>
+            <Radio as={Fragment} value={option} className="group">
               {({ checked, disabled }) => (
-                <span
+                <div
                   className={`group flex size-5 items-center justify-center rounded-full border
                     ${checked ? "bg-blue-400" : "bg-white"}  ${
                     disabled && "bg-gray-100"
                   }`}
                 >
-                  {checked && <span className="size-2 rounded-full bg-white" />}
-                   {/* <CheckCircleIcon className="size-6 fill-white opacity-0 transition group-data-checked:opacity-100" /> */}
-                </span>
+                  {/* {checked && <span className="size-2 rounded-full bg-white" />} */}
+                   <CheckCircleIcon className="size-6 fill-white opacity-0 transition group-data-checked:opacity-100" />
+                </div>
                 
               )}
             </Radio>
