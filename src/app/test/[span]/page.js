@@ -16,7 +16,7 @@ import {
 import { Fragment, useState, useEffect } from "react";
 import { data } from "@/data/100";
 import { HandRaisedIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
-const options = data[0].options;
+// const options = data[0].options;
 
 const Example = () => {
   const params = useParams();
