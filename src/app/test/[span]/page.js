@@ -23,7 +23,7 @@ const Example = () => {
   const span = params.span.split("-");
   const [inputData] = useState(data.slice(+span[0], +span[1]+1));
   const [counter, setCounter] = useState(0);
-  const [selected, setSelected] = useState(inputData[counter].options[0]);
+  const [selected, setSelected] = useState(0);
   const [answers, setAnswers] = useState([]);
 
   const maxCounter = inputData.length - 1;
@@ -31,20 +31,20 @@ const Example = () => {
   const addAnswerHandler = () => {
     setAnswers((prevState) => [
       ...prevState,
-      options.map((option) =>
+      inputData[counter].options.map((option) =>
         option == selected ? { ...option, select: true } : option
       ),
     ]);
-    !isLast
-      ? setCounter((prev) => {
+    if (isLast)return
+    setCounter((prev) => {
           return prev + 1;
         })
-      : "";
+  setSelected(0)
   };
 
   return (
     <Fieldset className="w-full p-2 *:select-none h-svh flex flex-col justify-center gap-10">
-      <Legend className="w-full text-center">{inputData[counter].task}</Legend>
+      <Legend className="w-full text-center text-xl">{inputData[counter].task}</Legend>
       <RadioGroup
         value={selected}
         onChange={setSelected}
@@ -59,20 +59,14 @@ const Example = () => {
                 // className="flex   bg-red-400 group-data-checked:bg-amber-200 w-full"
                 className="rounded-lg px-4 py-2 border-2 
                 
-                border-blue-500 text-blue-500 
+                border-gray-300 text-gray-700 
+                bg-gray-100
+                group-data-checked:border-blue-500
                 group-data-checked:bg-blue-600 group-data-checked:text-blue-100 
                 hover:bg-blue-600 
                 hover:text-blue-100 duration-300"
                 >
-                  {/* <span
-                
-                    className={` flex size-5 items-center justify-center rounded-full border
-                    ${checked ? "bg-blue-400" : "bg-white"}  ${
-                      disabled && "bg-gray-100"
-                    }`}
-                  >              
-                    <CheckCircleIcon className="size-6 fill-white opacity-0 transition group-data-checked:opacity-100" />
-                  </span> */}
+              
                  
                  <p className="inline">
                    {option.text}
@@ -84,7 +78,7 @@ const Example = () => {
        
         ))}
       </RadioGroup>
-      <button className="absolute bottom-2 right-2 rounded-lg px-4 py-2 border-2  border-blue-500 text-blue-500 " onClick={addAnswerHandler}>{isLast? "Výsledky" : "Dalši"}</button >
+      <button  disabled={selected===0} className="absolute bottom-2 right-2 rounded-lg px-4 py-2 border-2  border-blue-500 text-blue-500 disabled:opacity-30 duration-300" onClick={addAnswerHandler}>{isLast? "Výsledky" : "Dalši"}</button >
     </Fieldset>
   );
 };
