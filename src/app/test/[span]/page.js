@@ -15,76 +15,70 @@ import {
 } from "next/navigation";
 import { Fragment, useState, useEffect } from "react";
 import { data } from "@/data/100";
-import { HandRaisedIcon,CheckCircleIcon } from "@heroicons/react/24/solid";
-const options = data[0].options;
+import { HandRaisedIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
+// const options = data[0].options;
 
 const Example = () => {
   const params = useParams();
-  const span = params.span.split("-").map(n=>+n-1)
-  const [selected, setSelected] = useState();
-  const [inputData, setInputData] = useState(data.slice(span[0],span[1]));
+  const span = params.span.split("-");
+  const [inputData] = useState(data.slice(+span[0], +span[1]+1));
   const [counter, setCounter] = useState(0);
+  const [selected, setSelected] = useState(0);
   const [answers, setAnswers] = useState([]);
 
   const maxCounter = inputData.length - 1;
-
+  const isLast = +counter >= +maxCounter; 
   const addAnswerHandler = () => {
     setAnswers((prevState) => [
       ...prevState,
-      options.map((option) =>
+      inputData[counter].options.map((option) =>
         option == selected ? { ...option, select: true } : option
       ),
     ]);
-    counter < maxCounter ? setCounter((prev) => {return prev+1}) : "";
+    if (isLast)return
+    setCounter((prev) => {
+          return prev + 1;
+        })
+  setSelected(0)
   };
 
-  
-
-
-
   return (
-    <Fieldset>
-      <Legend>{inputData[counter].task}</Legend>
+    <Fieldset className="w-full p-2 *:select-none h-svh flex flex-col justify-center gap-10">
+      <Legend className="w-full text-center text-xl">{inputData[counter].task}</Legend>
       <RadioGroup
         value={selected}
         onChange={setSelected}
         aria-label="Server size"
+        className="flex flex-col gap-2 my-3"
+
       >
         {inputData[counter].options.map((option) => (
-          <Field
-            key={option.text}
-            //   disabled={!plan.available}
-            className="flex items-center gap-2"
-          >
-            <Radio as={Fragment} value={option} className="group">
+            <Radio  value={option} key={option.text} className="group cursor-pointer">
               {({ checked, disabled }) => (
-                <div
-                  className={`group flex size-5 items-center justify-center rounded-full border
-                    ${checked ? "bg-blue-400" : "bg-white"}  ${
-                    disabled && "bg-gray-100"
-                  }`}
-                >
-                  {/* {checked && <span className="size-2 rounded-full bg-white" />} */}
-                   <CheckCircleIcon className="size-6 fill-white opacity-0 transition group-data-checked:opacity-100" />
-                </div>
+                <div 
+                // className="flex   bg-red-400 group-data-checked:bg-amber-200 w-full"
+                className="rounded-lg px-4 py-2 border-2 
                 
+                border-gray-300 text-gray-700 
+                bg-gray-100
+                group-data-checked:border-blue-500
+                group-data-checked:bg-blue-600 group-data-checked:text-blue-100 
+                hover:bg-blue-600 
+                hover:text-blue-100 duration-300"
+                >
+              
+                 
+                 <p className="inline">
+                   {option.text}
+                  </p> 
+             
+                </div>
               )}
             </Radio>
-            <Label as={Fragment}>
-              {({ disabled }) => (
-                <label className={disabled && "opacity-50"}>
-                  {option.text}
-                </label>
-              )}
-            </Label>
-          </Field>
+       
         ))}
       </RadioGroup>
-      <button
-        onClick={addAnswerHandler}
-      >
-        Dalši
-      </button>
+      <button  disabled={selected===0} className="absolute bottom-2 right-2 rounded-lg px-4 py-2 border-2  border-blue-500 text-blue-500 disabled:opacity-30 duration-300" onClick={addAnswerHandler}>{isLast? "Výsledky" : "Dalši"}</button >
     </Fieldset>
   );
 };
