@@ -20,6 +20,7 @@ import { HandRaisedIcon, CheckCircleIcon, ArrowRightIcon, CodeBracketIcon } from
 const options = data[0].options;
 
 const Example = () => {
+  const router = useRouter()
   const params = useParams();
   const span = params.span.split("-").map(n=>+n-1)
   const [selected, setSelected] = useState();
@@ -36,14 +37,19 @@ const Example = () => {
         option == selected ? { ...option, select: true } : option
       ),
     ]);
-    counter < maxCounter ? setCounter((prev) => {return prev+1}) : "";
+    counter < maxCounter ? setCounter((prev) => {return prev+1}) : showResultHandler();
   };
+
+  const showResultHandler = () =>{
+    localStorage.setItem("result", JSON.stringify(inputData));
+    router.push("/result")
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-8">
+        {/* <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-slate-800 rounded-lg">
               <CodeBracketIcon className="w-8 h-8 text-emerald-400" />
@@ -51,7 +57,7 @@ const Example = () => {
             <h1 className="text-3xl font-bold text-slate-800">TechAssessment</h1>
           </div>
           <p className="text-gray-600">Technický test znalostí</p>
-        </div>
+        </div> */}
 
         {/* Progress */}
         <div className="mb-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
@@ -81,7 +87,7 @@ const Example = () => {
                   <HandRaisedIcon className="w-5 h-5 text-slate-600" />
                 </div>
                 <div>
-                  <Legend className="text-xl font-semibold text-slate-800 mb-2 leading-relaxed">
+                  <Legend className=" font-semibold text-slate-800 mb-2 leading-relaxed">
                     {inputData[counter].task}
                   </Legend>
                   <p className="text-gray-600 text-sm">
@@ -102,16 +108,16 @@ const Example = () => {
                 {inputData[counter].options.map((option, index) => (
                   <Field
                     key={option.text}
-                    className="w-full p-5 text-left rounded-lg border transition-all duration-200 cursor-pointer group hover:border-gray-300 hover:bg-gray-50"
+                    className="w-full  text-left rounded-lg border transition-all duration-200 cursor-pointer group hover:border-gray-300 hover:bg-gray-50"
                   >
                     <Radio as={Fragment} value={option}>
                       {({ checked }) => (
-                        <div className={`w-full flex items-center justify-between ${
-                          checked ? 'bg-slate-800 text-white border-emerald-500 rounded-lg p-5 -m-5' : ''
+                        <div className={`w-full flex  items-center p-5 justify-between b ${
+                          checked ? 'bg-slate-800 text-white border-emerald-500 rounded-lg' : ""
                         }`}>
                           <div className="flex items-center">
-                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm font-bold mr-4 transition-colors ${
-                              checked 
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-4 transition-colors ${
+                              checked
                                 ? 'bg-emerald-500 text-white' 
                                 : 'bg-gray-100 group-hover:bg-gray-200 text-gray-600'
                             }`}>
