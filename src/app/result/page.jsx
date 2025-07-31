@@ -14,127 +14,220 @@ const TestResultsPage = () => {
       {
         id: 1,
         question: "Jaký je základní princip fungování REST API?",
-        userAnswer: "Bezstavová komunikace pomocí HTTP metod",
-        correctAnswer: "Bezstavová komunikace pomocí HTTP metod",
-        isCorrect: true,
         options: [
-          "Stavová komunikace s dlouhodobými připojeními",
-          "Bezstavová komunikace pomocí HTTP metod",
-          "Binární protokol pro rychlý přenos dat"
+          {
+            "text": "Stavová komunikace s dlouhodobými připojeními",
+            "isTrue": false
+          },
+          {
+            "text": "Bezstavová komunikace pomocí HTTP metod",
+            "isTrue": true,
+            "select": true
+          },
+          {
+            "text": "Binární protokol pro rychlý přenos dat",
+            "isTrue": false
+          }
         ]
       },
       {
         id: 2,
         question: "Co je to Docker container?",
-        userAnswer: "Virtuální stroj s kompletním OS",
-        correctAnswer: "Izolované prostředí pro běh aplikací",
-        isCorrect: false,
         options: [
-          "Virtuální stroj s kompletním OS",
-          "Cloudové úložiště pro aplikace",
-          "Izolované prostředí pro běh aplikací"
+          {
+            "text": "Virtuální stroj s kompletním OS",
+            "isTrue": false,
+            "select": true
+          },
+          {
+            "text": "Cloudové úložiště pro aplikace",
+            "isTrue": false
+          },
+          {
+            "text": "Izolované prostředí pro běh aplikací",
+            "isTrue": true
+          }
         ]
       },
       {
         id: 3,
         question: "Které z následujících je výhodou mikroservis architektury?",
-        userAnswer: "Nezávislé nasazování jednotlivých služeb",
-        correctAnswer: "Nezávislé nasazování jednotlivých služeb",
-        isCorrect: true,
         options: [
-          "Nezávislé nasazování jednotlivých služeb",
-          "Jednodušší debugging celé aplikace",
-          "Menší režie na síťovou komunikaci"
+          {
+            "text": "Nezávislé nasazování jednotlivých služeb",
+            "isTrue": true,
+            "select": true
+          },
+          {
+            "text": "Jednodušší debugging celé aplikace",
+            "isTrue": false
+          },
+          {
+            "text": "Menší režie na síťovou komunikaci",
+            "isTrue": false
+          }
         ]
       },
       {
         id: 4,
         question: "Jaká je hlavní výhoda použití TypeScriptu oproti JavaScriptu?",
-        userAnswer: "Rychlejší běh aplikace",
-        correctAnswer: "Statická typová kontrola",
-        isCorrect: false,
         options: [
-          "Rychlejší běh aplikace",
-          "Statická typová kontrola",
-          "Menší velikost výsledného kódu"
+          {
+            "text": "Rychlejší běh aplikace",
+            "isTrue": false,
+            "select": true
+          },
+          {
+            "text": "Statická typová kontrola",
+            "isTrue": true
+          },
+          {
+            "text": "Menší velikost výsledného kódu",
+            "isTrue": false
+          }
         ]
       },
       {
         id: 5,
         question: "Co znamená zkratka API?",
-        userAnswer: "Application Programming Interface",
-        correctAnswer: "Application Programming Interface",
-        isCorrect: true,
         options: [
-          "Application Programming Interface",
-          "Automated Program Integration",
-          "Advanced Programming Instructions"
+          {
+            "text": "Application Programming Interface",
+            "isTrue": true,
+            "select": true
+          },
+          {
+            "text": "Automated Program Integration",
+            "isTrue": false
+          },
+          {
+            "text": "Advanced Programming Instructions",
+            "isTrue": false
+          }
         ]
       },
       {
         id: 6,
         question: "Který HTTP status kód označuje úspěšnou operaci?",
-        userAnswer: "200",
-        correctAnswer: "200",
-        isCorrect: true,
-        options: ["200", "404", "500"]
+        options: [
+          {
+            "text": "200",
+            "isTrue": true,
+            "select": true
+          },
+          {
+            "text": "404",
+            "isTrue": false
+          },
+          {
+            "text": "500",
+            "isTrue": false
+          }
+        ]
       },
       {
         id: 7,
         question: "Co je to SQL injection?",
-        userAnswer: "Typ bezpečnostní zranitelnosti",
-        correctAnswer: "Typ bezpečnostní zranitelnosti",
-        isCorrect: true,
         options: [
-          "Typ bezpečnostní zranitelnosti",
-          "Metoda optimalizace databáze",
-          "Způsob připojení k databázi"
+          {
+            "text": "Typ bezpečnostní zranitelnosti",
+            "isTrue": true,
+            "select": true
+          },
+          {
+            "text": "Metoda optimalizace databáze",
+            "isTrue": false
+          },
+          {
+            "text": "Způsob připojení k databázi",
+            "isTrue": false
+          }
         ]
       },
       {
         id: 8,
         question: "Jaký je rozdíl mezi GET a POST HTTP metodami?",
-        userAnswer: "GET je pro načítání dat, POST pro odesílání",
-        correctAnswer: "GET je pro načítání dat, POST pro odesílání",
-        isCorrect: true,
         options: [
-          "GET je pro načítání dat, POST pro odesílání",
-          "GET je rychlejší než POST",
-          "POST je bezpečnější než GET"
+          {
+            "text": "GET je pro načítání dat, POST pro odesílání",
+            "isTrue": true,
+            "select": true
+          },
+          {
+            "text": "GET je rychlejší než POST",
+            "isTrue": false
+          },
+          {
+            "text": "POST je bezpečnější než GET",
+            "isTrue": false
+          }
         ]
       },
       {
         id: 9,
         question: "Co je to NoSQL databáze?",
-        userAnswer: "Databáze bez SQL dotazů",
-        correctAnswer: "Ne-relační databáze",
-        isCorrect: false,
         options: [
-          "Databáze bez SQL dotazů",
-          "Ne-relační databáze",
-          "Nová verze SQL"
+          {
+            "text": "Databáze bez SQL dotazů",
+            "isTrue": false,
+            "select": true
+          },
+          {
+            "text": "Ne-relační databáze",
+            "isTrue": true
+          },
+          {
+            "text": "Nová verze SQL",
+            "isTrue": false
+          }
         ]
       },
       {
         id: 10,
         question: "Jaký je účel CSS frameworku Bootstrap?",
-        userAnswer: "Rychlé vytváření responzivních webů",
-        correctAnswer: "Rychlé vytváření responzivních webů",
-        isCorrect: true,
         options: [
-          "Rychlé vytváření responzivních webů",
-          "Optimalizace výkonu webu",
-          "Správa databází"
+          {
+            "text": "Rychlé vytváření responzivních webů",
+            "isTrue": true,
+            "select": true
+          },
+          {
+            "text": "Optimalizace výkonu webu",
+            "isTrue": false
+          },
+          {
+            "text": "Správa databází",
+            "isTrue": false
+          }
         ]
       }
     ]
   };
 
   const [showDetails, setShowDetails] = useState(false);
-  const [selectedQuestion, setSelectedQuestion] = useState(null);
 
-  const scorePercentage = Math.round((testResults.correctAnswers / testResults.totalQuestions) * 100);
-  const incorrectAnswers = testResults.totalQuestions - testResults.correctAnswers;
+  // Pomocné funkce pro výpočet výsledků
+  const calculateResults = () => {
+    let correctAnswers = 0;
+    
+    testResults.questions.forEach(question => {
+      const selectedOption = question.options.find(option => option.select);
+      const correctOption = question.options.find(option => option.isTrue);
+      
+      if (selectedOption && correctOption && selectedOption.text === correctOption.text) {
+        correctAnswers++;
+      }
+    });
+    
+    return {
+      correctAnswers,
+      incorrectAnswers: testResults.totalQuestions - correctAnswers,
+      scorePercentage: Math.round((correctAnswers / testResults.totalQuestions) * 100)
+    };
+  };
+
+  const results = calculateResults();
+  const { correctAnswers, incorrectAnswers, scorePercentage } = results;
 
   const getScoreColor = () => {
     if (scorePercentage >= 80) return 'text-green-600';
@@ -148,6 +241,23 @@ const TestResultsPage = () => {
     return 'bg-red-50 border-red-200';
   };
 
+  const isQuestionCorrect = (question) => {
+    const selectedOption = question.options.find(option => option.select);
+    const correctOption = question.options.find(option => option.isTrue);
+    return selectedOption && correctOption && selectedOption.text === correctOption.text;
+  };
+
+  const getUserAnswer = (question) => {
+    const selectedOption = question.options.find(option => option.select);
+    return selectedOption ? selectedOption.text : "Bez odpovědi";
+  };
+
+  const getCorrectAnswer = (question) => {
+    const correctOption = question.options.find(option => option.isTrue);
+    return correctOption ? correctOption.text : "";
+  };
+ const neco = JSON.parse( localStorage.getItem("result"))
+ testResults.questions=neco
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
@@ -171,7 +281,7 @@ const TestResultsPage = () => {
               {scorePercentage}%
             </div>
             <div className="text-xl text-gray-700 mb-4">
-              {testResults.correctAnswers} z {testResults.totalQuestions} správných odpovědí
+              {correctAnswers} z {testResults.totalQuestions} správných odpovědí
             </div>
             <div className="flex justify-center items-center gap-8 text-sm text-gray-600">
               <div className="flex items-center gap-2">
@@ -206,7 +316,7 @@ const TestResultsPage = () => {
                 </svg>
               </div>
               <div>
-                <div className="text-2xl font-bold text-green-600">{testResults.correctAnswers}</div>
+                <div className="text-2xl font-bold text-green-600">{correctAnswers}</div>
                 <div className="text-sm text-gray-600">Správné odpovědi</div>
               </div>
             </div>
@@ -259,63 +369,103 @@ const TestResultsPage = () => {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-slate-800 mb-4">Detailní přehled odpovědí</h2>
             
-            {testResults.questions.map((question, index) => (
-              <div key={question.id} className={`bg-white rounded-lg border-l-4 shadow-sm ${
-                question.isCorrect ? 'border-l-green-500' : 'border-l-red-500'
-              }`}>
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm font-medium text-gray-500">Otázka {index + 1}</span>
-                        <div className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          question.isCorrect 
-                            ? 'bg-green-100 text-green-800' 
-                            : 'bg-red-100 text-red-800'
-                        }`}>
-                          {question.isCorrect ? 'Správně' : 'Špatně'}
+            {testResults.questions.map((question, index) => {
+              const isCorrect = isQuestionCorrect(question);
+              const userAnswer = getUserAnswer(question);
+              const correctAnswer = getCorrectAnswer(question);
+              
+              return (
+                <div key={question.id} className={`bg-white rounded-lg border-l-4 shadow-sm ${
+                  isCorrect ? 'border-l-green-500' : 'border-l-red-500'
+                }`}>
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-sm font-medium text-gray-500">Otázka {index + 1}</span>
+                          <div className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            isCorrect 
+                              ? 'bg-green-100 text-green-800' 
+                              : 'bg-red-100 text-red-800'
+                          }`}>
+                            {isCorrect ? 'Správně' : 'Špatně'}
+                          </div>
                         </div>
+                        <h3 className="text-lg font-medium text-slate-800 mb-3">
+                          {question.task}
+                        </h3>
                       </div>
-                      <h3 className="text-lg font-medium text-slate-800 mb-3">
-                        {question.question}
-                      </h3>
+                      
+                      <div className={`p-2 rounded-full ${
+                        isCorrect ? 'bg-green-100' : 'bg-red-100'
+                      }`}>
+                        {isCorrect ? (
+                          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                        ) : (
+                          <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        )}
+                      </div>
                     </div>
-                    
-                    <div className={`p-2 rounded-full ${
-                      question.isCorrect ? 'bg-green-100' : 'bg-red-100'
-                    }`}>
-                      {question.isCorrect ? (
-                        <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      ) : (
-                        <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-gray-600">Vaše odpověď:</span>
-                      <span className={`text-sm ${question.isCorrect ? 'text-green-700' : 'text-red-700'}`}>
-                        {question.userAnswer}
-                      </span>
-                    </div>
-                    
-                    {!question.isCorrect && (
+                    <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-gray-600">Správná odpověď:</span>
-                        <span className="text-sm text-green-700 font-medium">
-                          {question.correctAnswer}
+                        <span className="text-sm font-medium text-gray-600">Vaše odpověď:</span>
+                        <span className={`text-sm ${isCorrect ? 'text-green-700' : 'text-red-700'}`}>
+                          {userAnswer}
                         </span>
                       </div>
-                    )}
+                      
+                      {!isCorrect && (
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-gray-600">Správná odpověď:</span>
+                          <span className="text-sm text-green-700 font-medium">
+                            {correctAnswer}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Zobrazení všech možností */}
+                    <div className="mt-4 space-y-2">
+                      <span className="text-sm font-medium text-gray-600">Všechny možnosti:</span>
+                      <div className="grid gap-2">
+                        {question.options.map((option, optionIndex) => (
+                          <div key={optionIndex} className={`p-3 rounded-lg border text-sm ${
+                            option.select && option.isTrue 
+                              ? 'bg-green-50 border-green-200 text-green-800' 
+                              : option.select && !option.isTrue 
+                              ? 'bg-red-50 border-red-200 text-red-800'
+                              : option.isTrue 
+                              ? 'bg-green-50 border-green-200 text-green-700'
+                              : 'bg-gray-50 border-gray-200 text-gray-700'
+                          }`}>
+                            <div className="flex items-center justify-between">
+                              <span>{option.text}</span>
+                              <div className="flex items-center gap-2">
+                                {option.select && (
+                                  <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded">
+                                    Vybrané
+                                  </span>
+                                )}
+                                {option.isTrue && (
+                                  <span className="text-xs px-2 py-1 bg-green-100 text-green-800 rounded">
+                                    Správné
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
 
