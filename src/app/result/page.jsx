@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useState } from 'react';
 
 const TestResultsPage = () => {
@@ -209,16 +210,16 @@ const TestResultsPage = () => {
   // Pomocné funkce pro výpočet výsledků
   const calculateResults = () => {
     let correctAnswers = 0;
-    
+
     testResults.questions.forEach(question => {
       const selectedOption = question.options.find(option => option.select);
       const correctOption = question.options.find(option => option.isTrue);
-      
+
       if (selectedOption && correctOption && selectedOption.text === correctOption.text) {
         correctAnswers++;
       }
     });
-    
+
     return {
       correctAnswers,
       incorrectAnswers: testResults.totalQuestions - correctAnswers,
@@ -242,7 +243,7 @@ const TestResultsPage = () => {
   };
 
   const isQuestionCorrect = (question) => {
-    const selectedOption = question.options.find(option => option.select);
+    const selectedOption = question.options.find(option => option.selected);
     const correctOption = question.options.find(option => option.isTrue);
     return selectedOption && correctOption && selectedOption.text === correctOption.text;
   };
@@ -256,8 +257,9 @@ const TestResultsPage = () => {
     const correctOption = question.options.find(option => option.isTrue);
     return correctOption ? correctOption.text : "";
   };
- const neco = JSON.parse( localStorage.getItem("result"))
- testResults.questions=neco
+  const neco = JSON.parse(localStorage.getItem("result"))
+  testResults.questions = neco
+  console.log(neco)
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
@@ -368,26 +370,24 @@ const TestResultsPage = () => {
         {showDetails && (
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-slate-800 mb-4">Detailní přehled odpovědí</h2>
-            
+
             {testResults.questions.map((question, index) => {
               const isCorrect = isQuestionCorrect(question);
               const userAnswer = getUserAnswer(question);
               const correctAnswer = getCorrectAnswer(question);
-              
+
               return (
-                <div key={question.id} className={`bg-white rounded-lg border-l-4 shadow-sm ${
-                  isCorrect ? 'border-l-green-500' : 'border-l-red-500'
-                }`}>
+                <div key={question.id} className={`bg-white rounded-lg border-l-4 shadow-sm ${isCorrect ? 'border-l-green-500' : 'border-l-red-500'
+                  }`}>
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                           <span className="text-sm font-medium text-gray-500">Otázka {index + 1}</span>
-                          <div className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            isCorrect 
-                              ? 'bg-green-100 text-green-800' 
+                          <div className={`px-2 py-1 rounded-full text-xs font-medium ${isCorrect
+                              ? 'bg-green-100 text-green-800'
                               : 'bg-red-100 text-red-800'
-                          }`}>
+                            }`}>
                             {isCorrect ? 'Správně' : 'Špatně'}
                           </div>
                         </div>
@@ -395,10 +395,9 @@ const TestResultsPage = () => {
                           {question.task}
                         </h3>
                       </div>
-                      
-                      <div className={`p-2 rounded-full ${
-                        isCorrect ? 'bg-green-100' : 'bg-red-100'
-                      }`}>
+
+                      <div className={`p-2 rounded-full ${isCorrect ? 'bg-green-100' : 'bg-red-100'
+                        }`}>
                         {isCorrect ? (
                           <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -418,7 +417,7 @@ const TestResultsPage = () => {
                           {userAnswer}
                         </span>
                       </div>
-                      
+
                       {!isCorrect && (
                         <div className="flex items-center gap-2">
                           <span className="text-sm font-medium text-gray-600">Správná odpověď:</span>
@@ -434,15 +433,14 @@ const TestResultsPage = () => {
                       <span className="text-sm font-medium text-gray-600">Všechny možnosti:</span>
                       <div className="grid gap-2">
                         {question.options.map((option, optionIndex) => (
-                          <div key={optionIndex} className={`p-3 rounded-lg border text-sm ${
-                            option.select && option.isTrue 
-                              ? 'bg-green-50 border-green-200 text-green-800' 
-                              : option.select && !option.isTrue 
-                              ? 'bg-red-50 border-red-200 text-red-800'
-                              : option.isTrue 
-                              ? 'bg-green-50 border-green-200 text-green-700'
-                              : 'bg-gray-50 border-gray-200 text-gray-700'
-                          }`}>
+                          <div key={optionIndex} className={`p-3 rounded-lg border text-sm ${option.select && option.isTrue
+                              ? 'bg-green-50 border-green-200 text-green-800'
+                              : option.select && !option.isTrue
+                                ? 'bg-red-50 border-red-200 text-red-800'
+                                : option.isTrue
+                                  ? 'bg-green-50 border-green-200 text-green-700'
+                                  : 'bg-gray-50 border-gray-200 text-gray-700'
+                            }`}>
                             <div className="flex items-center justify-between">
                               <span>{option.text}</span>
                               <div className="flex items-center gap-2">

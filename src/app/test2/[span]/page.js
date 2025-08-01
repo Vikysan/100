@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Field,
   Label,
@@ -37,13 +38,17 @@ const Example = () => {
         option == selected ? { ...option, select: true } : option
       ),
     ]);
-    counter < maxCounter ? setCounter((prev) => {return prev+1}) : showResultHandler();
+   if(counter < maxCounter)setCounter((prev) => {return prev+1});
   };
 
-  const showResultHandler = () =>{
-    localStorage.setItem("result", JSON.stringify(inputData));
-    router.push("/result")
-  }
+    
+  useEffect(()=>{
+    if(counter>=maxCounter){
+      localStorage.setItem("result", JSON.stringify(answers));
+      router.push("/result")
+    }
+  
+  },[answers])
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
