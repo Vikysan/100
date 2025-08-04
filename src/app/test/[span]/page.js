@@ -31,9 +31,13 @@ const Example = () => {
   const addAnswerHandler = () => {
     setAnswers((prevState) => [
       ...prevState,
-      inputData[counter].options.map((option) =>
-        option == selected ? { ...option, select: true } : option
-      ),
+      {
+        task:inputData[counter].task,
+        options: 
+          inputData[counter].options.map((option) =>
+            option == selected ? { ...option, select: true } : option
+        ),
+      }
     ]);
     if (isLast)return
     setCounter((prev) => {

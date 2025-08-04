@@ -1,8 +1,66 @@
-"use client"
+"use client";
+
 import React, { useState } from 'react';
+
+ const neco = JSON.parse( localStorage.getItem("result"))
+
+
 
 const TestResultsPage = () => {
   // Ukázková data výsledků testu
+
+const resultJSON = [
+    {
+      task: 'Rozdělení el. zařízení podle napětí mezi vodičem a zemí v uzemněné soustavě je:',
+      options: [{
+        text:'mn do 50 V, nn 50 - 600 V, vn 0,6 - 30 kV',
+        isTrue:true
+      },
+      {
+        text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 35 kV',
+        isTrue:false,
+        select: true
+      },
+      {
+        text:'mn do 50 V, nn 50 - 400 V, vn 0,4 - 22 kV',
+        isTrue:false
+      }
+    ]
+     
+    }, {
+        task: 'Rozdělení el. zařízení podle napětí mezi vodiči v uzemněné AC soustavě je:',
+        options: [{
+          text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 52 kV',
+          isTrue:true
+        },
+        {
+          text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 35 kV',
+          isTrue:false,
+          select: true
+        },
+        {
+          text:'mn do 50 V, nn 50 - 400 V, vn 0,4 - 22 kV',
+          isTrue:false
+        }
+      ]
+       
+      }, {
+        task: 'Podle účelu se el. zařízení dělí na:',
+        options: [{
+          text:'silová, sdělovací a řídící',
+          isTrue:true,
+          select: true
+        },
+        {
+          text:'silnoproudá, slaboproudá, sdělovací',
+          isTrue:false
+        },
+        {
+          text:'drážní, báňská, vojenská',
+          isTrue:false
+        }
+      ]}]
+
   const testResults = {
     totalQuestions: 10,
     correctAnswers: 7,
@@ -10,199 +68,9 @@ const TestResultsPage = () => {
     completedAt: new Date().toLocaleString('cs-CZ'),
     questionRange: '1-10',
     randomOrder: false,
-    questions: [
-      {
-        id: 1,
-        question: "Jaký je základní princip fungování REST API?",
-        options: [
-          {
-            "text": "Stavová komunikace s dlouhodobými připojeními",
-            "isTrue": false
-          },
-          {
-            "text": "Bezstavová komunikace pomocí HTTP metod",
-            "isTrue": true,
-            "select": true
-          },
-          {
-            "text": "Binární protokol pro rychlý přenos dat",
-            "isTrue": false
-          }
-        ]
-      },
-      {
-        id: 2,
-        question: "Co je to Docker container?",
-        options: [
-          {
-            "text": "Virtuální stroj s kompletním OS",
-            "isTrue": false,
-            "select": true
-          },
-          {
-            "text": "Cloudové úložiště pro aplikace",
-            "isTrue": false
-          },
-          {
-            "text": "Izolované prostředí pro běh aplikací",
-            "isTrue": true
-          }
-        ]
-      },
-      {
-        id: 3,
-        question: "Které z následujících je výhodou mikroservis architektury?",
-        options: [
-          {
-            "text": "Nezávislé nasazování jednotlivých služeb",
-            "isTrue": true,
-            "select": true
-          },
-          {
-            "text": "Jednodušší debugging celé aplikace",
-            "isTrue": false
-          },
-          {
-            "text": "Menší režie na síťovou komunikaci",
-            "isTrue": false
-          }
-        ]
-      },
-      {
-        id: 4,
-        question: "Jaká je hlavní výhoda použití TypeScriptu oproti JavaScriptu?",
-        options: [
-          {
-            "text": "Rychlejší běh aplikace",
-            "isTrue": false,
-            "select": true
-          },
-          {
-            "text": "Statická typová kontrola",
-            "isTrue": true
-          },
-          {
-            "text": "Menší velikost výsledného kódu",
-            "isTrue": false
-          }
-        ]
-      },
-      {
-        id: 5,
-        question: "Co znamená zkratka API?",
-        options: [
-          {
-            "text": "Application Programming Interface",
-            "isTrue": true,
-            "select": true
-          },
-          {
-            "text": "Automated Program Integration",
-            "isTrue": false
-          },
-          {
-            "text": "Advanced Programming Instructions",
-            "isTrue": false
-          }
-        ]
-      },
-      {
-        id: 6,
-        question: "Který HTTP status kód označuje úspěšnou operaci?",
-        options: [
-          {
-            "text": "200",
-            "isTrue": true,
-            "select": true
-          },
-          {
-            "text": "404",
-            "isTrue": false
-          },
-          {
-            "text": "500",
-            "isTrue": false
-          }
-        ]
-      },
-      {
-        id: 7,
-        question: "Co je to SQL injection?",
-        options: [
-          {
-            "text": "Typ bezpečnostní zranitelnosti",
-            "isTrue": true,
-            "select": true
-          },
-          {
-            "text": "Metoda optimalizace databáze",
-            "isTrue": false
-          },
-          {
-            "text": "Způsob připojení k databázi",
-            "isTrue": false
-          }
-        ]
-      },
-      {
-        id: 8,
-        question: "Jaký je rozdíl mezi GET a POST HTTP metodami?",
-        options: [
-          {
-            "text": "GET je pro načítání dat, POST pro odesílání",
-            "isTrue": true,
-            "select": true
-          },
-          {
-            "text": "GET je rychlejší než POST",
-            "isTrue": false
-          },
-          {
-            "text": "POST je bezpečnější než GET",
-            "isTrue": false
-          }
-        ]
-      },
-      {
-        id: 9,
-        question: "Co je to NoSQL databáze?",
-        options: [
-          {
-            "text": "Databáze bez SQL dotazů",
-            "isTrue": false,
-            "select": true
-          },
-          {
-            "text": "Ne-relační databáze",
-            "isTrue": true
-          },
-          {
-            "text": "Nová verze SQL",
-            "isTrue": false
-          }
-        ]
-      },
-      {
-        id: 10,
-        question: "Jaký je účel CSS frameworku Bootstrap?",
-        options: [
-          {
-            "text": "Rychlé vytváření responzivních webů",
-            "isTrue": true,
-            "select": true
-          },
-          {
-            "text": "Optimalizace výkonu webu",
-            "isTrue": false
-          },
-          {
-            "text": "Správa databází",
-            "isTrue": false
-          }
-        ]
-      }
-    ]
-  };
+    questions: neco}
+    
+  console.log(neco)
 
   const [showDetails, setShowDetails] = useState(false);
 
@@ -256,8 +124,7 @@ const TestResultsPage = () => {
     const correctOption = question.options.find(option => option.isTrue);
     return correctOption ? correctOption.text : "";
   };
- const neco = JSON.parse( localStorage.getItem("result"))
- testResults.questions=neco
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
