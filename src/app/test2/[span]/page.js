@@ -46,7 +46,6 @@ const Example = () => {
         ),
       },
     ]);
-<<<<<<< HEAD
     counter < maxCounter
       ? setCounter((prev) => {
           return prev + 1;
@@ -58,19 +57,6 @@ const Example = () => {
     localStorage.setItem("result", JSON.stringify(answers));
     router.push("/result");
   };
-=======
-   if(counter < maxCounter)setCounter((prev) => {return prev+1});
-  };
-
-    
-  useEffect(()=>{
-    if(counter>=maxCounter){
-      localStorage.setItem("result", JSON.stringify(answers));
-      router.push("/result")
-    }
-  
-  },[answers])
->>>>>>> d2de6d8744a1a02795390ce832907fb3ebab6f7d
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
