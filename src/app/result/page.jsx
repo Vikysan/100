@@ -1,16 +1,17 @@
 "use client";
 
-"use client";
+import React, { useState,useEffect } from 'react';
 
-import React, { useState } from 'react';
-
- const neco = JSON.parse( localStorage.getItem("result"))
 
 
 
 const TestResultsPage = () => {
-  // Ukázková data výsledků testu
+  const [neco, setNeco] = useState(null);
 
+  useEffect(() => {
+    const result = JSON.parse(localStorage.getItem("result")) || [];
+    setNeco(result);
+  }, []);
 const resultJSON = [
     {
       task: 'Rozdělení el. zařízení podle napětí mezi vodičem a zemí v uzemněné soustavě je:',
@@ -114,7 +115,7 @@ const resultJSON = [
   const isQuestionCorrect = (question) => {
     const selectedOption = question.options.find(option => option.selected);
     const correctOption = question.options.find(option => option.isTrue);
-    return selectedOption && correctOption && selectedOption.text === correctOption.text;
+    return  selectedOption.text === correctOption.text;
   };
 
   const getUserAnswer = (question) => {
@@ -126,7 +127,9 @@ const resultJSON = [
     const correctOption = question.options.find(option => option.isTrue);
     return correctOption ? correctOption.text : "";
   };
-
+ if (neco === null) {
+    return <div>Načítání...</div>;
+  }
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
