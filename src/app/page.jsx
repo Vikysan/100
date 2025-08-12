@@ -60,7 +60,7 @@ const QuestionRangeSelector = () => {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-slate-800 rounded-lg">
               <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ const QuestionRangeSelector = () => {
             <h1 className="text-3xl font-bold text-slate-800">TechAssessment</h1>
           </div>
           <p className="text-gray-600 text-lg">Vyberte rozsah otázek pro váš test</p>
-        </div>
+        </div> */}
 
         {/* Main Card */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
