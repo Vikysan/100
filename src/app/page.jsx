@@ -1,20 +1,28 @@
 "use client"
 import React, { useState } from 'react';
-
+import {
+  useRouter,
+  usePathname,
+  useSearchParams,
+  useParams,
+} from "next/navigation";
 const QuestionRangeSelector = () => {
+  const router = useRouter();
   const [fromQuestion, setFromQuestion] = useState(1);
   const [toQuestion, setToQuestion] = useState(10);
   const [randomOrder, setRandomOrder] = useState(false);
   
   // Předpokládám, že máš 100 otázek celkem
-  const totalQuestions = 100;
+  const totalQuestions = 86;
   const selectedCount = toQuestion - fromQuestion + 1;
   const estimatedTime = Math.ceil(selectedCount * 1.5); // 1.5 minuty na otázku
 
   const handleStartQuiz = () => {
     // Simulace přesměrování
     const orderText = randomOrder ? " v náhodném pořadí" : "";
-    alert(`Spouští se test s otázkami ${fromQuestion}-${toQuestion}${orderText}`);
+    localStorage.setItem("select",JSON.stringify(`${fromQuestion}-${toQuestion}`))
+    router.push(`/test/${fromQuestion}-${toQuestion}`);
+    // alert(`Spouští se test s otázkami ${fromQuestion}-${toQuestion}${orderText}`);
   };
 
   const handleRangeChange = (type, value) => {
@@ -40,7 +48,7 @@ const QuestionRangeSelector = () => {
     { label: "Základy (1-25)", from: 1, to: 25 },
     { label: "Pokročilé (26-50)", from: 26, to: 50 },
     { label: "Expert (51-75)", from: 51, to: 75 },
-    { label: "Všechno (1-100)", from: 1, to: 100 },
+    { label: "Všechno (1-86)", from: 1, to: 86 },
   ];
 
   const applyPreset = (preset) => {
@@ -83,7 +91,7 @@ const QuestionRangeSelector = () => {
 
           <div className="p-8">
             {/* Quick Presets */}
-            <div className="mb-8">
+            {/* <div className="mb-8">
               <h3 className="text-lg font-medium text-slate-800 mb-4">Rychlý výběr</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {presetRanges.map((preset, index) => (
@@ -103,7 +111,7 @@ const QuestionRangeSelector = () => {
                   </button>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Custom Range */}
             <div className="mb-8">
