@@ -10,7 +10,11 @@ import {
   ArrowRightIcon,
   CodeBracketIcon,
   ClockIcon,
+  ArrowPathRoundedSquareIcon,
 } from "@heroicons/react/24/solid";
+
+
+
 
 const ResultPage = () => {
   const router = useRouter();
@@ -314,7 +318,7 @@ const ResultPage = () => {
             onClick={handleRepeatTest}
             className="px-8 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-all duration-200 flex items-center gap-2"
           >
-            <ArrowLeftIcon className="w-4 h-4" />
+            <ArrowPathRoundedSquareIcon className="w-4 h-4" />
             Opakovat test
           </button>
           <button
