@@ -1,357 +1,294 @@
 "use client";
 
-import React, { useState,useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import {
+  CheckCircleIcon,
+  XCircleIcon,
+  TrophyIcon,
+  ArrowLeftIcon,
+  CodeBracketIcon,
+  ClockIcon,
+} from "@heroicons/react/24/solid";
 
-
-
-
-const TestResultsPage = () => {
-  const [neco, setNeco] = useState(null);
+const ResultPage = () => {
+  const router = useRouter();
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [score, setScore] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(0);
 
   useEffect(() => {
-    const result = JSON.parse(localStorage.getItem("result")) || [];
-    setNeco(result);
+    // Načtení výsledků z localStorage
+    const savedResults = localStorage.getItem("result");
+    if (savedResults) {
+      const parsedResults = JSON.parse(savedResults);
+      setResults(parsedResults);
+      setTotalQuestions(parsedResults.length);
+      
+      // Výpočet skóre - pokud existují správné odpovědi
+      const correctAnswers = parsedResults.reduce((acc, result) => {
+        const selectedOption = result.options.find(opt => opt.select);
+        return selectedOption && selectedOption.isTrue ? acc + 1 : acc;
+      }, 0);
+      
+      setScore(correctAnswers);
+    }
+    setLoading(false);
   }, []);
-const resultJSON = [
-    {
-      task: 'Rozdělení el. zařízení podle napětí mezi vodičem a zemí v uzemněné soustavě je:',
-      options: [{
-        text:'mn do 50 V, nn 50 - 600 V, vn 0,6 - 30 kV',
-        isTrue:true
-      },
-      {
-        text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 35 kV',
-        isTrue:false,
-        select: true
-      },
-      {
-        text:'mn do 50 V, nn 50 - 400 V, vn 0,4 - 22 kV',
-        isTrue:false
-      }
-    ]
-     
-    }, {
-        task: 'Rozdělení el. zařízení podle napětí mezi vodiči v uzemněné AC soustavě je:',
-        options: [{
-          text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 52 kV',
-          isTrue:true
-        },
-        {
-          text:'mn do 50 V, nn 50 - 1000 V, vn 1 - 35 kV',
-          isTrue:false,
-          select: true
-        },
-        {
-          text:'mn do 50 V, nn 50 - 400 V, vn 0,4 - 22 kV',
-          isTrue:false
-        }
-      ]
-       
-      }, {
-        task: 'Podle účelu se el. zařízení dělí na:',
-        options: [{
-          text:'silová, sdělovací a řídící',
-          isTrue:true,
-          select: true
-        },
-        {
-          text:'silnoproudá, slaboproudá, sdělovací',
-          isTrue:false
-        },
-        {
-          text:'drážní, báňská, vojenská',
-          isTrue:false
-        }
-      ]}]
 
-  const testResults = {
-    totalQuestions: 10,
-    correctAnswers: 7,
-    timeSpent: 12, // minuty
-    completedAt: new Date().toLocaleString('cs-CZ'),
-    questionRange: '1-10',
-    randomOrder: false,
-    questions: neco}
-    
-  console.log(neco)
+  // Kontrola zda máme informace o správných odpovědích
+  const hasCorrectAnswers = results.length > 0 && results.some(result => 
+    result.options.some(opt => opt.isTrue !== undefined)
+  );
 
-  const [showDetails, setShowDetails] = useState(false);
-
-  // Pomocné funkce pro výpočet výsledků
-  const calculateResults = () => {
-    let correctAnswers = 0;
-
-    testResults.questions.forEach(question => {
-      const selectedOption = question.options.find(option => option.select);
-      const correctOption = question.options.find(option => option.isTrue);
-
-      if (selectedOption && correctOption && selectedOption.text === correctOption.text) {
-        correctAnswers++;
-      }
-    });
-
-    return {
-      correctAnswers,
-      incorrectAnswers: testResults.totalQuestions - correctAnswers,
-      scorePercentage: Math.round((correctAnswers / testResults.totalQuestions) * 100)
-    };
+  const getScorePercentage = () => {
+    return totalQuestions > 0 && hasCorrectAnswers ? Math.round((score / totalQuestions) * 100) : 0;
   };
-
-  const results = calculateResults();
-  const { correctAnswers, incorrectAnswers, scorePercentage } = results;
 
   const getScoreColor = () => {
-    if (scorePercentage >= 80) return 'text-green-600';
-    if (scorePercentage >= 60) return 'text-yellow-600';
-    return 'text-red-600';
+    if (!hasCorrectAnswers) return "text-slate-600 bg-slate-50";
+    const percentage = getScorePercentage();
+    if (percentage >= 80) return "text-emerald-600 bg-emerald-50";
+    if (percentage >= 60) return "text-yellow-600 bg-yellow-50";
+    return "text-red-600 bg-red-50";
   };
 
-  const getScoreBgColor = () => {
-    if (scorePercentage >= 80) return 'bg-green-50 border-green-200';
-    if (scorePercentage >= 60) return 'bg-yellow-50 border-yellow-200';
-    return 'bg-red-50 border-red-200';
+  const getScoreMessage = () => {
+    if (!hasCorrectAnswers) return "Test dokončen";
+    const percentage = getScorePercentage();
+    if (percentage >= 80) return "Výborné výsledky!";
+    if (percentage >= 60) return "Dobré výsledky";
+    return "Prostor pro zlepšení";
   };
 
-  const isQuestionCorrect = (question) => {
-    const selectedOption = question.options.find(option => option.selected);
-    const correctOption = question.options.find(option => option.isTrue);
-    return  selectedOption.text === correctOption.text;
+  const handleRetakeTest = () => {
+    localStorage.removeItem("result");
+    router.push("/");
   };
 
-  const getUserAnswer = (question) => {
-    const selectedOption = question.options.find(option => option.select);
-    return selectedOption ? selectedOption.text : "Bez odpovědi";
-  };
-
-  const getCorrectAnswer = (question) => {
-    const correctOption = question.options.find(option => option.isTrue);
-    return correctOption ? correctOption.text : "";
-  };
- if (neco === null) {
-    return <div>Načítání...</div>;
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-slate-800 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Načítání výsledků...</p>
+        </div>
+      </div>
+    );
   }
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="w-full max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 bg-slate-800 rounded-lg">
-              <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <TrophyIcon className="w-8 h-8 text-emerald-400" />
             </div>
             <h1 className="text-3xl font-bold text-slate-800">Výsledky testu</h1>
           </div>
-          <p className="text-gray-600">TechAssessment - Technický test znalostí</p>
+          <p className="text-gray-600">Shrnutí vašeho výkonu</p>
         </div>
 
-        {/* Overall Score */}
-        <div className={`rounded-xl border-2 p-8 mb-8 ${getScoreBgColor()}`}>
+        {/* Score Summary */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 mb-8">
           <div className="text-center">
-            <div className={`text-6xl font-bold mb-2 ${getScoreColor()}`}>
-              {scorePercentage}%
-            </div>
-            <div className="text-xl text-gray-700 mb-4">
-              {correctAnswers} z {testResults.totalQuestions} správných odpovědí
-            </div>
-            <div className="flex justify-center items-center gap-8 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Čas: {testResults.timeSpent} min</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-                </svg>
-                <span>Rozsah: {testResults.questionRange}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0a2 2 0 00-2 2v2m0 0a2 2 0 002 2h12a2 2 0 002-2v-2m0 0a2 2 0 00-2-2H8z" />
-                </svg>
-                <span>{testResults.completedAt}</span>
-              </div>
-            </div>
+            {hasCorrectAnswers ? (
+              <>
+                <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full ${getScoreColor()} mb-4`}>
+                  <span className="text-2xl font-bold">
+                    {getScorePercentage()}%
+                  </span>
+                </div>
+                <h2 className="text-2xl font-bold text-slate-800 mb-2">
+                  {getScoreMessage()}
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  Odpověděli jste správně na <strong>{score}</strong> z <strong>{totalQuestions}</strong> otázek
+                </p>
+                
+                {/* Progress bar */}
+                <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+                  <div
+                    className="bg-gradient-to-r from-emerald-500 to-teal-600 h-3 rounded-full transition-all duration-500"
+                    style={{ width: `${getScorePercentage()}%` }}
+                  />
+                </div>
+                
+                <div className="flex justify-center items-center gap-6 text-sm text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <CheckCircleIcon className="w-5 h-5 text-emerald-500" />
+                    <span>Správně: {score}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <XCircleIcon className="w-5 h-5 text-red-500" />
+                    <span>Špatně: {totalQuestions - score}</span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full ${getScoreColor()} mb-4`}>
+                  <CheckCircleIcon className="w-10 h-10 text-slate-600" />
+                </div>
+                <h2 className="text-2xl font-bold text-slate-800 mb-2">
+                  Test dokončen
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  Odpověděli jste na <strong>{totalQuestions}</strong> otázek
+                </p>
+              </>
+            )}
           </div>
-        </div>
-
-        {/* Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-green-100 rounded-lg">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-green-600">{correctAnswers}</div>
-                <div className="text-sm text-gray-600">Správné odpovědi</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-red-100 rounded-lg">
-                <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-red-600">{incorrectAnswers}</div>
-                <div className="text-sm text-gray-600">Nesprávné odpovědi</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg p-6 shadow-sm border">
-            <div className="flex items-center gap-3">
-              <div className="p-3 bg-blue-100 rounded-lg">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-blue-600">{Math.round(testResults.timeSpent / testResults.totalQuestions * 10) / 10}</div>
-                <div className="text-sm text-gray-600">Min/otázka</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Toggle Details */}
-        <div className="text-center mb-6">
-          <button
-            onClick={() => setShowDetails(!showDetails)}
-            className="px-6 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors flex items-center gap-2 mx-auto"
-          >
-            <svg className={`w-5 h-5 transition-transform ${showDetails ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-            {showDetails ? 'Skrýt detaily' : 'Zobrazit detaily odpovědí'}
-          </button>
         </div>
 
         {/* Detailed Results */}
-        {showDetails && (
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-slate-800 mb-4">Detailní přehled odpovědí</h2>
-
-            {testResults.questions.map((question, index) => {
-              const isCorrect = isQuestionCorrect(question);
-              const userAnswer = getUserAnswer(question);
-              const correctAnswer = getCorrectAnswer(question);
-
-              return (
-                <div key={question.id} className={`bg-white rounded-lg border-l-4 shadow-sm ${isCorrect ? 'border-l-green-500' : 'border-l-red-500'
-                  }`}>
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm font-medium text-gray-500">Otázka {index + 1}</span>
-                          <div className={`px-2 py-1 rounded-full text-xs font-medium ${isCorrect
-                              ? 'bg-green-100 text-green-800'
-                              : 'bg-red-100 text-red-800'
-                            }`}>
-                            {isCorrect ? 'Správně' : 'Špatně'}
-                          </div>
-                        </div>
-                        <h3 className="text-lg font-medium text-slate-800 mb-3">
-                          {question.task}
-                        </h3>
-                      </div>
-
-                      <div className={`p-2 rounded-full ${isCorrect ? 'bg-green-100' : 'bg-red-100'
-                        }`}>
-                        {isCorrect ? (
-                          <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
+        <div className="space-y-6 mb-8">
+          <h3 className="text-xl font-semibold text-slate-800">
+            {hasCorrectAnswers ? "Detailní přehled odpovědí" : "Vaše odpovědi"}
+          </h3>
+          
+          {results.map((result, questionIndex) => {
+            const selectedOption = result.options.find(opt => opt.select);
+            const correctOption = result.options.find(opt => opt.isTrue);
+            const isCorrect = selectedOption && selectedOption.isTrue;
+            
+            return (
+              <div key={questionIndex} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className={`p-6 ${hasCorrectAnswers ? 
+                  `border-l-4 ${isCorrect ? 'border-emerald-500 bg-emerald-50' : 'border-red-500 bg-red-50'}` : 
+                  'border-l-4 border-slate-500 bg-slate-50'
+                }`}>
+                  <div className="flex items-start gap-4">
+                    <div className={`p-2 rounded-lg flex-shrink-0 ${
+                      hasCorrectAnswers ? 
+                        (isCorrect ? 'bg-emerald-100' : 'bg-red-100') : 
+                        'bg-slate-100'
+                    }`}>
+                      {hasCorrectAnswers ? (
+                        isCorrect ? (
+                          <CheckCircleIcon className="w-6 h-6 text-emerald-600" />
                         ) : (
-                          <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                          </svg>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-gray-600">Vaše odpověď:</span>
-                        <span className={`text-sm ${isCorrect ? 'text-green-700' : 'text-red-700'}`}>
-                          {userAnswer}
-                        </span>
-                      </div>
-
-                      {!isCorrect && (
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-medium text-gray-600">Správná odpověď:</span>
-                          <span className="text-sm text-green-700 font-medium">
-                            {correctAnswer}
-                          </span>
-                        </div>
+                          <XCircleIcon className="w-6 h-6 text-red-600" />
+                        )
+                      ) : (
+                        <CodeBracketIcon className="w-6 h-6 text-slate-600" />
                       )}
                     </div>
-
-                    {/* Zobrazení všech možností */}
-                    <div className="mt-4 space-y-2">
-                      <span className="text-sm font-medium text-gray-600">Všechny možnosti:</span>
-                      <div className="grid gap-2">
-                        {question.options.map((option, optionIndex) => (
-                          <div key={optionIndex} className={`p-3 rounded-lg border text-sm ${option.select && option.isTrue
-                              ? 'bg-green-50 border-green-200 text-green-800'
-                              : option.select && !option.isTrue
-                                ? 'bg-red-50 border-red-200 text-red-800'
-                                : option.isTrue
-                                  ? 'bg-green-50 border-green-200 text-green-700'
-                                  : 'bg-gray-50 border-gray-200 text-gray-700'
-                            }`}>
-                            <div className="flex items-center justify-between">
-                              <span>{option.text}</span>
-                              <div className="flex items-center gap-2">
-                                {option.select && (
-                                  <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded">
-                                    Vybrané
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-sm font-medium text-gray-500">
+                          Otázka {questionIndex + 1}
+                        </span>
+                        {hasCorrectAnswers && (
+                          <span className={`text-xs px-2 py-1 rounded-full font-medium ${
+                            isCorrect 
+                              ? 'bg-emerald-100 text-emerald-700' 
+                              : 'bg-red-100 text-red-700'
+                          }`}>
+                            {isCorrect ? 'Správně' : 'Špatně'}
+                          </span>
+                        )}
+                      </div>
+                      
+                      <h4 className="font-semibold text-slate-800 mb-4 leading-relaxed">
+                        {result.task}
+                      </h4>
+                      
+                      <div className="space-y-3">
+                        {result.options.map((option, optionIndex) => {
+                          const isSelected = option.select;
+                          const isCorrectOption = hasCorrectAnswers && option.isTrue;
+                          
+                          return (
+                            <div
+                              key={optionIndex}
+                              className={`p-4 rounded-lg border-2 transition-all ${
+                                hasCorrectAnswers ? (
+                                  isCorrectOption
+                                    ? 'border-emerald-200 bg-emerald-50'
+                                    : isSelected && !isCorrectOption
+                                    ? 'border-red-200 bg-red-50'
+                                    : 'border-gray-100 bg-gray-50'
+                                ) : (
+                                  isSelected
+                                    ? 'border-slate-300 bg-slate-100'
+                                    : 'border-gray-100 bg-gray-50'
+                                )
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                                    hasCorrectAnswers ? (
+                                      isCorrectOption
+                                        ? 'bg-emerald-500 text-white'
+                                        : isSelected && !isCorrectOption
+                                        ? 'bg-red-500 text-white'
+                                        : 'bg-gray-200 text-gray-600'
+                                    ) : (
+                                      isSelected
+                                        ? 'bg-slate-600 text-white'
+                                        : 'bg-gray-200 text-gray-600'
+                                    )
+                                  }`}>
+                                    {String.fromCharCode(65 + optionIndex)}
+                                  </div>
+                                  <span className={`text-sm ${
+                                    (hasCorrectAnswers && (isCorrectOption || (isSelected && !isCorrectOption))) || 
+                                    (!hasCorrectAnswers && isSelected)
+                                      ? 'font-medium'
+                                      : 'text-gray-600'
+                                  }`}>
+                                    {option.text}
                                   </span>
-                                )}
-                                {option.isTrue && (
-                                  <span className="text-xs px-2 py-1 bg-green-100 text-green-800 rounded">
-                                    Správné
-                                  </span>
-                                )}
+                                </div>
+                                
+                                <div className="flex items-center gap-2">
+                                  {isSelected && (
+                                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">
+                                      Vaše volba
+                                    </span>
+                                  )}
+                                  {hasCorrectAnswers && isCorrectOption && (
+                                    <CheckCircleIcon className="w-5 h-5 text-emerald-500" />
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        )}
+              </div>
+            );
+          })}
+        </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-          <button className="px-8 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            onClick={handleRetakeTest}
+            className="px-8 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-all duration-200 flex items-center gap-2"
+          >
+            <ArrowLeftIcon className="w-4 h-4" />
             Opakovat test
           </button>
-          <button className="px-8 py-3 bg-slate-600 text-white rounded-lg hover:bg-slate-700 transition-colors">
-            Nový test
-          </button>
-          <button className="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
-            Stáhnout výsledky
-          </button>
+        </div>
+
+        {/* Footer */}
+        <div className="text-center mt-8">
+          <p className="text-gray-400 text-sm">
+            Systém pro hodnocení technických znalostí
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default TestResultsPage;
+export default ResultPage;
