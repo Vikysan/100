@@ -11,7 +11,7 @@ const QuestionRangeSelector = () => {
   const [fromQuestion, setFromQuestion] = useState(1);
   const [toQuestion, setToQuestion] = useState(10);
   const [randomOrder, setRandomOrder] = useState(false);
-  
+
   // Předpokládám, že máš 100 otázek celkem
   const totalQuestions = 86;
   const selectedCount = toQuestion - fromQuestion + 1;
@@ -20,7 +20,7 @@ const QuestionRangeSelector = () => {
   const handleStartQuiz = () => {
     // Simulace přesměrování
     const orderText = randomOrder ? " v náhodném pořadí" : "";
-    localStorage.setItem("select",JSON.stringify(`${fromQuestion}-${toQuestion}`))
+    localStorage.setItem("select", JSON.stringify(`${fromQuestion}-${toQuestion}`))
     router.push(`/test/${fromQuestion}-${toQuestion}`);
     // alert(`Spouští se test s otázkami ${fromQuestion}-${toQuestion}${orderText}`);
   };
@@ -28,19 +28,34 @@ const QuestionRangeSelector = () => {
   const handleRangeChange = (type, value) => {
     const numValue = parseInt(value);
     
-    if (type === 'from') {
-      setFromQuestion(numValue);
-      // Automaticky upravit 'to' pokud je menší než 'from'
-      if (numValue > toQuestion) {
-        setToQuestion(numValue);
-      }
-    } else {
-      setToQuestion(numValue);
-      // Automaticky upravit 'from' pokud je větší než 'to'
-      if (numValue < fromQuestion) {
+    switch (numValue !== undefined) {
+      case type === 'from':
         setFromQuestion(numValue);
-      }
+      case numValue > toQuestion:
+        setToQuestion(numValue)
+        break;
+      case type === 'to':
+        setToQuestion(numValue);
+      case numValue < fromQuestion && type === 'to':
+        setFromQuestion(numValue);
+        break;
+      default:
+        break;
     }
+
+    // if (type === 'from') {
+    //   setFromQuestion(numValue);
+    //   // Automaticky upravit 'to' pokud je menší než 'from'
+    //   if (numValue > toQuestion) {
+    //     setToQuestion(numValue);
+    //   }
+    // } else {
+    //   setToQuestion(numValue);
+    //   // Automaticky upravit 'from' pokud je větší než 'to'
+    //   if (numValue < fromQuestion) {
+    //     setFromQuestion(numValue);
+    //   }
+    // }
   };
 
   const presetRanges = [
@@ -144,7 +159,7 @@ const QuestionRangeSelector = () => {
                   />
                 </div>
               </div>
-              
+
               {/* Random Order Checkbox */}
               <div className="mt-6">
                 <label className="flex items-center gap-3 cursor-pointer">
@@ -155,11 +170,10 @@ const QuestionRangeSelector = () => {
                       onChange={(e) => setRandomOrder(e.target.checked)}
                       className="sr-only"
                     />
-                    <div className={`w-6 h-6 rounded border-2 transition-all duration-200 flex items-center justify-center ${
-                      randomOrder 
-                        ? 'bg-emerald-500 border-emerald-500' 
+                    <div className={`w-6 h-6 rounded border-2 transition-all duration-200 flex items-center justify-center ${randomOrder
+                        ? 'bg-emerald-500 border-emerald-500'
                         : 'bg-white border-gray-300 hover:border-gray-400'
-                    }`}>
+                      }`}>
                       {randomOrder && (
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -226,7 +240,7 @@ const QuestionRangeSelector = () => {
                 </svg>
                 Spustit test
               </button>
-              
+
               <div className="text-sm text-gray-500">
                 Rozsah: otázky {fromQuestion} až {toQuestion}{randomOrder ? ' • Náhodné pořadí' : ''}
               </div>
