@@ -12,10 +12,11 @@ const QuestionRangeSelector = () => {
   const [toQuestion, setToQuestion] = useState(10);
   const [randomOrder, setRandomOrder] = useState(false);
 
-  // Předpokládám, že máš 100 otázek celkem
   const totalQuestions = 86;
-  const selectedCount = toQuestion - fromQuestion + 1;
-  const estimatedTime = Math.ceil(selectedCount * 1.5); // 1.5 minuty na otázku
+  let selectedCount = isNaN(toQuestion+fromQuestion) ? 0: toQuestion - fromQuestion + 1  ;
+  let estimatedTime =  Math.ceil(selectedCount * 1.5); // 1.5 minuty na otázku
+  // Předpokládám, že máš 100 otázek celkem
+  
 
   const handleStartQuiz = () => {
     // Simulace přesměrování
@@ -27,35 +28,23 @@ const QuestionRangeSelector = () => {
 
   const handleRangeChange = (type, value) => {
     const numValue = parseInt(value);
-    
-    switch (numValue !== undefined) {
-      case type === 'from':
-        setFromQuestion(numValue);
-      case numValue > toQuestion:
-        setToQuestion(numValue)
-        break;
-      case type === 'to':
+   
+  
+    if (type === 'from') {
+      setFromQuestion(numValue);
+      // Automaticky upravit 'to' pokud je menší než 'from'
+      if (numValue > toQuestion) {
         setToQuestion(numValue);
-      case numValue < fromQuestion && type === 'to':
-        setFromQuestion(numValue);
-        break;
-      default:
-        break;
-    }
+      }
+    } 
 
-    // if (type === 'from') {
-    //   setFromQuestion(numValue);
-    //   // Automaticky upravit 'to' pokud je menší než 'from'
-    //   if (numValue > toQuestion) {
-    //     setToQuestion(numValue);
-    //   }
-    // } else {
-    //   setToQuestion(numValue);
-    //   // Automaticky upravit 'from' pokud je větší než 'to'
-    //   if (numValue < fromQuestion) {
-    //     setFromQuestion(numValue);
-    //   }
-    // }
+    if(type === "to") {
+      setToQuestion(numValue);
+      // Automaticky upravit 'from' pokud je větší než 'to'
+      if (numValue < fromQuestion) {
+        setFromQuestion(numValue);
+      }
+    }
   };
 
   const presetRanges = [
@@ -223,7 +212,7 @@ const QuestionRangeSelector = () => {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600">Rozsah</div>
-                    <div className="font-semibold text-slate-800">{fromQuestion}-{toQuestion}</div>
+                    <div className="font-semibold text-slate-800">{isNaN(fromQuestion+toQuestion)?"Neznamy" :`${fromQuestion}-${toQuestion}` }</div>
                   </div>
                 </div>
               </div>
