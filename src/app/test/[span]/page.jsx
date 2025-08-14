@@ -1,9 +1,7 @@
 "use client";
-
+import Loading from "@/app/loading";
 import {
   useRouter,
-  usePathname,
-  useSearchParams,
   useParams,
 } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -12,7 +10,6 @@ import {
   HandRaisedIcon,
   CheckCircleIcon,
   ArrowRightIcon,
-  CodeBracketIcon,
 } from "@heroicons/react/24/solid";
 
 const Example = () => {
@@ -40,9 +37,7 @@ const Example = () => {
     ]);
     setSelected(null);
     if (counter < maxCounter) {
-      setCounter((prev) => {
-        return prev + 1;
-      });
+      setCounter(prev => prev + 1);
     }
   };
 
@@ -58,6 +53,10 @@ const Example = () => {
   const handleOptionClick = (option) => {
     setSelected(option);
   };
+
+  if (counter >= maxCounter) {
+  return <Loading />;
+}
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
