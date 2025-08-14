@@ -41,28 +41,28 @@ const Example = () => {
     }
   };
 
- 
- 
-   useEffect(() => {
-  if (counter === maxCounter && answers.length > 0) {
-    localStorage.setItem("result", JSON.stringify(answers));
-    router.push("/result");
-  }
-}, [answers, counter, maxCounter, router]);
+
+
+  useEffect(() => {
+    if (counter === maxCounter && answers.length > 0) {
+      localStorage.setItem("result", JSON.stringify(answers));
+      router.push("/result");
+    }
+  }, [answers, counter, maxCounter, router]);
 
   const handleOptionClick = (option) => {
     setSelected(option);
   };
 
   if (counter >= maxCounter) {
-  return <Loading />;
-}
+    return <Loading />;
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center md:p-6">
       <div className="w-full max-w-4xl">
         {/* Progress */}
-        <div className="mb-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+        <div className="mb-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100 invisible md:visible">
           <div className="flex justify-between items-center mb-3">
             <span className="text-sm font-medium text-gray-600">
               Otázka {counter + 1} / {inputData.length}
@@ -80,7 +80,7 @@ const Example = () => {
         </div>
 
         {/* Question Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-white md:rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="p-0">
             {/* Question Header */}
             <div className="p-8 border-b border-gray-100">
@@ -104,7 +104,7 @@ const Example = () => {
               <div className="space-y-3 mb-8" role="radiogroup" aria-label="Quiz options">
                 {inputData[counter]?.options?.map((option, index) => {
                   const isSelected = selected && selected.text === option.text;
-                  
+
                   return (
                     <div
                       key={option.text}
@@ -121,19 +121,17 @@ const Example = () => {
                       }}
                     >
                       <div
-                        className={`w-full flex items-center p-5 justify-between ${
-                          isSelected
+                        className={`w-full flex items-center p-5 justify-between ${isSelected
                             ? "bg-slate-800 text-white border-emerald-500 rounded-lg"
                             : ""
-                        }`}
+                          }`}
                       >
                         <div className="flex items-center">
                           <div
-                            className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-4 transition-colors ${
-                              isSelected
+                            className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-4 transition-colors ${isSelected
                                 ? "bg-emerald-500 text-white"
                                 : "bg-gray-100 group-hover:bg-gray-200 text-gray-600"
-                            }`}
+                              }`}
                           >
                             {String.fromCharCode(65 + index)}
                           </div>
@@ -142,18 +140,16 @@ const Example = () => {
                           </span>
                         </div>
                         <div
-                          className={`group flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all ${
-                            isSelected
+                          className={`group flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all ${isSelected
                               ? "border-emerald-400 bg-emerald-400"
                               : "border-gray-300 bg-white"
-                          }`}
+                            }`}
                         >
                           <CheckCircleIcon
-                            className={`w-4 h-4 transition-opacity ${
-                              isSelected
+                            className={`w-4 h-4 transition-opacity ${isSelected
                                 ? "text-white opacity-100"
                                 : "text-gray-400 opacity-0"
-                            }`}
+                              }`}
                           />
                         </div>
                       </div>
@@ -167,11 +163,10 @@ const Example = () => {
                 <button
                   onClick={addAnswerHandler}
                   disabled={!selected}
-                  className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
-                    selected
+                  className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${selected
                       ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
                       : "bg-gray-100 text-gray-400 cursor-not-allowed"
-                  }`}
+                    }`}
                 >
                   {counter < maxCounter - 1 ? "Další otázka" : "Dokončit test"}
                   <ArrowRightIcon className="w-4 h-4" />
