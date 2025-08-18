@@ -59,10 +59,11 @@ const Example = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center md:p-6">
+    <div className="h-dvh bg-gray-50 flex justify-between md:items-center md:justify-center md:p-6">
       <div className="w-full max-w-4xl">
         {/* Progress */}
-        <div className="mb-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100 invisible md:visible">
+        {/* Progres bar s popisy – jen pro md a větší */}
+        <div className="mb-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100 hidden md:block">
           <div className="flex justify-between items-center mb-3">
             <span className="text-sm font-medium text-gray-600">
               Otázka {counter + 1} / {inputData.length}
@@ -79,15 +80,23 @@ const Example = () => {
           </div>
         </div>
 
+        {/* Tenká zelená čára – jen pro malé displeje */}
+        <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 md:hidden z-50">
+          <div
+            className="bg-emerald-500 h-1 transition-all duration-300"
+            style={{ width: `${((counter + 1) / inputData.length) * 100}%` }}
+          />
+        </div>
+
         {/* Question Card */}
         <div className="bg-white md:rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="p-0">
+          {/* <div className="p-0"> */}
             {/* Question Header */}
             <div className="p-8 border-b border-gray-100">
               <div className="flex items-start gap-4">
-                <div className="p-2 bg-slate-100 rounded-lg flex-shrink-0 mt-1">
+                {/* <div className="p-2 bg-slate-100 rounded-lg flex-shrink-0 mt-1">
                   <HandRaisedIcon className="w-5 h-5 text-slate-600" />
-                </div>
+                </div> */}
                 <div>
                   <h2 className="font-semibold text-slate-800 mb-2 leading-relaxed">
                     {inputData[counter]?.task}
@@ -100,7 +109,7 @@ const Example = () => {
             </div>
 
             {/* Options */}
-            <div className="p-8">
+            <div className="p-8 h-max">
               <div className="space-y-3 mb-8" role="radiogroup" aria-label="Quiz options">
                 {inputData[counter]?.options?.map((option, index) => {
                   const isSelected = selected && selected.text === option.text;
@@ -122,33 +131,33 @@ const Example = () => {
                     >
                       <div
                         className={`w-full flex items-center p-5 justify-between ${isSelected
-                            ? "bg-slate-800 text-white border-emerald-500 rounded-lg"
-                            : ""
+                          ? "bg-slate-800 text-white border-emerald-500 rounded-lg"
+                          : ""
                           }`}
                       >
                         <div className="flex items-center">
-                          <div
+                          {/* <div
                             className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-4 transition-colors ${isSelected
-                                ? "bg-emerald-500 text-white"
-                                : "bg-gray-100 group-hover:bg-gray-200 text-gray-600"
+                              ? "bg-emerald-500 text-white"
+                              : "bg-gray-100 group-hover:bg-gray-200 text-gray-600"
                               }`}
                           >
                             {String.fromCharCode(65 + index)}
-                          </div>
+                          </div> */}
                           <span className="text-base leading-relaxed cursor-pointer">
                             {option.text}
                           </span>
                         </div>
                         <div
                           className={`group flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all ${isSelected
-                              ? "border-emerald-400 bg-emerald-400"
-                              : "border-gray-300 bg-white"
+                            ? "border-emerald-400 bg-emerald-400"
+                            : "border-gray-300 bg-white"
                             }`}
                         >
                           <CheckCircleIcon
                             className={`w-4 h-4 transition-opacity ${isSelected
-                                ? "text-white opacity-100"
-                                : "text-gray-400 opacity-0"
+                              ? "text-white opacity-100"
+                              : "text-gray-400 opacity-0"
                               }`}
                           />
                         </div>
@@ -164,8 +173,8 @@ const Example = () => {
                   onClick={addAnswerHandler}
                   disabled={!selected}
                   className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${selected
-                      ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
-                      : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                    ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
+                    : "bg-gray-100 text-gray-400 cursor-not-allowed"
                     }`}
                 >
                   {counter < maxCounter - 1 ? "Další otázka" : "Dokončit test"}
@@ -187,12 +196,12 @@ const Example = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-8">
+        {/* <div className="text-center mt-8">
           <p className="text-gray-400 text-sm">
             Systém pro hodnocení technických znalostí
           </p>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </div>
   );
 };
