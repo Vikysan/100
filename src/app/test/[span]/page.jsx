@@ -3,6 +3,7 @@ import Loading from "@/app/loading";
 import {
   useRouter,
   useParams,
+  useSearchParams
 } from "next/navigation";
 import { useState, useEffect } from "react";
 import { data } from "@/data/100";
@@ -15,9 +16,12 @@ import {
 const Example = () => {
   const router = useRouter();
   const params = useParams();
+  const query = useSearchParams()
+  console.log(!!query.get("s"))
+  console.log(params)
   const span = params.span.split("-").map((n) => +n);
   const [selected, setSelected] = useState(null);
-  const [inputData, setInputData] = useState(data.slice(span[0] - 1, span[1]));
+  const [inputData, setInputData] = useState( data.slice(span[0] - 1, span[1]));
   const [counter, setCounter] = useState(0);
   const [answers, setAnswers] = useState([]);
 
