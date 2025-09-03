@@ -17,8 +17,8 @@ const Example = () => {
   const router = useRouter();
   const params = useParams();
   const query = useSearchParams()
-  console.log(!!query.get("s"))
-  console.log(params)
+  // console.log(!!query.get("s"))
+  // console.log(params)
   const span = params.span.split("-").map((n) => +n);
   const [selected, setSelected] = useState(null);
   const [inputData, setInputData] = useState( data.slice(span[0] - 1, span[1]));
@@ -26,7 +26,7 @@ const Example = () => {
   const [answers, setAnswers] = useState([]);
 
   const maxCounter = inputData.length;
-
+  console.log(params.span)
   const addAnswerHandler = () => {
     setAnswers((prevState) => [
       ...prevState,

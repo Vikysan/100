@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import { data } from '@/data/100';
 import {
   useRouter,
   usePathname,
@@ -12,18 +13,18 @@ const QuestionRangeSelector = () => {
   const [toQuestion, setToQuestion] = useState(10);
   const [randomOrder, setRandomOrder] = useState(false);
 
-  const totalQuestions = 86;
+  const totalQuestions = data.length;
   let selectedCount = isNaN(toQuestion+fromQuestion) ? 0: toQuestion - fromQuestion + 1  ;
   let estimatedTime =  Math.ceil(selectedCount * 1.5); // 1.5 minuty na otázku
-  // Předpokládám, že máš 100 otázek celkem
+ 
   
 
   const handleStartQuiz = () => {
-    // Simulace přesměrování
+  
     const orderText = randomOrder ? " v náhodném pořadí" : "";
-    localStorage.setItem("select", JSON.stringify(`${fromQuestion}-${toQuestion}`))
+    localStorage.setItem("select", JSON.stringify(`${fromQuestion}-${toQuestion}`));
     router.push(`/test/${fromQuestion}-${toQuestion}`);
-    // alert(`Spouští se test s otázkami ${fromQuestion}-${toQuestion}${orderText}`);
+  
   };
 
   const handleRangeChange = (type, value) => {
