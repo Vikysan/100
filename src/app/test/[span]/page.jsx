@@ -17,13 +17,25 @@ const Example = () => {
   const router = useRouter();
   const params = useParams();
   const query = useSearchParams()
-  // console.log(!!query.get("s"))
+
+  const preparationInputdata = () => {
+    const span = params.span.split("-").map((n) => +n);
+    const inputDataSpan = data.slice(span[0] - 1, span[1])
+    if (!!query.get("r")) {
+      return inputDataSpan.sort(() => Math.random() - 0.5);
+    }
+    return inputDataSpan;
+  }
+  // console.log(!!query.get("r"))
   // console.log(params)
   const span = params.span.split("-").map((n) => +n);
   const [selected, setSelected] = useState(null);
-  const [inputData, setInputData] = useState( data.slice(span[0] - 1, span[1]));
+  const [inputData, setInputData] = useState(preparationInputdata());
   const [counter, setCounter] = useState(0);
   const [answers, setAnswers] = useState([]);
+
+
+
 
   const maxCounter = inputData.length;
   console.log(params.span)
@@ -95,52 +107,52 @@ const Example = () => {
         {/* Question Card */}
         <div className="bg-white md:rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           {/* <div className="p-0"> */}
-            {/* Question Header */}
-            <div className="p-8 border-b border-gray-100">
-              <div className="flex items-start gap-4">
-                {/* <div className="p-2 bg-slate-100 rounded-lg flex-shrink-0 mt-1">
+          {/* Question Header */}
+          <div className="p-8 border-b border-gray-100">
+            <div className="flex items-start gap-4">
+              {/* <div className="p-2 bg-slate-100 rounded-lg flex-shrink-0 mt-1">
                   <HandRaisedIcon className="w-5 h-5 text-slate-600" />
                 </div> */}
-                <div>
-                  <h2 className="font-semibold text-slate-800 mb-2 leading-relaxed">
-                    {inputData[counter]?.task}
-                  </h2>
-                  <p className="text-gray-600 text-sm">
-                    Vyberte nejlepší odpověď ze tří možností
-                  </p>
-                </div>
+              <div>
+                <h2 className="font-semibold text-slate-800 mb-2 leading-relaxed">
+                  {inputData[counter]?.task}
+                </h2>
+                <p className="text-gray-600 text-sm">
+                  Vyberte nejlepší odpověď ze tří možností
+                </p>
               </div>
             </div>
+          </div>
 
-            {/* Options */}
-            <div className="p-8 h-max">
-              <div className="space-y-3 mb-8" role="radiogroup" aria-label="Quiz options">
-                {inputData[counter]?.options?.map((option, index) => {
-                  const isSelected = selected && selected.text === option.text;
+          {/* Options */}
+          <div className="p-8 h-max">
+            <div className="space-y-3 mb-8" role="radiogroup" aria-label="Quiz options">
+              {inputData[counter]?.options?.map((option, index) => {
+                const isSelected = selected && selected.text === option.text;
 
-                  return (
+                return (
+                  <div
+                    key={option.text}
+                    className="w-full text-left rounded-lg border transition-all duration-200 cursor-pointer group hover:border-gray-300 hover:bg-gray-50"
+                    onClick={() => handleOptionClick(option)}
+                    role="radio"
+                    aria-checked={isSelected}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleOptionClick(option);
+                      }
+                    }}
+                  >
                     <div
-                      key={option.text}
-                      className="w-full text-left rounded-lg border transition-all duration-200 cursor-pointer group hover:border-gray-300 hover:bg-gray-50"
-                      onClick={() => handleOptionClick(option)}
-                      role="radio"
-                      aria-checked={isSelected}
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          handleOptionClick(option);
-                        }
-                      }}
+                      className={`w-full flex items-center p-5 justify-between ${isSelected
+                        ? "bg-slate-800 text-white border-emerald-500 rounded-lg"
+                        : ""
+                        }`}
                     >
-                      <div
-                        className={`w-full flex items-center p-5 justify-between ${isSelected
-                          ? "bg-slate-800 text-white border-emerald-500 rounded-lg"
-                          : ""
-                          }`}
-                      >
-                        <div className="flex items-center">
-                          {/* <div
+                      <div className="flex items-center">
+                        {/* <div
                             className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-4 transition-colors ${isSelected
                               ? "bg-emerald-500 text-white"
                               : "bg-gray-100 group-hover:bg-gray-200 text-gray-600"
@@ -148,59 +160,59 @@ const Example = () => {
                           >
                             {String.fromCharCode(65 + index)}
                           </div> */}
-                          <span className="text-base leading-relaxed cursor-pointer">
-                            {option.text}
-                          </span>
-                        </div>
-                        <div
-                          className={`group flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all ${isSelected
-                            ? "border-emerald-400 bg-emerald-400"
-                            : "border-gray-300 bg-white"
+                        <span className="text-base leading-relaxed cursor-pointer">
+                          {option.text}
+                        </span>
+                      </div>
+                      <div
+                        className={`group flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all ${isSelected
+                          ? "border-emerald-400 bg-emerald-400"
+                          : "border-gray-300 bg-white"
+                          }`}
+                      >
+                        <CheckCircleIcon
+                          className={`w-4 h-4 transition-opacity ${isSelected
+                            ? "text-white opacity-100"
+                            : "text-gray-400 opacity-0"
                             }`}
-                        >
-                          <CheckCircleIcon
-                            className={`w-4 h-4 transition-opacity ${isSelected
-                              ? "text-white opacity-100"
-                              : "text-gray-400 opacity-0"
-                              }`}
-                          />
-                        </div>
+                        />
                       </div>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
+            </div>
 
-              {/* Action Button */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-between items-center pt-6 border-t border-gray-100">
-                <button
-                  onClick={addAnswerHandler}
-                  disabled={!selected}
-                  className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${selected
-                    ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
-                    : "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    }`}
-                >
-                  {counter < maxCounter - 1 ? "Další otázka" : "Dokončit test"}
-                  <ArrowRightIcon className="w-4 h-4" />
-                </button>
+            {/* Action Button */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-between items-center pt-6 border-t border-gray-100">
+              <button
+                onClick={addAnswerHandler}
+                disabled={!selected}
+                className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${selected
+                  ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
+                  : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                  }`}
+              >
+                {counter < maxCounter - 1 ? "Další otázka" : "Dokončit test"}
+                <ArrowRightIcon className="w-4 h-4" />
+              </button>
 
-                <div className="text-sm text-gray-500">
-                  {selected ? (
-                    <span className="text-slate-600 font-medium">
-                      Připraveno k odeslání
-                    </span>
-                  ) : (
-                    <span>Vyberte odpověď</span>
-                  )}
-                </div>
+              <div className="text-sm text-gray-500">
+                {selected ? (
+                  <span className="text-slate-600 font-medium">
+                    Připraveno k odeslání
+                  </span>
+                ) : (
+                  <span>Vyberte odpověď</span>
+                )}
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Footer */}
-        {/* <div className="text-center mt-8">
+      {/* Footer */}
+      {/* <div className="text-center mt-8">
           <p className="text-gray-400 text-sm">
             Systém pro hodnocení technických znalostí
           </p>

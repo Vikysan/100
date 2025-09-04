@@ -12,7 +12,7 @@ const QuestionRangeSelector = () => {
   const [fromQuestion, setFromQuestion] = useState(1);
   const [toQuestion, setToQuestion] = useState(10);
   const [randomOrder, setRandomOrder] = useState(false);
-
+  const [error, setError] = useState("");
   const totalQuestions = data.length;
   let selectedCount = isNaN(toQuestion+fromQuestion) ? 0: toQuestion - fromQuestion + 1  ;
   let estimatedTime =  Math.ceil(selectedCount * 1.5); // 1.5 minuty na otázku
@@ -22,8 +22,8 @@ const QuestionRangeSelector = () => {
   const handleStartQuiz = () => {
   
     const orderText = randomOrder ? " v náhodném pořadí" : "";
-    localStorage.setItem("select", JSON.stringify(`${fromQuestion}-${toQuestion}`));
-    router.push(`/test/${fromQuestion}-${toQuestion}`);
+    localStorage.setItem("select", JSON.stringify(`${fromQuestion}-${toQuestion}?r=${randomOrder}`));
+    router.push(`/test/${fromQuestion}-${toQuestion}?r=${randomOrder}`);
   
   };
 
