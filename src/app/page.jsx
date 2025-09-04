@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { data } from '@/data/100';
 import {
   useRouter,
@@ -14,32 +14,37 @@ const QuestionRangeSelector = () => {
   const [randomOrder, setRandomOrder] = useState(false);
   const [error, setError] = useState("");
   const totalQuestions = data.length;
-  let selectedCount = isNaN(toQuestion+fromQuestion) ? 0: toQuestion - fromQuestion + 1  ;
-  let estimatedTime =  Math.ceil(selectedCount * 1.5); // 1.5 minuty na otázku
- 
-  
+  let selectedCount = isNaN(toQuestion + fromQuestion) ? 0 : toQuestion - fromQuestion + 1;
+  let estimatedTime = Math.ceil(selectedCount * 1.5); // 1.5 minuty na otázku
+
+  useEffect(() => {
+    if (fromQuestion < 1 || toQuestion > totalQuestions || fromQuestion > toQuestion) {
+      return setError("Neplatný rozsah otázek. Zkontrolujte prosím zadané hodnoty.");
+    }
+    if (!!error) { return setError("") }
+  }, [fromQuestion, toQuestion])
 
   const handleStartQuiz = () => {
-  
+
     const orderText = randomOrder ? " v náhodném pořadí" : "";
     localStorage.setItem("select", JSON.stringify(`${fromQuestion}-${toQuestion}?r=${randomOrder}`));
     router.push(`/test/${fromQuestion}-${toQuestion}?r=${randomOrder}`);
-  
+
   };
 
   const handleRangeChange = (type, value) => {
     const numValue = parseInt(value);
-   
-  
+
+
     if (type === 'from') {
       setFromQuestion(numValue);
       // Automaticky upravit 'to' pokud je menší než 'from'
       if (numValue > toQuestion) {
         setToQuestion(numValue);
       }
-    } 
+    }
 
-    if(type === "to") {
+    if (type === "to") {
       setToQuestion(numValue);
       // Automaticky upravit 'from' pokud je větší než 'to'
       if (numValue < fromQuestion) {
@@ -78,6 +83,7 @@ const QuestionRangeSelector = () => {
         </div> */}
 
         {/* Main Card */}
+        <h1>{error}</h1>
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           {/* Card Header */}
           <div className="p-8 border-b border-gray-100 bg-slate-50">
@@ -161,8 +167,8 @@ const QuestionRangeSelector = () => {
                       className="sr-only"
                     />
                     <div className={`w-6 h-6 rounded border-2 transition-all duration-200 flex items-center justify-center ${randomOrder
-                        ? 'bg-emerald-500 border-emerald-500'
-                        : 'bg-white border-gray-300 hover:border-gray-400'
+                      ? 'bg-emerald-500 border-emerald-500'
+                      : 'bg-white border-gray-300 hover:border-gray-400'
                       }`}>
                       {randomOrder && (
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -213,7 +219,7 @@ const QuestionRangeSelector = () => {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600">Rozsah</div>
-                    <div className="font-semibold text-slate-800">{isNaN(fromQuestion+toQuestion)?"Neznamy" :`${fromQuestion}-${toQuestion}` }</div>
+                    <div className="font-semibold text-slate-800">{isNaN(fromQuestion + toQuestion) ? "Neznamy" : `${fromQuestion}-${toQuestion}`}</div>
                   </div>
                 </div>
               </div>
@@ -222,6 +228,7 @@ const QuestionRangeSelector = () => {
             {/* Start Button */}
             <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
               <button
+                disabled={!!error}
                 onClick={handleStartQuiz}
                 className="px-8 py-4 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors shadow-sm flex items-center gap-3 text-lg"
               >
