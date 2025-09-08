@@ -1,4 +1,8 @@
+
+
 import { Geist, Geist_Mono } from "next/font/google";
+import ServiceWorkerRegister from "./ServiceWorkerRegister";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,16 +21,19 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+
   return (
     <html lang="en">
-      <header>
+      <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/icon-192x192.png" />
         <meta name="theme-color" content="#10b981" />
-      </header>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex justify-center items-center`}
       >
+         <ServiceWorkerRegister />
         {children}
       </body>
     </html>
