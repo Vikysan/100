@@ -644,5 +644,362 @@ export const data = [
           isTrue: false
         }
       ]
-    }
+    },
+  {
+    task: 'Bezpečnostní barva zelená znamená:',
+    options: [
+      {
+        text: 'bezpečí - bezpečné konání - normální provoz',
+        isTrue: true
+      },
+      {
+        text: 'označení nebezpečného prostoru',
+        isTrue: false
+      },
+      {
+        text: 'označení bezpečného prostoru - místa',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Bezpečnostní barva žlutá znamená:',
+    options: [
+      {
+        text: 'výstrahu - riziko - nebezpečí',
+        isTrue: true
+      },
+      {
+        text: 'označení nebezpečného prostoru',
+        isTrue: false
+      },
+      {
+        text: 'označení nebezpečné překážky',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Výstražná tabulka zákazu má tvar:',
+    options: [
+      {
+        text: 'kruhový',
+        isTrue: true
+      },
+      {
+        text: 'čtvercový',
+        isTrue: false
+      },
+      {
+        text: 'trojúhelníkový',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Výstražná tabulka vyjadřující výstrahu má podobu:',
+    options: [
+      {
+        text: 'žlutý trojúhelník s černým orámováním a symbolem',
+        isTrue: true
+      },
+      {
+        text: 'žlutý trojúhelník se symbolem vyjadřujícím druh nebezpečí',
+        isTrue: false
+      },
+      {
+        text: 'obdélníková zelená se symbolem a textem',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Výstražná tabulka modrá s vyznačeným symbolem vyjadřuje:',
+    options: [
+      {
+        text: 'příkaz',
+        isTrue: true
+      },
+      {
+        text: 'zákaz',
+        isTrue: false
+      },
+      {
+        text: 'doporučení',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Pro vypínací ovládače nesmí být použita barva:',
+    options: [
+      {
+        text: 'zelená',
+        isTrue: true
+      },
+      {
+        text: 'žlutá',
+        isTrue: false
+      },
+      {
+        text: 'černá',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Pro zapínací ovládače, je doporučená barva:',
+    options: [
+      {
+        text: 'bílá, šedá, černá',
+        isTrue: true
+      },
+      {
+        text: 'červená',
+        isTrue: false
+      },
+      {
+        text: 'žlutá',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Určená technická zařízení UTZ se vztahuje na zařízení instalována v objektech:',
+    options: [
+      {
+        text: 'depa metra, tramvajových vozoven, trolejbusové garáže, centrální dispečink, lanové dráhy',
+        isTrue: true
+      },
+      {
+        text: 'na všechny objekty DP',
+        isTrue: false
+      },
+      {
+        text: 'autobusové garáže, a jen na budovy kde jsou umístěné koleje',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Elektrotechnickou kvalifikaci zaměstnanců upravuje směrnice DP:',
+    options: [
+      {
+        text: '2010-046',
+        isTrue: true
+      },
+      {
+        text: '2011-026',
+        isTrue: false
+      },
+      {
+        text: '2011-007',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Určená technická zařízení UTZ se dělí na:',
+    options: [
+      {
+        text: 'Tlaková, plynová, elektrická, zdvihací, dopravní',
+        isTrue: true
+      },
+      {
+        text: 'Rozdělení určuje projektant',
+        isTrue: false
+      },
+      {
+        text: 'Pouze elektrická a plynová',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Vyhrazená technická zařízení VTZ se dělí na:',
+    options: [
+      {
+        text: 'Tlaková, plynová, elektrická, zdvihací',
+        isTrue: true
+      },
+      {
+        text: 'Rozdělení určuje projektant',
+        isTrue: false
+      },
+      {
+        text: 'Pouze elektrická a plynová',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Je možné vyjmenovaná zařízení UTZ provozovat bez průkazu způsobilosti?',
+    options: [
+      {
+        text: 'NE',
+        isTrue: true
+      },
+      {
+        text: 'Určuje projektant',
+        isTrue: false
+      },
+      {
+        text: 'Pouze elektrická a plynová',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Zařízení VTZ rozdělujeme:',
+    options: [
+      {
+        text: 'I. a II. třídy',
+        isTrue: true
+      },
+      {
+        text: '1. a 2. stupně',
+        isTrue: false
+      },
+      {
+        text: 'Nerozdělujeme',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Zařízení VTZ třídy I:',
+    options: [
+      {
+        text: 'Lze provozovat pouze na základě souhlasného stanoviska vydané TIČR',
+        isTrue: true
+      },
+      {
+        text: 'Se nemusí provádět žádné revize',
+        isTrue: false
+      },
+      {
+        text: 'Podléhá dozoru ministerstva kultury',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Která zařízení VTZ patří do třídy I:',
+    options: [
+      {
+        text: 'Upravuje SM 2011-026 nebo nařízení vlády 190 - 193/2022 Sb.',
+        isTrue: true
+      },
+      {
+        text: 'Zařízení umístěná v elektromobilech',
+        isTrue: false
+      },
+      {
+        text: 'Určuje ministerstvo vnitra',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Musí se provádět revize a kontroly spotřebičů s pohyblivým přívodem, strojní zařízení atd. , i v případě, že nejsou VTZ a UTZ?',
+    options: [
+      {
+        text: 'Ano musí, povinnost upravuje např. zákoník práce',
+        isTrue: true
+      },
+      {
+        text: 'Nemusí',
+        isTrue: false
+      },
+      {
+        text: 'Určí si provozovatel sám vlastním předpisem',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Dle nařízení vlády 378/2001 Sb. se provádí kontroly všech technických zařízení v intervalu:',
+    options: [
+      {
+        text: 'dle návodů výrobce nebo dodavatele, není-li interval stanoven, musí se provádět min. jednou ročně',
+        isTrue: true
+      },
+      {
+        text: 'dle uvážení uživatele',
+        isTrue: false
+      },
+      {
+        text: 'nemusí se provádět žádné kontroly',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Může být dokumentace k technickému zařízení předána provozovateli v Anglickém jazyce?',
+    options: [
+      {
+        text: 'NE',
+        isTrue: true
+      },
+      {
+        text: 'musí se dohodnout dodavatel s provozovatelem',
+        isTrue: false
+      },
+      {
+        text: 'záleží na dodavateli technického zařízení',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Záznamy o kontrolách, zkouškách a revizích, místní provozní řád, provozní deník, doklady o kvalifikaci obsluhy, záznamy o opravách a údržbě včetně harmonogramů, záznamy o činnostech prováděných na provozovaném technickém zařízení požadované předpisy atd.',
+    options: [
+      {
+        text: 'je provozovatel povinen vést',
+        isTrue: true
+      },
+      {
+        text: 'musí se dohodnout dodavatel s provozovatelem',
+        isTrue: false
+      },
+      {
+        text: 'záleží na dodavateli technického zařízení',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Provozování zařízení VTZ třídy I bez souhlasného stanoviska:',
+    options: [
+      {
+        text: 'je stav ohrožující bezpečnost',
+        isTrue: true
+      },
+      {
+        text: 'může být VTZ provozováno',
+        isTrue: false
+      },
+      {
+        text: 'je dovoleno s písemným souhlasem osoby odpovědné za elektrické zařízení',
+        isTrue: false
+      }
+    ]
+  },
+  {
+    task: 'Provozování zařízení UTZ bez průkazu způsobilosti:',
+    options: [
+      {
+        text: 'je stav ohrožující bezpečnost',
+        isTrue: true
+      },
+      {
+        text: 'může být VTZ provozováno',
+        isTrue: false
+      },
+      {
+        text: 'je dovoleno s písemným souhlasem osoby odpovědné za elektrické zařízení',
+        isTrue: false
+      }
+    ]
+  }
   ]
