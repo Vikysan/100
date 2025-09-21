@@ -1,4 +1,4 @@
-export const data = [
+[
   {
     "task": "Vedoucí práce musí před zahájením práce na zařízení vn provést, (mimo jiné), postupně následující úkony:",
     "options": [
