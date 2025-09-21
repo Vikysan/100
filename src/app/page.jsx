@@ -1,6 +1,6 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import { data } from '@/data/100';
+"use client";
+import React, { useState, useEffect } from "react";
+import { data } from "@/data/100";
 import {
   useRouter,
   usePathname,
@@ -14,29 +14,39 @@ const QuestionRangeSelector = () => {
   const [randomOrder, setRandomOrder] = useState(false);
   const [error, setError] = useState("");
   const totalQuestions = data.length;
-  let selectedCount = isNaN(toQuestion + fromQuestion) ? 0 : toQuestion - fromQuestion + 1;
+  let selectedCount = isNaN(toQuestion + fromQuestion)
+    ? 0
+    : toQuestion - fromQuestion + 1;
   let estimatedTime = Math.ceil(selectedCount * 1.5); // 1.5 minuty na otázku
 
   useEffect(() => {
-    if (fromQuestion < 1 || toQuestion > totalQuestions || fromQuestion > toQuestion) {
-      return setError("Neplatný rozsah otázek. Zkontrolujte prosím zadané hodnoty.");
+    if (
+      fromQuestion < 1 ||
+      toQuestion > totalQuestions ||
+      fromQuestion > toQuestion
+    ) {
+      return setError(
+        "Neplatný rozsah otázek. Zkontrolujte prosím zadané hodnoty."
+      );
     }
-    if (!!error) { return setError("") }
-  }, [fromQuestion, toQuestion])
+    if (!!error) {
+      return setError("");
+    }
+  }, [fromQuestion, toQuestion]);
 
   const handleStartQuiz = () => {
-
     const orderText = randomOrder ? " v náhodném pořadí" : "";
-    localStorage.setItem("select", JSON.stringify(`${fromQuestion}-${toQuestion}?r=${randomOrder}`));
+    localStorage.setItem(
+      "select",
+      JSON.stringify(`${fromQuestion}-${toQuestion}?r=${randomOrder}`)
+    );
     router.push(`/test/${fromQuestion}-${toQuestion}?r=${randomOrder}`);
-
   };
 
   const handleRangeChange = (type, value) => {
     const numValue = parseInt(value);
 
-
-    if (type === 'from') {
+    if (type === "from") {
       setFromQuestion(numValue);
       // Automaticky upravit 'to' pokud je menší než 'from'
       if (numValue > toQuestion) {
@@ -88,15 +98,26 @@ const QuestionRangeSelector = () => {
           {/* Card Header */}
           <div className="p-8 border-b border-gray-100 bg-slate-50">
             <div className="flex items-center gap-3 mb-2">
-              <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+              <svg
+                className="w-6 h-6 text-slate-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                />
               </svg>
               <h2 className="text-xl font-semibold text-slate-800">
                 Konfigurace testu
               </h2>
             </div>
             <p className="text-gray-600">
-              Celkem je k dispozici {totalQuestions} otázek. Vyberte si rozsah podle vaší úrovně.
+              Celkem je k dispozici {totalQuestions} otázek. Vyberte si rozsah
+              podle vaší úrovně.
             </p>
           </div>
 
@@ -126,7 +147,9 @@ const QuestionRangeSelector = () => {
 
             {/* Custom Range */}
             <div className="mb-8">
-              <h3 className="text-lg font-medium text-slate-800 mb-4">Vlastní rozsah</h3>
+              <h3 className="text-lg font-medium text-slate-800 mb-4">
+                Vlastní rozsah
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -137,7 +160,7 @@ const QuestionRangeSelector = () => {
                     min="1"
                     max={totalQuestions}
                     value={fromQuestion}
-                    onChange={(e) => handleRangeChange('from', e.target.value)}
+                    onChange={(e) => handleRangeChange("from", e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
                   />
                 </div>
@@ -150,7 +173,7 @@ const QuestionRangeSelector = () => {
                     min="1"
                     max={totalQuestions}
                     value={toQuestion}
-                    onChange={(e) => handleRangeChange('to', e.target.value)}
+                    onChange={(e) => handleRangeChange("to", e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
                   />
                 </div>
@@ -166,20 +189,37 @@ const QuestionRangeSelector = () => {
                       onChange={(e) => setRandomOrder(e.target.checked)}
                       className="sr-only"
                     />
-                    <div className={`w-6 h-6 rounded border-2 transition-all duration-200 flex items-center justify-center ${randomOrder
-                      ? 'bg-emerald-500 border-emerald-500'
-                      : 'bg-white border-gray-300 hover:border-gray-400'
-                      }`}>
+                    <div
+                      className={`w-6 h-6 rounded border-2 transition-all duration-200 flex items-center justify-center ${
+                        randomOrder
+                          ? "bg-emerald-500 border-emerald-500"
+                          : "bg-white border-gray-300 hover:border-gray-400"
+                      }`}
+                    >
                       {randomOrder && (
-                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        <svg
+                          className="w-4 h-4 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                       )}
                     </div>
                   </div>
                   <div>
-                    <span className="text-sm font-medium text-gray-700">Náhodné pořadí otázek</span>
-                    <p className="text-xs text-gray-500 mt-1">Otázky budou zobrazeny v náhodném pořadí</p>
+                    <span className="text-sm font-medium text-gray-700">
+                      Náhodné pořadí otázek
+                    </span>
+                    <p className="text-xs text-gray-500 mt-1">
+                      Otázky budou zobrazeny v náhodném pořadí
+                    </p>
                   </div>
                 </label>
               </div>
@@ -187,39 +227,79 @@ const QuestionRangeSelector = () => {
 
             {/* Summary */}
             <div className="bg-slate-50 rounded-lg p-6 mb-8">
-              <h3 className="text-lg font-medium text-slate-800 mb-4">Souhrn testu</h3>
+              <h3 className="text-lg font-medium text-slate-800 mb-4">
+                Souhrn testu
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-emerald-100 rounded-lg">
-                    <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    <svg
+                      className="w-5 h-5 text-emerald-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
                     </svg>
                   </div>
                   <div>
                     <div className="text-sm text-gray-600">Počet otázek</div>
-                    <div className="font-semibold text-slate-800">{selectedCount}</div>
+                    <div className="font-semibold text-slate-800">
+                      {selectedCount}
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-blue-100 rounded-lg">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      className="w-5 h-5 text-blue-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
                   </div>
                   <div>
                     <div className="text-sm text-gray-600">Odhadovaný čas</div>
-                    <div className="font-semibold text-slate-800">{estimatedTime} min</div>
+                    <div className="font-semibold text-slate-800">
+                      {estimatedTime} min
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-purple-100 rounded-lg">
-                    <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                    <svg
+                      className="w-5 h-5 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                      />
                     </svg>
                   </div>
                   <div>
                     <div className="text-sm text-gray-600">Rozsah</div>
-                    <div className="font-semibold text-slate-800">{isNaN(fromQuestion + toQuestion) ? "Neznamy" : `${fromQuestion}-${toQuestion}`}</div>
+                    <div className="font-semibold text-slate-800">
+                      {isNaN(fromQuestion + toQuestion)
+                        ? "Neznamy"
+                        : `${fromQuestion}-${toQuestion}`}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -232,14 +312,25 @@ const QuestionRangeSelector = () => {
                 onClick={handleStartQuiz}
                 className="px-8 py-4 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors shadow-sm flex items-center gap-3 text-lg"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H15M9 10v4a2 2 0 002 2h2a2 2 0 002-2v-4m-6 0V9a2 2 0 012-2h2a2 2 0 012 2v1" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H15M9 10v4a2 2 0 002 2h2a2 2 0 002-2v-4m-6 0V9a2 2 0 012-2h2a2 2 0 012 2v1"
+                  />
                 </svg>
                 Spustit test
               </button>
 
               <div className="text-sm text-gray-500">
-                Rozsah: otázky {fromQuestion} až {toQuestion}{randomOrder ? ' • Náhodné pořadí' : ''}
+                Rozsah: otázky {fromQuestion} až {toQuestion}
+                {randomOrder ? " • Náhodné pořadí" : ""}
               </div>
             </div>
           </div>

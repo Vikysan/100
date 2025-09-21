@@ -1,10 +1,6 @@
 "use client";
 import Loading from "@/app/loading";
-import {
-  useRouter,
-  useParams,
-  useSearchParams
-} from "next/navigation";
+import { useRouter, useParams, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { data } from "@/data/100";
 import {
@@ -16,16 +12,16 @@ import {
 const Example = () => {
   const router = useRouter();
   const params = useParams();
-  const query = useSearchParams()
+  const query = useSearchParams();
 
   const preparationInputdata = () => {
     const span = params.span.split("-").map((n) => +n);
-    const inputDataSpan = data.slice(span[0] - 1, span[1])
+    const inputDataSpan = data.slice(span[0] - 1, span[1]);
     if (!!query.get("r")) {
       return inputDataSpan.sort(() => Math.random() - 0.5);
     }
     return inputDataSpan;
-  }
+  };
   // console.log(!!query.get("r"))
   // console.log(params)
   const span = params.span.split("-").map((n) => +n);
@@ -34,30 +30,23 @@ const Example = () => {
   const [counter, setCounter] = useState(0);
   const [answers, setAnswers] = useState([]);
 
-
-
-
   const maxCounter = inputData.length;
-  console.log(params.span)
+  console.log(params.span);
   const addAnswerHandler = () => {
     setAnswers((prevState) => [
       ...prevState,
       {
         task: inputData[counter].task,
         options: inputData[counter].options.map((option) =>
-          option.text === selected.text
-            ? { ...option, select: true }
-            : option
+          option.text === selected.text ? { ...option, select: true } : option
         ),
       },
     ]);
     setSelected(null);
     if (counter < maxCounter) {
-      setCounter(prev => prev + 1);
+      setCounter((prev) => prev + 1);
     }
   };
-
-
 
   useEffect(() => {
     if (counter === maxCounter && answers.length > 0) {
@@ -126,7 +115,11 @@ const Example = () => {
 
           {/* Options */}
           <div className="p-8 h-max">
-            <div className="space-y-3 mb-8" role="radiogroup" aria-label="Quiz options">
+            <div
+              className="space-y-3 mb-8"
+              role="radiogroup"
+              aria-label="Quiz options"
+            >
               {inputData[counter]?.options?.map((option, index) => {
                 const isSelected = selected && selected.text === option.text;
 
@@ -139,17 +132,18 @@ const Example = () => {
                     aria-checked={isSelected}
                     tabIndex={0}
                     onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
+                      if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
                         handleOptionClick(option);
                       }
                     }}
                   >
                     <div
-                      className={`w-full flex items-center p-5 justify-between ${isSelected
-                        ? "bg-slate-800 text-white border-emerald-500 rounded-lg"
-                        : ""
-                        }`}
+                      className={`w-full flex items-center p-5 justify-between ${
+                        isSelected
+                          ? "bg-slate-800 text-white border-emerald-500 rounded-lg"
+                          : ""
+                      }`}
                     >
                       <div className="flex items-center">
                         {/* <div
@@ -165,16 +159,18 @@ const Example = () => {
                         </span>
                       </div>
                       <div
-                        className={`group flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all ${isSelected
-                          ? "border-emerald-400 bg-emerald-400"
-                          : "border-gray-300 bg-white"
-                          }`}
+                        className={`group flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all ${
+                          isSelected
+                            ? "border-emerald-400 bg-emerald-400"
+                            : "border-gray-300 bg-white"
+                        }`}
                       >
                         <CheckCircleIcon
-                          className={`w-4 h-4 transition-opacity ${isSelected
-                            ? "text-white opacity-100"
-                            : "text-gray-400 opacity-0"
-                            }`}
+                          className={`w-4 h-4 transition-opacity ${
+                            isSelected
+                              ? "text-white opacity-100"
+                              : "text-gray-400 opacity-0"
+                          }`}
                         />
                       </div>
                     </div>
@@ -188,10 +184,11 @@ const Example = () => {
               <button
                 onClick={addAnswerHandler}
                 disabled={!selected}
-                className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${selected
-                  ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
-                  : "bg-gray-100 text-gray-400 cursor-not-allowed"
-                  }`}
+                className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+                  selected
+                    ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
+                    : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                }`}
               >
                 {counter < maxCounter - 1 ? "Další otázka" : "Dokončit test"}
                 <ArrowRightIcon className="w-4 h-4" />
