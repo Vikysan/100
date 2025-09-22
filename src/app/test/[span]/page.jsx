@@ -17,7 +17,10 @@ const Example = () => {
   const preparationInputdata = () => {
     const span = params.span.split("-").map((n) => +n);
     const inputDataSpan = data.slice(span[0] - 1, span[1]);
-    if (!!query.get("r")) {
+
+    
+    if (query.get("r")=="true") {
+      
       return inputDataSpan.sort(() => Math.random() - 0.5);
     }
     return inputDataSpan;
@@ -31,7 +34,6 @@ const Example = () => {
   const [answers, setAnswers] = useState([]);
 
   const maxCounter = inputData.length;
-  console.log(params.span);
   const addAnswerHandler = () => {
     setAnswers((prevState) => [
       ...prevState,
