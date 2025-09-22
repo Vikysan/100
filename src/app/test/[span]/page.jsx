@@ -96,7 +96,7 @@ const Example = () => {
         </div>
 
         {/* Question Card */}
-        <div className="bg-white md:rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-white  h-dvh flex flex-col relative md:h-auto md:rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           {/* <div className="p-0"> */}
           {/* Question Header */}
           <div className="p-8 border-b border-gray-100">
@@ -116,9 +116,9 @@ const Example = () => {
           </div>
 
           {/* Options */}
-          <div className="p-8 h-max">
+          <div className="p-8 h-100 md:h-max flex-1 overflow-auto">
             <div
-              className="space-y-3 mb-8"
+              className="space-y-3 mb-8 flex flex-col h-100 md:h-max  flex-1"
               role="radiogroup"
               aria-label="Quiz options"
             >
@@ -147,7 +147,7 @@ const Example = () => {
                           : ""
                       }`}
                     >
-                      <div className="flex items-center">
+                      <div className="flex items-between">
                         {/* <div
                             className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mr-4 transition-colors ${isSelected
                               ? "bg-emerald-500 text-white"
@@ -156,12 +156,12 @@ const Example = () => {
                           >
                             {String.fromCharCode(65 + index)}
                           </div> */}
-                        <span className="text-base leading-relaxed cursor-pointer">
+                        <span className="text-base leading-relaxed cursor-pointer ">
                           {option.text}
                         </span>
                       </div>
                       <div
-                        className={`group flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all ${
+                        className={`flex w-6 h-6 items-center justify-center rounded-full border-2 transition-all shrink-0  ${
                           isSelected
                             ? "border-emerald-400 bg-emerald-400"
                             : "border-gray-300 bg-white"
@@ -182,7 +182,7 @@ const Example = () => {
             </div>
 
             {/* Action Button */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-between items-center pt-6 border-t border-gray-100">
+            <div className="flex flex-none flex-col sm:flex-row gap-4 justify-between items-center pt-6 border-t border-gray-100">
               <button
                 onClick={addAnswerHandler}
                 disabled={!selected}
