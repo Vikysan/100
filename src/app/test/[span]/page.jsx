@@ -1,7 +1,7 @@
 "use client";
 import Loading from "@/app/loading";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useMemo } from "react";
 import { data } from "@/data/100";
 import {
   HandRaisedIcon,
@@ -32,8 +32,7 @@ const Example = () => {
   // console.log(params)
   const span = params.span.split("-").map((n) => +n);
   const [selected, setSelected] = useState(null);
-  const [inputData, setInputData] = useState(preparationInputData);
-  const [counter, setCounter] = useState(0);
+const inputData = useMemo(preparationInputData, [params.span, query]);  const [counter, setCounter] = useState(0);
   const [answers, setAnswers] = useState([]);
 
   const maxCounter = inputData.length;
@@ -63,6 +62,10 @@ const Example = () => {
   const handleOptionClick = (option) => {
     setSelected(option);
   };
+  
+  if (!inputData.length) {
+  return <div className="text-center p-8">Žádné otázky k zobrazení.</div>;
+}
 
   if (counter >= maxCounter) {
     return <Loading />;
