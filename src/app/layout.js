@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex justify-center items-center`}
       >
-         {/* <ServiceWorkerRegister /> */}
+         <ServiceWorkerRegister />
         {children}
       </body>
     </html>
