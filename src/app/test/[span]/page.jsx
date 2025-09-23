@@ -62,7 +62,7 @@ const inputData = useMemo(preparationInputData, [params.span, query]);  const [c
   const handleOptionClick = (option) => {
     setSelected(option);
   };
-  
+
   if (!inputData.length) {
   return <div className="text-center p-8">Žádné otázky k zobrazení.</div>;
 }
@@ -187,8 +187,9 @@ const inputData = useMemo(preparationInputData, [params.span, query]);  const [c
               })}
             </div>
 
+        </div>
             {/* Action Button */}
-            <div className="flex flex-none flex-col sm:flex-row gap-4 justify-between items-center pt-6 border-t border-gray-100">
+            <div className="flex  flex-col sm:flex-row-reverse gap-4 p-4 justify-between items-center pt-6 border-t border-gray-100">
               <button
                 onClick={addAnswerHandler}
                 disabled={!selected}
@@ -213,7 +214,6 @@ const inputData = useMemo(preparationInputData, [params.span, query]);  const [c
               </div>
             </div>
           </div>
-        </div>
       </div>
 
       {/* Footer */}
