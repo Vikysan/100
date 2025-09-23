@@ -14,10 +14,13 @@ const Example = () => {
   const params = useParams();
   const query = useSearchParams();
 
-  const preparationInputdata = () => {
+  const preparationInputData = () => {
     const span = params.span.split("-").map((n) => +n);
     const inputDataSpan = data.slice(span[0] - 1, span[1]);
-
+    console.log("shuffle")
+    for(let input of inputDataSpan) {
+      input.options = input.options.sort(() => Math.random() - 0.5);
+    }
     
     if (query.get("r")=="true") {
       
@@ -29,7 +32,7 @@ const Example = () => {
   // console.log(params)
   const span = params.span.split("-").map((n) => +n);
   const [selected, setSelected] = useState(null);
-  const [inputData, setInputData] = useState(preparationInputdata());
+  const [inputData, setInputData] = useState(preparationInputData);
   const [counter, setCounter] = useState(0);
   const [answers, setAnswers] = useState([]);
 
