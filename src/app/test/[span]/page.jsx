@@ -1,7 +1,7 @@
 "use client";
 import Loading from "@/app/loading";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
-import { useState, useEffect,useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { data } from "@/data/100";
 import {
   HandRaisedIcon,
@@ -17,39 +17,45 @@ const Example = () => {
   const preparationInputData = () => {
     const span = params.span.split("-").map((n) => +n);
     const inputDataSpan = data.slice(span[0] - 1, span[1]);
-    console.log("shuffle")
-    for(let input of inputDataSpan) {
+    console.log("shuffle");
+    for (let input of inputDataSpan) {
       input.options = input.options.sort(() => Math.random() - 0.5);
     }
-    
-    if (query.get("r")=="true") {
-      
+
+    if (query.get("r") == "true") {
       return inputDataSpan.sort(() => Math.random() - 0.5);
     }
+    console.log(inputDataSpan);
     return inputDataSpan;
   };
   // console.log(!!query.get("r"))
   // console.log(params)
   const span = params.span.split("-").map((n) => +n);
   const [selected, setSelected] = useState(null);
-const inputData = useMemo(preparationInputData, [params.span, query]);  const [counter, setCounter] = useState(0);
+  const inputData = useMemo(preparationInputData, [params.span, query]);
+  const [counter, setCounter] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [showCorrect, setShowCorrect] = useState(false);
 
   const maxCounter = inputData.length;
   const addAnswerHandler = () => {
-    setAnswers((prevState) => [
-      ...prevState,
-      {
-        task: inputData[counter].task,
-        options: inputData[counter].options.map((option) =>
-          option.text === selected.text ? { ...option, select: true } : option
-        ),
-      },
-    ]);
-    setSelected(null);
-    if (counter < maxCounter) {
-      setCounter((prev) => prev + 1);
-    }
+    setShowCorrect(true);
+    setTimeout(() => {
+      setShowCorrect(false);
+      setAnswers((prevState) => [
+        ...prevState,
+        {
+          task: inputData[counter].task,
+          options: inputData[counter].options.map((option) =>
+            option.text === selected.text ? { ...option, select: true } : option
+          ),
+        },
+      ]);
+      setSelected(null);
+      if (counter < maxCounter) {
+        setCounter((prev) => prev + 1);
+      }
+    }, 2000);
   };
 
   useEffect(() => {
@@ -64,8 +70,8 @@ const inputData = useMemo(preparationInputData, [params.span, query]);  const [c
   };
 
   if (!inputData.length) {
-  return <div className="text-center p-8">Žádné otázky k zobrazení.</div>;
-}
+    return <div className="text-center p-8">Žádné otázky k zobrazení.</div>;
+  }
 
   if (counter >= maxCounter) {
     return <Loading />;
@@ -130,11 +136,14 @@ const inputData = useMemo(preparationInputData, [params.span, query]);  const [c
             >
               {inputData[counter]?.options?.map((option, index) => {
                 const isSelected = selected && selected.text === option.text;
+                const isCorrect = option.isTrue; // předpokládám, že správná odpověď má isTrue === true
 
                 return (
                   <div
                     key={option.text}
-                    className="w-full text-left rounded-lg border transition-all duration-200 cursor-pointer group hover:border-gray-300 hover:bg-gray-50"
+                    className={`w-full text-left rounded-lg border transition-all duration-200 cursor-pointer group hover:border-gray-300 hover:bg-gray-50
+        ${showCorrect && isCorrect ? "border-emerald-500 bg-emerald-50" : ""}
+      `}
                     onClick={() => handleOptionClick(option)}
                     role="radio"
                     aria-checked={isSelected}
@@ -186,34 +195,33 @@ const inputData = useMemo(preparationInputData, [params.span, query]);  const [c
                 );
               })}
             </div>
+          </div>
+          {/* Action Button */}
+          <div className="flex  flex-col sm:flex-row-reverse gap-4 p-4 justify-between items-center pt-6 border-t border-gray-100">
+            <button
+              onClick={addAnswerHandler}
+              disabled={!selected}
+              className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+                selected
+                  ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
+                  : "bg-gray-100 text-gray-400 cursor-not-allowed"
+              }`}
+            >
+              {counter < maxCounter - 1 ? "Další otázka" : "Dokončit test"}
+              <ArrowRightIcon className="w-4 h-4" />
+            </button>
 
-        </div>
-            {/* Action Button */}
-            <div className="flex  flex-col sm:flex-row-reverse gap-4 p-4 justify-between items-center pt-6 border-t border-gray-100">
-              <button
-                onClick={addAnswerHandler}
-                disabled={!selected}
-                className={`px-8 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
-                  selected
-                    ? "bg-slate-800 text-white hover:bg-slate-700 shadow-sm"
-                    : "bg-gray-100 text-gray-400 cursor-not-allowed"
-                }`}
-              >
-                {counter < maxCounter - 1 ? "Další otázka" : "Dokončit test"}
-                <ArrowRightIcon className="w-4 h-4" />
-              </button>
-
-              <div className="text-sm text-gray-500">
-                {selected ? (
-                  <span className="text-slate-600 font-medium">
-                    Připraveno k odeslání
-                  </span>
-                ) : (
-                  <span>Vyberte odpověď</span>
-                )}
-              </div>
+            <div className="text-sm text-gray-500">
+              {selected ? (
+                <span className="text-slate-600 font-medium">
+                  Připraveno k odeslání
+                </span>
+              ) : (
+                <span>Vyberte odpověď</span>
+              )}
             </div>
           </div>
+        </div>
       </div>
 
       {/* Footer */}
