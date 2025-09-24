@@ -1,735 +1,5 @@
 export const data = [
-  {
-    "task": "Vedoucí práce musí před zahájením práce na zařízení vn provést, (mimo jiné), postupně následující úkony:",
-    "options": [
-      {
-        "text": "musí informovat osobu pověřenou kontrolou elektrického zařízení během pracovní činnosti, o jakou práci se jedná a o zařízení, na kterém se bude práce konat",
-        "isTrue": true
-      },
-      {
-        "text": "seznámit podřízené se způsobem a rozsahem práce, vydat pracovní skupině povolení k zahájení práce a informovat osobu zodpovědnou za elektrické zařízení o zamýšleném rozsahu prací",
-        "isTrue": false
-      },
-      {
-        "text": "informovat osobu zodpovědnou za elektrické zařízení o zamýšleném rozsahu prací, vydat pracovní skupině povolení k zahájení práce a seznámit podřízené se způsobem a rozsahem práce",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Ochrana zábranou se smí používat v prostorách přístupných pouze osobám s kvalifikací nejméně:",
-    "options": [
-      {
-        "text": "osoba seznámená pod dozorem",
-        "isTrue": true
-      },
-      {
-        "text": "osoba poučená pod dozorem",
-        "isTrue": false
-      },
-      {
-        "text": "osoba znalá samostatně",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Výměnu pojistek u zařízení vn, v případech, kdy není vyloučen dotyk na živou část, smí provádět osoba s kvalifikací nejméně:",
-    "options": [
-      {
-        "text": "osoba znalá nebo poučená podle pracovních postupů",
-        "isTrue": true
-      },
-      {
-        "text": "osoba poučená",
-        "isTrue": false
-      },
-      {
-        "text": "osoba seznámená podle pracovních postupů",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Výměnu pojistek nn smí provádět:",
-    "options": [
-      {
-        "text": "osoba nejméně seznámená jen v případech, když jsou pojistky provedeny tak, že je vyloučen přímý dotyk na živou část",
-        "isTrue": true
-      },
-      {
-        "text": "osoba nejméně seznámená",
-        "isTrue": false
-      },
-      {
-        "text": "osoba nejméně poučená",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Minimální bezpečná vzdálenost od živých částí při pracích na zařízení 22 kV je:",
-    "options": [
-      {
-        "text": "26 cm",
-        "isTrue": true
-      },
-      {
-        "text": "70 cm",
-        "isTrue": false
-      },
-      {
-        "text": "35 cm",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Při pracích pod napětím na zařízeních nn (do 1 kV AC) musí pracovník dodržovat vzdálenost k živým částem:",
-    "options": [
-      {
-        "text": "tak, aby zůstal bez dotyku na živou část",
-        "isTrue": true
-      },
-      {
-        "text": "tak, aby se nepřiblížil blíže než 75 cm",
-        "isTrue": false
-      },
-      {
-        "text": "tak, aby se nepřiblížil blíže než 30 cm",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Pracovníci znalí mohou pracovat na zařízeních nn v blízkosti živých částí pod napětím:",
-    "options": [
-      {
-        "text": "sami",
-        "isTrue": true
-      },
-      {
-        "text": "s dohledem osoby znalé s vyšší kvalifikací",
-        "isTrue": false
-      },
-      {
-        "text": "pod dozorem osoby znalé s vyšší kvalifikací",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Na živých částech pod napětím na zařízení nn pracovníci poučení a speciálně vyškolení:",
-    "options": [
-      {
-        "text": "mohou samostatně pracovat",
-        "isTrue": true
-      },
-      {
-        "text": "mohou pracovat pod dohledem",
-        "isTrue": false
-      },
-      {
-        "text": "nesmějí pracovat",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "V případě, kdy dochází k propojení sítě nn dráhy a sítě nn mimo obvod dráhy se:",
-    "options": [
-      {
-        "text": "musí oddělit tyto sítě použitím oddělovacího transformátoru",
-        "isTrue": true
-      },
-      {
-        "text": "nemusí provádět žádná další opatření",
-        "isTrue": false
-      },
-      {
-        "text": "musí v místě dělení použít proudový chránič",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Pojížděné koleje jako součást zpětného trakčního vedení:",
-    "options": [
-      {
-        "text": "se nesmějí spojovat s okolními uzemněnými vodivými částmi",
-        "isTrue": true
-      },
-      {
-        "text": "se smějí spojovat s okolními uzemněnými vodivými částmi",
-        "isTrue": false
-      },
-      {
-        "text": "se smějí spojovat s okolními vodivými uzemněnými částmi jen v prostoru dráhy",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Dovolené barvy signálek nebo ovladačů jsou:",
-    "options": [
-      {
-        "text": "bílá, šedá, černá, žlutá, zelená, červená a modrá",
-        "isTrue": true
-      },
-      {
-        "text": "červená, modrá, zeleno/žlutá, šedá, bílá a černá",
-        "isTrue": false
-      },
-      {
-        "text": "červená, modrá, zelená, žlutá, bílá, šedá, černá, fialová a rudá",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Žlutá barva světelného signálu znamená:",
-    "options": [
-      {
-        "text": "varování, výstrahu, nenormální stav (ale ještě v provozu)",
-        "isTrue": true
-      },
-      {
-        "text": "nebezpečí, porucha, stav nouze",
-        "isTrue": false
-      },
-      {
-        "text": "vypnutý stav zařízení",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Signální barva (signálka) červená znamená:",
-    "options": [
-      {
-        "text": "poruchu, stav nouze, nebezpečí",
-        "isTrue": true
-      },
-      {
-        "text": "zařízení je v provozu",
-        "isTrue": false
-      },
-      {
-        "text": "zařízení je mimo provoz",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Červená barva světelného signálu znamená:",
-    "options": [
-      {
-        "text": "nebezpečí, porucha, stav nouze",
-        "isTrue": true
-      },
-      {
-        "text": "vypnutý stav zařízení",
-        "isTrue": false
-      },
-      {
-        "text": "dosažení požadovaného stavu zařízení",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Zelená barva světelného signálu znamená:",
-    "options": [
-      {
-        "text": "bezpečí, normální stav zařízení, zařízení v normálním provozu",
-        "isTrue": true
-      },
-      {
-        "text": "zařízení je mimo provoz, ale je připravené k zapnutí",
-        "isTrue": false
-      },
-      {
-        "text": "vypnutý stav zařízení",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Signální barva (signálka) zelená znamená:",
-    "options": [
-      {
-        "text": "zařízení je v provozu",
-        "isTrue": true
-      },
-      {
-        "text": "zařízení je mimo provoz",
-        "isTrue": false
-      },
-      {
-        "text": "zařízení je vypnuté a zajištěné",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Signální barva (signálka) žlutá znamená:",
-    "options": [
-      {
-        "text": "výstrahu, varování, že zařízení je v kritickém stavu",
-        "isTrue": true
-      },
-      {
-        "text": "varování, výstrahu, že zařízení bude uvedeno do klidu",
-        "isTrue": false
-      },
-      {
-        "text": "varování, výstrahu před následujícím uvedením do provozu",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Bezpečnostní barva červená znamená:",
-    "options": [
-      {
-        "text": "zákaz - stůj - zastavení osob nebo zařízení",
-        "isTrue": true
-      },
-      {
-        "text": "označení nebezpečného prostoru - místa",
-        "isTrue": false
-      },
-      {
-        "text": "výstrahu před nebezpečím",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Bezpečnostní barva zelená znamená:",
-    "options": [
-      {
-        "text": "bezpečí - bezpečné konání - normální provoz",
-        "isTrue": true
-      },
-      {
-        "text": "označení nebezpečného prostoru",
-        "isTrue": false
-      },
-      {
-        "text": "označení bezpečného prostoru - místa",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Bezpečnostní barva žlutá znamená:",
-    "options": [
-      {
-        "text": "výstrahu - riziko - nebezpečí",
-        "isTrue": true
-      },
-      {
-        "text": "označení nebezpečného prostoru",
-        "isTrue": false
-      },
-      {
-        "text": "označení nebezpečné překážky",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Výstražná tabulka zákazu má tvar:",
-    "options": [
-      {
-        "text": "kruhový",
-        "isTrue": true
-      },
-      {
-        "text": "čtvercový",
-        "isTrue": false
-      },
-      {
-        "text": "trojúhelníkový",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Výstražná tabulka vyjadřující výstrahu má podobu:",
-    "options": [
-      {
-        "text": "žlutý trojúhelník s černým orámováním a symbolem",
-        "isTrue": true
-      },
-      {
-        "text": "žlutý trojúhelník se symbolem vyjadřujícím druh nebezpečí",
-        "isTrue": false
-      },
-      {
-        "text": "obdélníková zelená se symbolem a textem",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Výstražná tabulka modrá s vyznačeným symbolem vyjadřuje:",
-    "options": [
-      {
-        "text": "příkaz",
-        "isTrue": true
-      },
-      {
-        "text": "zákaz",
-        "isTrue": false
-      },
-      {
-        "text": "doporučení",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Pro vypínací ovládače nesmí být použita barva:",
-    "options": [
-      {
-        "text": "zelená",
-        "isTrue": true
-      },
-      {
-        "text": "žlutá",
-        "isTrue": false
-      },
-      {
-        "text": "černá",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Pro zapínací ovládače, je doporučená barva:",
-    "options": [
-      {
-        "text": "bílá, šedá, černá",
-        "isTrue": true
-      },
-      {
-        "text": "červená",
-        "isTrue": false
-      },
-      {
-        "text": "žlutá",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Uvnitř rozváděče musí být:",
-    "options": [
-      {
-        "text": "možné identifikovat jednotlivé obvody a jejich ochranná zařízení",
-        "isTrue": true
-      },
-      {
-        "text": "osvětlení",
-        "isTrue": false
-      },
-      {
-        "text": "umístěná klička",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Minimální průřez vodiče PEN v rozváděči:",
-    "options": [
-      {
-        "text": "10 mm² Cu",
-        "isTrue": true
-      },
-      {
-        "text": "10 mm² Al",
-        "isTrue": false
-      },
-      {
-        "text": "10 mm² FeZn",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Rozvodnice DBO:",
-    "options": [
-      {
-        "text": "rozvodnice určená k provozování laiky",
-        "isTrue": true
-      },
-      {
-        "text": "rozvodnice určená na stavby",
-        "isTrue": false
-      },
-      {
-        "text": "rozvodnice určená do průmyslu",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Rozváděč DBO pro vnitřní použití musí odpovídat IK kódu:",
-    "options": [
-      {
-        "text": "IK 05",
-        "isTrue": true
-      },
-      {
-        "text": "IK 06",
-        "isTrue": false
-      },
-      {
-        "text": "IK 07",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Určená technická zařízení UTZ se vztahuje na zařízení instalována v objektech:",
-    "options": [
-      {
-        "text": "depa metra, tramvajových vozoven, trolejbusové garáže, centrální dispečink, lanové dráhy",
-        "isTrue": true
-      },
-      {
-        "text": "na všechny objekty DP",
-        "isTrue": false
-      },
-      {
-        "text": "autobusové garáže, a jen na budovy kde jsou umístěné koleje",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Elektrotechnickou kvalifikaci zaměstnanců upravuje směrnice DP:",
-    "options": [
-      {
-        "text": "2010-046",
-        "isTrue": true
-      },
-      {
-        "text": "2011-026",
-        "isTrue": false
-      },
-      {
-        "text": "2011-007",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Určená technická zařízení UTZ se dělí na:",
-    "options": [
-      {
-        "text": "Tlaková, plynová, elektrická, zdvihací, dopravní",
-        "isTrue": true
-      },
-      {
-        "text": "Rozdělení určuje projektant",
-        "isTrue": false
-      },
-      {
-        "text": "Pouze elektrická a plynová",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Vyhrazená technická zařízení VTZ se dělí na:",
-    "options": [
-      {
-        "text": "Tlaková, plynová, elektrická, zdvihací",
-        "isTrue": true
-      },
-      {
-        "text": "Rozdělení určuje projektant",
-        "isTrue": false
-      },
-      {
-        "text": "Pouze elektrická a plynová",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Je možné vyjmenovaná zařízení UTZ provozovat bez průkazu způsobilosti?",
-    "options": [
-      {
-        "text": "NE",
-        "isTrue": true
-      },
-      {
-        "text": "Určuje projektant",
-        "isTrue": false
-      },
-      {
-        "text": "Pouze elektrická a plynová",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Zařízení VTZ rozdělujeme:",
-    "options": [
-      {
-        "text": "I. a II. třídy",
-        "isTrue": true
-      },
-      {
-        "text": "1. a 2. stupně",
-        "isTrue": false
-      },
-      {
-        "text": "Nerozdělujeme",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Zařízení VTZ třídy I:",
-    "options": [
-      {
-        "text": "Lze provozovat pouze na základě souhlasného stanoviska vydané TIČR",
-        "isTrue": true
-      },
-      {
-        "text": "Se nemusí provádět žádné revize",
-        "isTrue": false
-      },
-      {
-        "text": "Podléhá dozoru ministerstva kultury",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Která zařízení VTZ patří do třídy I:",
-    "options": [
-      {
-        "text": "Upravuje SM 2011-026 nebo nařízení vlády 190 - 193/2022 Sb.",
-        "isTrue": true
-      },
-      {
-        "text": "Zařízení umístěná v elektromobilech",
-        "isTrue": false
-      },
-      {
-        "text": "Určuje ministerstvo vnitra",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Musí se provádět revize a kontroly spotřebičů s pohyblivým přívodem, strojní zařízení atd., i v případě, že nejsou VTZ a UTZ?",
-    "options": [
-      {
-        "text": "Ano musí, povinnost upravuje např. zákoník práce",
-        "isTrue": true
-      },
-      {
-        "text": "Nemusí",
-        "isTrue": false
-      },
-      {
-        "text": "Určí si provozovatel sám vlastním předpisem",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Dle nařízení vlády 378/2001 Sb. se provádí kontroly všech technických zařízení v intervalu:",
-    "options": [
-      {
-        "text": "dle návodů výrobce nebo dodavatele, není-li interval stanoven, musí se provádět min. jednou ročně",
-        "isTrue": true
-      },
-      {
-        "text": "dle uvážení uživatele",
-        "isTrue": false
-      },
-      {
-        "text": "nemusí se provádět žádné kontroly",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Může být dokumentace k technickému zařízení předána provozovateli v anglickém jazyce?",
-    "options": [
-      {
-        "text": "NE",
-        "isTrue": true
-      },
-      {
-        "text": "musí se dohodnout dodavatel s provozovatelem",
-        "isTrue": false
-      },
-      {
-        "text": "záleží na dodavateli technického zařízení",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Záznamy o kontrolách, zkouškách a revizích, místní provozní řád, provozní deník, doklady o kvalifikaci obsluhy, záznamy o opravách a údržbě včetně harmonogramů, záznamy o činnostech prováděných na provozovaném technickém zařízení požadované předpisy atd.:",
-    "options": [
-      {
-        "text": "je provozovatel povinen vést",
-        "isTrue": true
-      },
-      {
-        "text": "musí se dohodnout dodavatel s provozovatelem",
-        "isTrue": false
-      },
-      {
-        "text": "záleží na dodavateli technického zařízení",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Provozování zařízení VTZ třídy I bez souhlasného stanoviska:",
-    "options": [
-      {
-        "text": "je stav ohrožující bezpečnost",
-        "isTrue": true
-      },
-      {
-        "text": "může být VTZ provozováno",
-        "isTrue": false
-      },
-      {
-        "text": "je dovoleno s písemným souhlasem osoby odpovědné za elektrické zařízení",
-        "isTrue": false
-      }
-    ]
-  },
-  {
-    "task": "Provozování zařízení UTZ bez průkazu způsobilosti:",
-    "options": [
-      {
-        "text": "je stav ohrožující bezpečnost",
-        "isTrue": true
-      },
-      {
-        "text": "může být VTZ provozováno",
-        "isTrue": false
-      },
-      {
-        "text": "je dovoleno s písemným souhlasem osoby odpovědné za elektrické zařízení",
-        "isTrue": false
-      }
-    ]
-  },{"task": "Kolébkové spínače a ovládače se osazují tak:",
+  {"task": "Kolébkové spínače a ovládače se osazují tak:",
     "options": [
       {
         "text": "aby do polohy zapnuto bylo nutno stlačit kolébku nahoře",
@@ -4059,4 +3329,734 @@ export const data = [
         "isTrue": false
       }
     ]
-  }]
+  },{
+    "task": "Vedoucí práce musí před zahájením práce na zařízení vn provést, (mimo jiné), postupně následující úkony:",
+    "options": [
+      {
+        "text": "musí informovat osobu pověřenou kontrolou elektrického zařízení během pracovní činnosti, o jakou práci se jedná a o zařízení, na kterém se bude práce konat",
+        "isTrue": true
+      },
+      {
+        "text": "seznámit podřízené se způsobem a rozsahem práce, vydat pracovní skupině povolení k zahájení práce a informovat osobu zodpovědnou za elektrické zařízení o zamýšleném rozsahu prací",
+        "isTrue": false
+      },
+      {
+        "text": "informovat osobu zodpovědnou za elektrické zařízení o zamýšleném rozsahu prací, vydat pracovní skupině povolení k zahájení práce a seznámit podřízené se způsobem a rozsahem práce",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Ochrana zábranou se smí používat v prostorách přístupných pouze osobám s kvalifikací nejméně:",
+    "options": [
+      {
+        "text": "osoba seznámená pod dozorem",
+        "isTrue": true
+      },
+      {
+        "text": "osoba poučená pod dozorem",
+        "isTrue": false
+      },
+      {
+        "text": "osoba znalá samostatně",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Výměnu pojistek u zařízení vn, v případech, kdy není vyloučen dotyk na živou část, smí provádět osoba s kvalifikací nejméně:",
+    "options": [
+      {
+        "text": "osoba znalá nebo poučená podle pracovních postupů",
+        "isTrue": true
+      },
+      {
+        "text": "osoba poučená",
+        "isTrue": false
+      },
+      {
+        "text": "osoba seznámená podle pracovních postupů",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Výměnu pojistek nn smí provádět:",
+    "options": [
+      {
+        "text": "osoba nejméně seznámená jen v případech, když jsou pojistky provedeny tak, že je vyloučen přímý dotyk na živou část",
+        "isTrue": true
+      },
+      {
+        "text": "osoba nejméně seznámená",
+        "isTrue": false
+      },
+      {
+        "text": "osoba nejméně poučená",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Minimální bezpečná vzdálenost od živých částí při pracích na zařízení 22 kV je:",
+    "options": [
+      {
+        "text": "26 cm",
+        "isTrue": true
+      },
+      {
+        "text": "70 cm",
+        "isTrue": false
+      },
+      {
+        "text": "35 cm",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Při pracích pod napětím na zařízeních nn (do 1 kV AC) musí pracovník dodržovat vzdálenost k živým částem:",
+    "options": [
+      {
+        "text": "tak, aby zůstal bez dotyku na živou část",
+        "isTrue": true
+      },
+      {
+        "text": "tak, aby se nepřiblížil blíže než 75 cm",
+        "isTrue": false
+      },
+      {
+        "text": "tak, aby se nepřiblížil blíže než 30 cm",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Pracovníci znalí mohou pracovat na zařízeních nn v blízkosti živých částí pod napětím:",
+    "options": [
+      {
+        "text": "sami",
+        "isTrue": true
+      },
+      {
+        "text": "s dohledem osoby znalé s vyšší kvalifikací",
+        "isTrue": false
+      },
+      {
+        "text": "pod dozorem osoby znalé s vyšší kvalifikací",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Na živých částech pod napětím na zařízení nn pracovníci poučení a speciálně vyškolení:",
+    "options": [
+      {
+        "text": "mohou samostatně pracovat",
+        "isTrue": true
+      },
+      {
+        "text": "mohou pracovat pod dohledem",
+        "isTrue": false
+      },
+      {
+        "text": "nesmějí pracovat",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "V případě, kdy dochází k propojení sítě nn dráhy a sítě nn mimo obvod dráhy se:",
+    "options": [
+      {
+        "text": "musí oddělit tyto sítě použitím oddělovacího transformátoru",
+        "isTrue": true
+      },
+      {
+        "text": "nemusí provádět žádná další opatření",
+        "isTrue": false
+      },
+      {
+        "text": "musí v místě dělení použít proudový chránič",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Pojížděné koleje jako součást zpětného trakčního vedení:",
+    "options": [
+      {
+        "text": "se nesmějí spojovat s okolními uzemněnými vodivými částmi",
+        "isTrue": true
+      },
+      {
+        "text": "se smějí spojovat s okolními uzemněnými vodivými částmi",
+        "isTrue": false
+      },
+      {
+        "text": "se smějí spojovat s okolními vodivými uzemněnými částmi jen v prostoru dráhy",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Dovolené barvy signálek nebo ovladačů jsou:",
+    "options": [
+      {
+        "text": "bílá, šedá, černá, žlutá, zelená, červená a modrá",
+        "isTrue": true
+      },
+      {
+        "text": "červená, modrá, zeleno/žlutá, šedá, bílá a černá",
+        "isTrue": false
+      },
+      {
+        "text": "červená, modrá, zelená, žlutá, bílá, šedá, černá, fialová a rudá",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Žlutá barva světelného signálu znamená:",
+    "options": [
+      {
+        "text": "varování, výstrahu, nenormální stav (ale ještě v provozu)",
+        "isTrue": true
+      },
+      {
+        "text": "nebezpečí, porucha, stav nouze",
+        "isTrue": false
+      },
+      {
+        "text": "vypnutý stav zařízení",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Signální barva (signálka) červená znamená:",
+    "options": [
+      {
+        "text": "poruchu, stav nouze, nebezpečí",
+        "isTrue": true
+      },
+      {
+        "text": "zařízení je v provozu",
+        "isTrue": false
+      },
+      {
+        "text": "zařízení je mimo provoz",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Červená barva světelného signálu znamená:",
+    "options": [
+      {
+        "text": "nebezpečí, porucha, stav nouze",
+        "isTrue": true
+      },
+      {
+        "text": "vypnutý stav zařízení",
+        "isTrue": false
+      },
+      {
+        "text": "dosažení požadovaného stavu zařízení",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Zelená barva světelného signálu znamená:",
+    "options": [
+      {
+        "text": "bezpečí, normální stav zařízení, zařízení v normálním provozu",
+        "isTrue": true
+      },
+      {
+        "text": "zařízení je mimo provoz, ale je připravené k zapnutí",
+        "isTrue": false
+      },
+      {
+        "text": "vypnutý stav zařízení",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Signální barva (signálka) zelená znamená:",
+    "options": [
+      {
+        "text": "zařízení je v provozu",
+        "isTrue": true
+      },
+      {
+        "text": "zařízení je mimo provoz",
+        "isTrue": false
+      },
+      {
+        "text": "zařízení je vypnuté a zajištěné",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Signální barva (signálka) žlutá znamená:",
+    "options": [
+      {
+        "text": "výstrahu, varování, že zařízení je v kritickém stavu",
+        "isTrue": true
+      },
+      {
+        "text": "varování, výstrahu, že zařízení bude uvedeno do klidu",
+        "isTrue": false
+      },
+      {
+        "text": "varování, výstrahu před následujícím uvedením do provozu",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Bezpečnostní barva červená znamená:",
+    "options": [
+      {
+        "text": "zákaz - stůj - zastavení osob nebo zařízení",
+        "isTrue": true
+      },
+      {
+        "text": "označení nebezpečného prostoru - místa",
+        "isTrue": false
+      },
+      {
+        "text": "výstrahu před nebezpečím",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Bezpečnostní barva zelená znamená:",
+    "options": [
+      {
+        "text": "bezpečí - bezpečné konání - normální provoz",
+        "isTrue": true
+      },
+      {
+        "text": "označení nebezpečného prostoru",
+        "isTrue": false
+      },
+      {
+        "text": "označení bezpečného prostoru - místa",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Bezpečnostní barva žlutá znamená:",
+    "options": [
+      {
+        "text": "výstrahu - riziko - nebezpečí",
+        "isTrue": true
+      },
+      {
+        "text": "označení nebezpečného prostoru",
+        "isTrue": false
+      },
+      {
+        "text": "označení nebezpečné překážky",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Výstražná tabulka zákazu má tvar:",
+    "options": [
+      {
+        "text": "kruhový",
+        "isTrue": true
+      },
+      {
+        "text": "čtvercový",
+        "isTrue": false
+      },
+      {
+        "text": "trojúhelníkový",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Výstražná tabulka vyjadřující výstrahu má podobu:",
+    "options": [
+      {
+        "text": "žlutý trojúhelník s černým orámováním a symbolem",
+        "isTrue": true
+      },
+      {
+        "text": "žlutý trojúhelník se symbolem vyjadřujícím druh nebezpečí",
+        "isTrue": false
+      },
+      {
+        "text": "obdélníková zelená se symbolem a textem",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Výstražná tabulka modrá s vyznačeným symbolem vyjadřuje:",
+    "options": [
+      {
+        "text": "příkaz",
+        "isTrue": true
+      },
+      {
+        "text": "zákaz",
+        "isTrue": false
+      },
+      {
+        "text": "doporučení",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Pro vypínací ovládače nesmí být použita barva:",
+    "options": [
+      {
+        "text": "zelená",
+        "isTrue": true
+      },
+      {
+        "text": "žlutá",
+        "isTrue": false
+      },
+      {
+        "text": "černá",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Pro zapínací ovládače, je doporučená barva:",
+    "options": [
+      {
+        "text": "bílá, šedá, černá",
+        "isTrue": true
+      },
+      {
+        "text": "červená",
+        "isTrue": false
+      },
+      {
+        "text": "žlutá",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Uvnitř rozváděče musí být:",
+    "options": [
+      {
+        "text": "možné identifikovat jednotlivé obvody a jejich ochranná zařízení",
+        "isTrue": true
+      },
+      {
+        "text": "osvětlení",
+        "isTrue": false
+      },
+      {
+        "text": "umístěná klička",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Minimální průřez vodiče PEN v rozváděči:",
+    "options": [
+      {
+        "text": "10 mm² Cu",
+        "isTrue": true
+      },
+      {
+        "text": "10 mm² Al",
+        "isTrue": false
+      },
+      {
+        "text": "10 mm² FeZn",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Rozvodnice DBO:",
+    "options": [
+      {
+        "text": "rozvodnice určená k provozování laiky",
+        "isTrue": true
+      },
+      {
+        "text": "rozvodnice určená na stavby",
+        "isTrue": false
+      },
+      {
+        "text": "rozvodnice určená do průmyslu",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Rozváděč DBO pro vnitřní použití musí odpovídat IK kódu:",
+    "options": [
+      {
+        "text": "IK 05",
+        "isTrue": true
+      },
+      {
+        "text": "IK 06",
+        "isTrue": false
+      },
+      {
+        "text": "IK 07",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Určená technická zařízení UTZ se vztahuje na zařízení instalována v objektech:",
+    "options": [
+      {
+        "text": "depa metra, tramvajových vozoven, trolejbusové garáže, centrální dispečink, lanové dráhy",
+        "isTrue": true
+      },
+      {
+        "text": "na všechny objekty DP",
+        "isTrue": false
+      },
+      {
+        "text": "autobusové garáže, a jen na budovy kde jsou umístěné koleje",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Elektrotechnickou kvalifikaci zaměstnanců upravuje směrnice DP:",
+    "options": [
+      {
+        "text": "2010-046",
+        "isTrue": true
+      },
+      {
+        "text": "2011-026",
+        "isTrue": false
+      },
+      {
+        "text": "2011-007",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Určená technická zařízení UTZ se dělí na:",
+    "options": [
+      {
+        "text": "Tlaková, plynová, elektrická, zdvihací, dopravní",
+        "isTrue": true
+      },
+      {
+        "text": "Rozdělení určuje projektant",
+        "isTrue": false
+      },
+      {
+        "text": "Pouze elektrická a plynová",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Vyhrazená technická zařízení VTZ se dělí na:",
+    "options": [
+      {
+        "text": "Tlaková, plynová, elektrická, zdvihací",
+        "isTrue": true
+      },
+      {
+        "text": "Rozdělení určuje projektant",
+        "isTrue": false
+      },
+      {
+        "text": "Pouze elektrická a plynová",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Je možné vyjmenovaná zařízení UTZ provozovat bez průkazu způsobilosti?",
+    "options": [
+      {
+        "text": "NE",
+        "isTrue": true
+      },
+      {
+        "text": "Určuje projektant",
+        "isTrue": false
+      },
+      {
+        "text": "Pouze elektrická a plynová",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Zařízení VTZ rozdělujeme:",
+    "options": [
+      {
+        "text": "I. a II. třídy",
+        "isTrue": true
+      },
+      {
+        "text": "1. a 2. stupně",
+        "isTrue": false
+      },
+      {
+        "text": "Nerozdělujeme",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Zařízení VTZ třídy I:",
+    "options": [
+      {
+        "text": "Lze provozovat pouze na základě souhlasného stanoviska vydané TIČR",
+        "isTrue": true
+      },
+      {
+        "text": "Se nemusí provádět žádné revize",
+        "isTrue": false
+      },
+      {
+        "text": "Podléhá dozoru ministerstva kultury",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Která zařízení VTZ patří do třídy I:",
+    "options": [
+      {
+        "text": "Upravuje SM 2011-026 nebo nařízení vlády 190 - 193/2022 Sb.",
+        "isTrue": true
+      },
+      {
+        "text": "Zařízení umístěná v elektromobilech",
+        "isTrue": false
+      },
+      {
+        "text": "Určuje ministerstvo vnitra",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Musí se provádět revize a kontroly spotřebičů s pohyblivým přívodem, strojní zařízení atd., i v případě, že nejsou VTZ a UTZ?",
+    "options": [
+      {
+        "text": "Ano musí, povinnost upravuje např. zákoník práce",
+        "isTrue": true
+      },
+      {
+        "text": "Nemusí",
+        "isTrue": false
+      },
+      {
+        "text": "Určí si provozovatel sám vlastním předpisem",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Dle nařízení vlády 378/2001 Sb. se provádí kontroly všech technických zařízení v intervalu:",
+    "options": [
+      {
+        "text": "dle návodů výrobce nebo dodavatele, není-li interval stanoven, musí se provádět min. jednou ročně",
+        "isTrue": true
+      },
+      {
+        "text": "dle uvážení uživatele",
+        "isTrue": false
+      },
+      {
+        "text": "nemusí se provádět žádné kontroly",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Může být dokumentace k technickému zařízení předána provozovateli v anglickém jazyce?",
+    "options": [
+      {
+        "text": "NE",
+        "isTrue": true
+      },
+      {
+        "text": "musí se dohodnout dodavatel s provozovatelem",
+        "isTrue": false
+      },
+      {
+        "text": "záleží na dodavateli technického zařízení",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Záznamy o kontrolách, zkouškách a revizích, místní provozní řád, provozní deník, doklady o kvalifikaci obsluhy, záznamy o opravách a údržbě včetně harmonogramů, záznamy o činnostech prováděných na provozovaném technickém zařízení požadované předpisy atd.:",
+    "options": [
+      {
+        "text": "je provozovatel povinen vést",
+        "isTrue": true
+      },
+      {
+        "text": "musí se dohodnout dodavatel s provozovatelem",
+        "isTrue": false
+      },
+      {
+        "text": "záleží na dodavateli technického zařízení",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Provozování zařízení VTZ třídy I bez souhlasného stanoviska:",
+    "options": [
+      {
+        "text": "je stav ohrožující bezpečnost",
+        "isTrue": true
+      },
+      {
+        "text": "může být VTZ provozováno",
+        "isTrue": false
+      },
+      {
+        "text": "je dovoleno s písemným souhlasem osoby odpovědné za elektrické zařízení",
+        "isTrue": false
+      }
+    ]
+  },
+  {
+    "task": "Provozování zařízení UTZ bez průkazu způsobilosti:",
+    "options": [
+      {
+        "text": "je stav ohrožující bezpečnost",
+        "isTrue": true
+      },
+      {
+        "text": "může být VTZ provozováno",
+        "isTrue": false
+      },
+      {
+        "text": "je dovoleno s písemným souhlasem osoby odpovědné za elektrické zařízení",
+        "isTrue": false
+      }
+    ]
+  },]
