@@ -157,7 +157,7 @@ const Example = () => {
                   >
                     <div
                       className={`w-full flex items-center p-5 justify-between ${
-                        isSelected
+                        isSelected && (!showCorrect || !isCorrect)
                           ? "bg-slate-800 text-white border-emerald-500 rounded-lg"
                           : ""
                       }`}
