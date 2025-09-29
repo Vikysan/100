@@ -12,26 +12,51 @@ import { useRouter } from "next/navigation";
 const questionsData = data
 
 const SearchPage = () => {
-    const router = useRouter()
   const [searchQuery, setSearchQuery] = useState("");
-
-  // Filtrování otázek na základě vyhledávacího dotazu
-  const filteredQuestions = useMemo(() => {
-  if (!searchQuery.trim()) {
-    return [];
-  }
+  const router = useRouter()
 
   // Funkce pro odstranění diakritiky
   const removeDiacritics = (str) => {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   };
 
-  const query = removeDiacritics(searchQuery.toLowerCase().trim());
-  
-  return questionsData.filter(question => 
-    removeDiacritics(question.task.toLowerCase()).includes(query)
-  );
-}, [searchQuery]);
+  // Funkce pro zvýraznění nalezené části textu
+  const highlightText = (text, query) => {
+    if (!query) return text;
+
+    const normalizedText = removeDiacritics(text.toLowerCase());
+    const normalizedQuery = removeDiacritics(query.toLowerCase());
+    const index = normalizedText.indexOf(normalizedQuery);
+
+    if (index === -1) return text;
+
+    const before = text.slice(0, index);
+    const match = text.slice(index, index + query.length);
+    const after = text.slice(index + query.length);
+
+    return (
+      <>
+        {before}
+        <mark className="bg-yellow-300 px-1 rounded font-semibold">
+          {match}
+        </mark>
+        {after}
+      </>
+    );
+  };
+
+  // Filtrování otázek na základě vyhledávacího dotazu
+  const filteredQuestions = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return [];
+    }
+
+    const query = removeDiacritics(searchQuery.toLowerCase().trim());
+    
+    return questionsData.filter(question => 
+      removeDiacritics(question.task.toLowerCase()).includes(query)
+    );
+  }, [searchQuery]);
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -103,7 +128,7 @@ const SearchPage = () => {
                       Otázka #{index + 1}
                     </span>
                     <h3 className="text-lg font-semibold text-slate-800 leading-relaxed">
-                      {question.task}
+                      {highlightText(question.task, searchQuery)}
                     </h3>
                   </div>
 
