@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { data } from "@/data/100";
+import { data } from "@/data/linux1";
 import {
   useRouter,
   usePathname,

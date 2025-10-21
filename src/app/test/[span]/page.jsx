@@ -2,7 +2,7 @@
 import Loading from "@/app/loading";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
-import { data } from "@/data/100";
+import { data } from "@/data/linux1";
 import {
   HandRaisedIcon,
   CheckCircleIcon,
